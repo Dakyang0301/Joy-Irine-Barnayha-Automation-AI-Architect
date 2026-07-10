@@ -52,7 +52,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#0f0f0f;height:8
 .nav-leads:hover{background:rgba(237,185,46,0.08)!important;border-color:var(--gold)!important;}
 
 /* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;padding-top:80px;}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;padding-top:80px;max-width:1920px;margin:0 auto;}
 .hero-bg{position:absolute;inset:0;background:#080808;}
 .hero-bg::after{display:none;}
 .hero-photo{position:absolute;right:0;top:0;bottom:0;width:70%;background-image:url('/images/portfolio-3.png');background-size:cover;background-position:center top;z-index:1;opacity:0.55;}
@@ -62,7 +62,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#0f0f0f;height:8
   position:relative;z-index:2;
   text-align:left;
   padding:80px 0 80px 64px;
-  max-width:clamp(340px,250px + 21.4vw,900px);
+  max-width:620px;
 }
 /* Gold gilded accent bar under the name */
 .hero-gold-bar{
@@ -79,7 +79,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#0f0f0f;height:8
 .btn-live:hover{transform:translateY(-3px);box-shadow:0 0 16px rgba(139,0,75,1),0 0 32px rgba(139,0,75,0.7),0 0 56px rgba(139,0,75,0.4);}
 .btn-live:active{transform:translateY(-6px);box-shadow:0 0 20px rgba(139,0,75,1),0 0 40px rgba(139,0,75,0.8);}
 @keyframes bounce-btn-gold{0%,100%{transform:translateY(0);box-shadow:0 4px 20px rgba(237,185,46,0.4);}50%{transform:translateY(-5px);box-shadow:0 12px 32px rgba(237,185,46,0.7);}}
-.hero h1{font-size:clamp(38px,12.1px + 3.7vw,200px);font-weight:900;letter-spacing:-4px;line-height:.9;color:#fff;margin-bottom:20px;}
+.hero h1{font-size:76px;font-weight:900;letter-spacing:-4px;line-height:.9;color:#fff;margin-bottom:20px;}
 .hero h1 .mg{color:var(--mg);}
 .hero h1 .thin{font-weight:300;font-style:italic;color:rgba(255,255,255,0.3);}
 /* Gold gilded name accent */
@@ -596,9 +596,6 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 </style>
 </head>
 <body>
-
-<div id="debug-width" style="position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:999999;background:#000;color:#0f0;font:bold 16px monospace;padding:6px 14px;">width: ?</div>
-<script>document.getElementById('debug-width').textContent = 'width: ' + window.innerWidth + 'px';</script>
 
 <!-- NAV -->
 <nav>

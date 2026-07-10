@@ -597,6 +597,9 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 </head>
 <body>
 
+<div id="debug-width" style="position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:999999;background:#000;color:#0f0;font:bold 16px monospace;padding:6px 14px;">width: ?</div>
+<script>document.getElementById('debug-width').textContent = 'width: ' + window.innerWidth + 'px';</script>
+
 <!-- NAV -->
 <nav>
   <div class="nav-brand">

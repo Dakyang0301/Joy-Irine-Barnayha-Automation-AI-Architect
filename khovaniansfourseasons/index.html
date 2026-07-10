@@ -35,6 +35,9 @@
   [data-reveal] { opacity:0; transform:translateY(20px); transition:opacity 620ms cubic-bezier(.2,.7,.2,1),transform 620ms cubic-bezier(.2,.7,.2,1); }
   [data-reveal].is-in { opacity:1; transform:none; }
   #page-thankyou { display:none; }
+  .fs-input { width:100%; padding:13px 16px; border-radius:var(--r-md); border:1px solid var(--border-2); background:var(--bg-2); color:var(--fg-1); font-family:var(--font-body); font-size:14px; }
+  .fs-input::placeholder { color:var(--fg-3); }
+  .fs-input:focus { outline:none; border-color:var(--gold-500); }
   @keyframes ty-pop { 0%{transform:scale(0.6);opacity:0;} 60%{transform:scale(1.08);} 100%{transform:scale(1);opacity:1;} }
   @keyframes ty-ring { 0%{transform:scale(0.8);opacity:0.7;} 100%{transform:scale(1.9);opacity:0;} }
   @keyframes ty-up { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:none;} }
@@ -189,6 +192,13 @@
         <div style="height:1px; background:var(--border-1); margin:22px 0;"></div>
         <div id="fs-slot-label" style="font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--fg-3); margin-bottom:14px;">Select a date first</div>
         <div id="fs-slots" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;"></div>
+        <div style="height:1px; background:var(--border-1); margin:22px 0;"></div>
+        <div style="font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--fg-3); margin-bottom:14px;">Your details</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <input id="fs-name" type="text" placeholder="Full name" class="fs-input">
+          <input id="fs-email" type="email" placeholder="Email address" class="fs-input">
+          <input id="fs-phone" type="tel" placeholder="Phone number" class="fs-input">
+        </div>
         <button id="fs-confirm" style="width:100%; margin-top:22px; padding:16px; border-radius:var(--r-pill); border:none; background:var(--bg-3); color:var(--fg-3); font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:0.03em; text-transform:uppercase; cursor:default; transition:all 200ms;">Select a date &amp; time</button>
       </div>
     </div>
@@ -252,6 +262,14 @@
             <div style="font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-3); margin-bottom:8px;">Time</div>
             <div id="ty-time" style="font-family:var(--font-display); font-weight:700; font-size:22px;">Your selected time</div>
           </div>
+          <div>
+            <div style="font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-3); margin-bottom:8px;">Name</div>
+            <div id="ty-name" style="font-family:var(--font-display); font-weight:700; font-size:18px;">—</div>
+          </div>
+          <div>
+            <div style="font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-3); margin-bottom:8px;">Email</div>
+            <div id="ty-email" style="font-family:var(--font-display); font-weight:700; font-size:18px;">—</div>
+          </div>
           <div style="grid-column:1 / -1; height:1px; background:var(--border-1);"></div>
           <div style="grid-column:1 / -1;">
             <div style="font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-3); margin-bottom:8px;">Property</div>
@@ -294,6 +312,8 @@
   function showThankYou(booking) {
     if (booking && booking.date) document.getElementById("ty-date").textContent = booking.date;
     if (booking && booking.time) document.getElementById("ty-time").textContent = booking.time;
+    if (booking && booking.name) document.getElementById("ty-name").textContent = booking.name;
+    if (booking && booking.email) document.getElementById("ty-email").textContent = booking.email;
     landing.style.display = "none";
     thankyou.style.display = "block";
     window.scrollTo(0, 0);
@@ -352,8 +372,15 @@
   var slotsEl = document.getElementById("fs-slots");
   var slotLabelEl = document.getElementById("fs-slot-label");
   var confirmEl = document.getElementById("fs-confirm");
+  var nameEl = document.getElementById("fs-name");
+  var emailEl = document.getElementById("fs-email");
+  var phoneEl = document.getElementById("fs-phone");
 
   function sameDay(a,b){ return a && b && a.getTime() === b.getTime(); }
+  function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function detailsFilled(){
+    return !!nameEl.value.trim() && isValidEmail(emailEl.value.trim()) && phoneEl.value.trim().length >= 7;
+  }
 
   function render() {
     var y = view.getFullYear(), m = view.getMonth();
@@ -389,18 +416,19 @@
       slotsEl.appendChild(b);
     });
 
-    var ready = selDay && selSlot;
-    confirmEl.textContent = ready ? ("Confirm — " + selDay.toLocaleDateString("en-US",{month:"short",day:"numeric"}) + " at " + selSlot) : "Select a date & time";
+    var ready = selDay && selSlot && detailsFilled();
+    confirmEl.textContent = (selDay && selSlot) ? (ready ? ("Confirm — " + selDay.toLocaleDateString("en-US",{month:"short",day:"numeric"}) + " at " + selSlot) : "Enter your details above") : "Select a date & time";
     confirmEl.style.cssText = "width:100%;margin-top:22px;padding:16px;border-radius:var(--r-pill);border:none;background:"+(ready?GOLD:"var(--bg-3)")+";color:"+(ready?INK:"var(--fg-3)")+";font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;cursor:"+(ready?"pointer":"default")+";box-shadow:"+(ready?"var(--shadow-gold)":"none")+";transition:all 200ms;";
     icons();
   }
 
   document.getElementById("fs-prev").addEventListener("click", function(){ view = new Date(view.getFullYear(), view.getMonth()-1, 1); render(); });
   document.getElementById("fs-next").addEventListener("click", function(){ view = new Date(view.getFullYear(), view.getMonth()+1, 1); render(); });
+  [nameEl, emailEl, phoneEl].forEach(function(el){ el.addEventListener("input", render); });
   confirmEl.addEventListener("click", function(){
-    if (!(selDay && selSlot)) return;
+    if (!(selDay && selSlot && detailsFilled())) return;
     var dateLabel = selDay.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"});
-    var booking = { date: dateLabel, time: selSlot };
+    var booking = { date: dateLabel, time: selSlot, name: nameEl.value.trim(), email: emailEl.value.trim(), phone: phoneEl.value.trim() };
     try { localStorage.setItem("fs_booking", JSON.stringify(booking)); } catch(e){}
     showThankYou(booking);
   });

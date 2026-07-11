@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="light"/>
+<title>WWF Virtual Assistants</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#132952;
+  --sky:#87ceeb;
+  --white:#ffffff;
+  --grey-blue:#b8c9d9;
+  --sky-dark:#6ab8de;
+  --navy-light:#1e3d7a;
+}
+html{scroll-behavior:smooth;overflow-x:hidden;color-scheme:light;}
+body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--white);overflow-x:hidden;}
+.wwf-wrap{width:100vw;position:relative;left:50%;transform:translateX(-50%);max-width:none;}
+
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#f0f8ff;}
+::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px;}
+
+/* NAV */
+nav{
+  position:relative;
+  background:rgba(19,41,82,0.97);
+  backdrop-filter:blur(12px);
+  padding:0 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:120px;
+  border-bottom:1px solid rgba(135,206,235,0.15);
+}
+.nav-logo img{height:110px;filter:brightness(0) invert(1) brightness(2) drop-shadow(0 0 10px white) drop-shadow(0 0 20px white) !important;}
+.footer-logo img{height:110px;filter:brightness(0) invert(1) brightness(2) drop-shadow(0 0 10px white) drop-shadow(0 0 20px white) !important;}
+.nav-links{display:flex;align-items:center;gap:8px;}
+.nav-links a{color:var(--grey-blue);text-decoration:none;padding:8px 16px;border-radius:6px;font-size:14px;font-weight:500;transition:all .2s;}
+.nav-links a:hover{color:#fff;background:rgba(135,206,235,0.12);}
+.nav-cta{background:var(--sky)!important;color:var(--navy)!important;font-weight:700!important;padding:9px 22px!important;}
+.nav-cta:hover{background:#fff!important;}
+
+/* HERO */
+.hero{
+  min-height:90vh;
+  background:linear-gradient(160deg, var(--navy) 0%, #1e3d7a 50%, #2a52a0 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:70px 56px 80px;position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%, rgba(135,206,235,0.12) 0%, transparent 70%);}
+.hero::after{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle, rgba(135,206,235,0.08) 0%, transparent 70%);top:-100px;left:-100px;border-radius:50%;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1140px;width:100%;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(135,206,235,0.15);border:1px solid rgba(135,206,235,0.35);color:var(--sky);padding:7px 18px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;}
+.hero-badge span{width:6px;height:6px;background:var(--sky);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero h1{font-size:58px;font-weight:900;line-height:1.1;color:#fff;margin-bottom:24px;letter-spacing:-1px;}
+.hero h1 em{font-style:italic;font-family:'Playfair Display',serif;color:var(--sky);}
+.hero-desc{font-size:17px;color:#a8c8e8;line-height:1.8;margin-bottom:40px;max-width:480px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+.btn-sky{background:var(--sky);color:var(--navy);padding:15px 36px;border-radius:8px;font-weight:800;font-size:15px;text-decoration:none;transition:all .25s;box-shadow:0 8px 24px rgba(135,206,235,0.3);display:inline-flex;align-items:center;gap:8px;}
+.btn-sky:hover{background:#fff;transform:translateY(-2px);box-shadow:0 12px 32px rgba(135,206,235,0.4);}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3);padding:15px 36px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+.hero-stats{display:flex;gap:40px;}
+.hero-stat .num{font-size:32px;font-weight:900;color:var(--sky);}
+.hero-stat .label{font-size:13px;color:#a8c8e8;margin-top:2px;}
+
+.hero-right{display:flex;flex-direction:column;gap:16px;}
+.hero-card-fancy{background:rgba(255,255,255,0.06);border:1px solid rgba(135,206,235,0.2);border-radius:16px;padding:24px 28px;backdrop-filter:blur(10px);transition:all .3s;}
+.hero-card-fancy:hover{background:rgba(255,255,255,0.1);border-color:rgba(135,206,235,0.4);transform:translateX(6px);}
+.hcf-top{display:flex;align-items:center;gap:14px;margin-bottom:10px;}
+.hcf-icon{width:44px;height:44px;background:var(--sky);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.hcf-title{font-size:16px;font-weight:700;color:#fff;}
+.hcf-desc{font-size:14px;color:#a8c8e8;line-height:1.6;}
+.hcf-badge{display:inline-block;background:rgba(135,206,235,0.15);color:var(--sky);padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;margin-top:8px;}
+
+/* TRUST BAR */
+.trust-bar{background:var(--sky);padding:18px 56px;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:nowrap;white-space:nowrap;}
+.trust-item{display:flex;align-items:center;gap:10px;color:var(--navy);font-weight:600;font-size:14px;}
+.trust-item span{font-size:20px;}
+
+/* SECTIONS */
+.section-header{text-align:center;margin-bottom:64px;}
+.pill{display:inline-block;background:rgba(19,41,82,0.08);color:var(--navy);border-radius:999px;padding:6px 18px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.pill.light{background:rgba(135,206,235,0.25);color:var(--navy);}
+.pill.dark{background:rgba(135,206,235,0.2);color:var(--sky);}
+h2{font-size:42px;font-weight:900;line-height:1.15;letter-spacing:-0.5px;}
+.sub{font-size:17px;color:#5a7a9a;margin-top:14px;line-height:1.75;max-width:560px;margin-left:auto;margin-right:auto;}
+
+/* ABOUT */
+.about{padding:100px 56px;background:#fff;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;max-width:1100px;margin:0 auto;align-items:center;}
+.about-img-block{position:relative;}
+.about-main-card{background:linear-gradient(135deg,var(--navy),#1e3d7a);border-radius:24px;padding:48px;color:#fff;position:relative;overflow:hidden;}
+.about-main-card::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:rgba(135,206,235,0.1);border-radius:50%;}
+.about-main-card .big-quote{font-size:80px;color:rgba(135,206,235,0.2);line-height:1;margin-bottom:8px;font-family:'Playfair Display',serif;}
+.about-main-card p{font-size:18px;line-height:1.75;color:#c8e0f0;font-style:italic;}
+.about-accent{position:absolute;bottom:-20px;right:-20px;background:var(--sky);border-radius:16px;padding:20px 24px;box-shadow:0 12px 40px rgba(19,41,82,0.2);}
+.about-accent .aa-num{font-size:28px;font-weight:900;color:var(--navy);}
+.about-accent .aa-txt{font-size:12px;color:var(--navy);opacity:.7;font-weight:600;}
+.about-content h2{margin-bottom:20px;}
+.about-content .sub{text-align:left;margin:0 0 36px;}
+.mv-pair{display:flex;flex-direction:column;gap:16px;}
+.mv-item{display:flex;gap:16px;align-items:flex-start;padding:20px;border-radius:14px;background:#f5faff;border:1px solid #e0edf8;transition:all .25s;}
+.mv-item:hover{border-color:var(--sky-dark);box-shadow:0 4px 20px rgba(19,41,82,0.08);}
+.mv-icon{width:44px;height:44px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.mv-item h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mv-item p{font-size:14px;color:#5a7a9a;line-height:1.65;}
+
+/* SERVICES */
+.services-section{padding:100px 56px;background:var(--sky);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto;}
+.svc-card{background:#fff;border-radius:20px;padding:32px 22px;text-align:center;border:2px solid transparent;transition:all .3s;box-shadow:0 4px 16px rgba(19,41,82,0.06);position:relative;overflow:hidden;}
+.svc-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--sky-dark));transform:scaleX(0);transition:transform .3s;}
+.svc-card:hover{border-color:rgba(19,41,82,0.12);transform:translateY(-8px);box-shadow:0 20px 48px rgba(19,41,82,0.15);}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-num{position:absolute;top:16px;right:16px;font-size:11px;font-weight:800;color:var(--grey-blue);letter-spacing:1px;}
+.svc-icon-wrap{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--navy),#1e3d7a);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 20px;box-shadow:0 8px 20px rgba(19,41,82,0.25);}
+.svc-card h3{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;}
+.svc-card ul{list-style:none;text-align:left;}
+.svc-card ul li{font-size:13px;color:#5a7a9a;padding:5px 0 5px 18px;position:relative;border-bottom:1px solid #f0f0f0;}
+.svc-card ul li:last-child{border-bottom:none;}
+.svc-card ul li::before{content:'→';position:absolute;left:0;color:var(--navy);font-size:11px;font-weight:700;top:6px;}
+
+/* HIRING */
+.hiring-section{padding:100px 56px;background:var(--navy);position:relative;overflow:hidden;}
+.hiring-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2387ceeb' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hiring-section .section-header h2{color:#fff;}
+.hiring-section .sub{color:var(--grey-blue);}
+.hiring-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.hire-card{background:rgba(255,255,255,0.05);border:1px solid rgba(135,206,235,0.2);border-radius:24px;padding:44px;transition:all .3s;position:relative;overflow:hidden;}
+.hire-card:hover{background:rgba(135,206,235,0.08);border-color:rgba(135,206,235,0.4);}
+.hire-card::after{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(135,206,235,0.08),transparent);}
+.hire-type{display:inline-block;background:var(--sky);color:var(--navy);padding:5px 16px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;}
+.hire-card h3{font-size:26px;font-weight:900;color:#fff;margin-bottom:14px;}
+.hire-card p{color:var(--grey-blue);line-height:1.8;font-size:15px;margin-bottom:24px;}
+.hire-features{list-style:none;}
+.hire-features li{display:flex;align-items:center;gap:10px;color:#a8c8e8;font-size:14px;padding:8px 0;border-bottom:1px solid rgba(135,206,235,0.1);}
+.hire-features li:last-child{border-bottom:none;}
+.hire-features li::before{content:'✓';color:var(--sky);font-weight:800;font-size:13px;}
+
+/* SCRIPTURE */
+.scripture-section{background:var(--sky);padding:80px 56px;text-align:center;position:relative;overflow:hidden;}
+.scripture-section::before{content:'"';font-size:300px;font-family:'Playfair Display',serif;color:rgba(19,41,82,0.06);position:absolute;top:-60px;left:30px;line-height:1;}
+.scripture-section blockquote{font-size:26px;font-style:italic;font-family:'Playfair Display',serif;color:var(--navy);max-width:720px;margin:0 auto 18px;line-height:1.65;position:relative;z-index:1;}
+.scripture-section cite{color:var(--navy);opacity:.6;font-size:15px;font-weight:600;letter-spacing:1px;}
+
+/* CONTACT */
+.contact-section{padding:100px 56px;background:#fff;}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;max-width:1060px;margin:0 auto;align-items:start;}
+.contact-left h2{margin-bottom:16px;}
+.contact-left .sub{text-align:left;margin:0 0 36px;}
+.contact-method{display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:14px;background:#f5faff;border:2px solid #e0edf8;margin-bottom:14px;transition:all .25s;text-decoration:none;}
+.contact-method:hover{border-color:var(--sky-dark);box-shadow:0 4px 20px rgba(19,41,82,0.1);transform:translateX(4px);}
+.cm-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.cm-icon.email-icon{background:#132952;}
+.cm-icon.wa-icon{background:#25d366;}
+.cm-info .cm-label{font-size:11px;color:#5a7a9a;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.cm-info .cm-val{font-size:15px;font-weight:700;color:var(--navy);word-break:break-all;overflow-wrap:anywhere;}
+.cm-info{min-width:0;flex:1;}
+.cta-box{background:linear-gradient(135deg,var(--navy),#1e3d7a);border-radius:20px;padding:28px;margin-top:8px;position:relative;overflow:hidden;}
+.cta-box::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:rgba(135,206,235,0.1);border-radius:50%;}
+.cta-box h4{color:var(--sky);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.cta-box p{color:#a8c8e8;font-size:14px;line-height:1.65;}
+.cta-box .spots{display:inline-block;background:var(--sky);color:var(--navy);padding:3px 12px;border-radius:999px;font-size:11px;font-weight:800;margin-top:12px;}
+
+/* FORM */
+.contact-form{background:#f5faff;border-radius:24px;padding:40px;border:2px solid #e0edf8;}
+.contact-form h3{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:28px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;border:2px solid #dde8f5;border-radius:10px;font-size:15px;font-family:'Inter',sans-serif;color:var(--navy);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(19,41,82,0.08);}
+.form-group textarea{resize:vertical;min-height:110px;}
+.radio-row{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+.radio-row label{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;font-weight:500;color:#5a7a9a;white-space:nowrap;}
+.radio-row input[type=radio]{accent-color:var(--navy);width:16px;height:16px;flex-shrink:0;}
+.submit-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--navy),#1e3d7a);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s;box-shadow:0 8px 24px rgba(19,41,82,0.25);margin-top:8px;letter-spacing:.5px;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(19,41,82,0.35);}
+
+/* REVIEWS */
+.reviews-section{padding:100px 56px;background:linear-gradient(180deg,#f0f7ff 0%,#fff 100%);}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1060px;margin:0 auto;}
+.review-card{background:#fff;border-radius:20px;padding:32px 28px;border:2px solid #e0edf8;box-shadow:0 4px 24px rgba(19,41,82,0.06);display:flex;flex-direction:column;gap:16px;transition:box-shadow .25s,transform .25s;}
+.review-card:hover{box-shadow:0 10px 36px rgba(19,41,82,0.12);transform:translateY(-4px);}
+.review-stars{display:flex;gap:3px;}
+.review-stars span{color:#f5a623;font-size:18px;}
+.review-text{font-size:15px;color:#3a5a7a;line-height:1.75;font-style:italic;flex:1;}
+.review-author{display:flex;align-items:center;gap:14px;margin-top:4px;}
+.review-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--navy),#1e3d7a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;font-weight:800;flex-shrink:0;}
+.review-name{font-size:14px;font-weight:800;color:var(--navy);}
+.review-role{font-size:12px;color:#5a7a9a;font-weight:500;margin-top:2px;}
+.review-badge{display:inline-flex;align-items:center;gap:5px;background:#eaf4ff;color:var(--navy);font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;width:fit-content;}
+
+/* FOOTER */
+footer{background:#0c1d3d;padding:40px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer-logo img{height:128px;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{color:var(--grey-blue);font-size:13px;text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--sky);}
+.footer-copy{color:#5a7a9a;font-size:13px;}
+.footer-copy span{color:var(--sky);}
+
+/* FLOATING WHATSAPP BUTTON */
+.wa-float{
+  position:fixed;
+  bottom:28px;right:28px;
+  width:60px;height:60px;
+  background:#25d366;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(37,211,102,0.5);
+  z-index:9999;
+  text-decoration:none;
+  transition:all .25s;
+}
+.wa-float:hover{transform:scale(1.12);box-shadow:0 10px 28px rgba(37,211,102,0.65);}
+.wa-float svg{width:30px;height:30px;fill:#fff;}
+.wa-tooltip{
+  position:fixed;
+  bottom:36px;right:98px;
+  background:#fff;
+  color:var(--navy);
+  font-size:13px;font-weight:700;
+  padding:8px 14px;border-radius:8px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.12);
+  white-space:nowrap;
+  opacity:0;pointer-events:none;
+  transition:opacity .2s;
+  z-index:9998;
+}
+.wa-float:hover ~ .wa-tooltip{opacity:1;}
+
+/* RESPONSIVE - TABLET */
+@media(max-width:900px){
+  .wwf-wrap{overflow-x:hidden;}
+  .hero-grid,.about-grid,.contact-grid,.hiring-grid{grid-template-columns:1fr;}
+  .services-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
+  nav{padding:0 20px;height:90px;}
+  .nav-logo img{height:80px;}
+  .footer-logo img{height:80px;}
+  .hero{min-height:auto;padding:60px 24px;}
+  .about,.services-section,.hiring-section,.contact-section,.scripture-section,.reviews-section{padding:60px 24px;}
+  .reviews-grid{grid-template-columns:repeat(2,1fr);}
+  .hero h1{font-size:36px;}
+  h2{font-size:30px;}
+  .hero-stats{gap:20px;}
+  .trust-bar{gap:16px;padding:16px 20px;flex-wrap:wrap;white-space:normal;}
+  .about-accent{display:none;}
+  footer{padding:32px 24px;}
+}
+
+/* RESPONSIVE - MOBILE */
+@media(max-width:600px){
+  *{box-sizing:border-box;}
+  .wwf-wrap{overflow-x:hidden;width:100vw;}
+
+  /* NAV */
+  nav{padding:0 12px;height:auto;min-height:70px;flex-wrap:wrap;gap:8px;padding-top:10px;padding-bottom:10px;}
+  .nav-logo img{height:56px;}
+  .nav-links{gap:4px;flex-wrap:wrap;}
+  .nav-links a{font-size:12px;padding:6px 10px;}
+  .nav-cta{padding:7px 12px!important;font-size:12px!important;}
+
+  /* HERO */
+  .hero{padding:40px 16px 40px;min-height:auto;}
+  .hero-grid{gap:32px;}
+  .hero h1{font-size:26px;letter-spacing:0;}
+  .hero-desc{font-size:14px;margin-bottom:28px;}
+  .hero-btns{flex-direction:column;gap:10px;margin-bottom:32px;}
+  .btn-sky,.btn-ghost{width:100%;justify-content:center;padding:14px 16px;font-size:14px;}
+  .hero-stats{gap:16px;flex-wrap:wrap;}
+  .hero-stat .num{font-size:24px;}
+  .hero-stat .label{font-size:12px;}
+  .hero-right{gap:10px;}
+  .hero-card-fancy{padding:16px 14px;}
+  .hcf-title{font-size:14px;}
+  .hcf-desc{font-size:13px;}
+
+  /* TRUST BAR */
+  .trust-bar{flex-direction:column;gap:10px;padding:20px 16px;align-items:flex-start;white-space:normal;}
+  .trust-item{font-size:14px;}
+
+  /* ABOUT */
+  .about{padding:48px 16px;}
+  .about-grid{gap:28px;}
+  .about-main-card{padding:28px 20px;}
+  .about-main-card p{font-size:15px;}
+  .big-quote{font-size:60px!important;}
+  .mv-item{padding:16px;}
+  .mv-icon{width:38px;height:38px;font-size:16px;flex-shrink:0;}
+  .mv-item h3{font-size:14px;}
+  .mv-item p{font-size:13px;}
+
+  /* SERVICES */
+  .services-section{padding:48px 16px;}
+  .services-grid{grid-template-columns:1fr;gap:14px;}
+  .svc-card ul li{font-size:14px;}
+  .svc-card{padding:24px 16px;}
+  .section-header{margin-bottom:36px;}
+  h2{font-size:26px;}
+  .sub{font-size:15px;}
+  .pill{font-size:11px;}
+
+  /* HIRING */
+  .hiring-section{padding:48px 16px;}
+  .hiring-grid{grid-template-columns:1fr;gap:16px;}
+  .hire-card{padding:28px 18px;}
+  .hire-card h3{font-size:20px;}
+  .hire-card p{font-size:14px;}
+  .hire-features li{font-size:13px;}
+
+  /* SCRIPTURE */
+  .scripture-section{padding:48px 16px;}
+  .scripture-section blockquote{font-size:18px;line-height:1.6;}
+  .scripture-section::before{font-size:160px;top:-20px;left:10px;}
+
+  /* REVIEWS */
+  .reviews-section{padding:48px 16px;}
+  .reviews-grid{grid-template-columns:1fr;gap:16px;}
+  .review-card{padding:24px 18px;}
+
+  /* CONTACT */
+  .contact-section{padding:48px 16px;}
+  .contact-grid{grid-template-columns:1fr;gap:28px;}
+  .contact-left h2{font-size:22px!important;}
+  .contact-method{padding:14px 14px;gap:12px;}
+  .cm-icon{width:38px;height:38px;font-size:17px;flex-shrink:0;}
+  .cm-info .cm-label{font-size:10px;}
+  .cm-info .cm-val{font-size:13px;word-break:break-all;}
+  .cta-box{padding:20px 16px;}
+  .contact-form{padding:24px 16px;border-radius:16px;}
+  .form-row{grid-template-columns:1fr;}
+  .form-group input,.form-group select,.form-group textarea{font-size:14px;padding:11px 14px;}
+  .submit-btn{font-size:15px;padding:14px;}
+  .radio-row{flex-direction:column;gap:12px;}
+  .radio-row label{display:flex;flex-direction:row;align-items:center;gap:10px;font-size:15px;white-space:nowrap;}
+  .radio-row input[type=radio]{width:18px;height:18px;flex-shrink:0;}
+
+  /* FOOTER */
+  footer{flex-direction:column;align-items:center;text-align:center;padding:28px 16px;gap:16px;}
+  .footer-logo img{height:80px;}
+  .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}
+  .footer-copy{font-size:12px;}
+
+  /* WHATSAPP FLOAT */
+  .wa-float{width:50px;height:50px;bottom:18px;right:18px;}
+  .wa-float svg{width:24px;height:24px;}
+  .wa-tooltip{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="wwf-wrap">
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><img src="https://assets.cdn.filesafe.space/e5HujYlEswi6VYYMX4Mt/media/69f7541ed868be008546752e.png" class="wwf-logo" alt="WWF Virtual Assistants" style="filter:brightness(0) invert(1) brightness(2) drop-shadow(0 0 10px white) drop-shadow(0 0 20px white) drop-shadow(0 0 30px rgba(255,255,255,0.7));"/></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#hire">Hire</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-badge"><span></span>Faith-Driven Virtual Support</div>
+      <h1>Your Business<br/>Deserves a <em>Trusted</em><br/>VA Partner</h1>
+      <p class="hero-desc">Reliable, ethical, and compassionate virtual assistant support for businesses and ministries — rooted in faith and driven by excellence.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-sky">Hire a VA Now ›</a>
+        <a href="#services" class="btn-ghost">See Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">100%</div><div class="label">Faith-Driven Team</div></div>
+        <div class="hero-stat"><div class="num">5+</div><div class="label">Services Offered</div></div>
+        <div class="hero-stat"><div class="num">2</div><div class="label">Hire Options</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card-fancy">
+        <div class="hcf-top"><div class="hcf-icon">⏰</div><div class="hcf-title">Part-Time Flexible Hire</div></div>
+        <div class="hcf-desc">Scale support as you need it. Perfect for growing businesses that want reliable help without full-time commitment.</div>
+        <span class="hcf-badge">Flexible Hours</span>
+      </div>
+      <div class="hero-card-fancy">
+        <div class="hcf-top"><div class="hcf-icon">👤</div><div class="hcf-title">Full-Time Dedicated VA</div></div>
+        <div class="hcf-desc">Your own committed team member, fully focused on your business goals every single day.</div>
+        <span class="hcf-badge">40 hrs / week</span>
+      </div>
+      <div class="hero-card-fancy">
+        <div class="hcf-top"><div class="hcf-icon">✝️</div><div class="hcf-title">Ministry-Ready Support</div></div>
+        <div class="hcf-desc">Serving churches, ministries, and faith-based organizations with integrity and compassion.</div>
+        <span class="hcf-badge">Faith-Based</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span>✓</span> Reliable &amp; Ethical</div>
+  <div class="trust-item"><span>✓</span> Faith-Driven Professionals</div>
+  <div class="trust-item"><span>✓</span> Business &amp; Ministry Support</div>
+  <div class="trust-item"><span>✓</span> Work-From-Home Opportunities</div>
+  <div class="trust-item"><span>✓</span> Now Accepting Clients</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-block">
+      <div class="about-main-card">
+        <div class="big-quote">"</div>
+        <p>Walk with Faith. Work with Excellence. Serve with Compassion.</p>
+      </div>
+      <div class="about-accent">
+        <div class="aa-num">✦ Now</div>
+        <div class="aa-txt">Accepting Clients</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="pill">Who We Are</div>
+      <h2>Our Foundation</h2>
+      <p class="sub">Built on faith and driven by excellence — we exist to serve businesses and ministries with integrity.</p>
+      <div class="mv-pair">
+        <div class="mv-item">
+          <div class="mv-icon">🎯</div>
+          <div>
+            <h3>Our Mission</h3>
+            <p>To provide reliable, ethical, and compassionate virtual assistant support to businesses and ministries, while creating meaningful work-from-home opportunities for faith-driven professionals.</p>
+          </div>
+        </div>
+        <div class="mv-item">
+          <div class="mv-icon">🌟</div>
+          <div>
+            <h3>Our Vision</h3>
+            <p>To build a trusted virtual assistant agency known for excellence, integrity, and faith — empowering clients to focus on their calling while uplifting families and communities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-header">
+    <div class="pill light">What We Offer</div>
+    <h2>Our Services</h2>
+    <p class="sub">From administration to automation — everything your business needs to grow and thrive.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <span class="svc-num">01</span>
+      <div class="svc-icon-wrap">📋</div>
+      <h3>Administrative Support</h3>
+      <ul><li>Calendar management</li><li>Email handling</li><li>Data entry</li><li>Document preparation</li></ul>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">02</span>
+      <div class="svc-icon-wrap">📈</div>
+      <h3>Lead Generation &amp; Sales</h3>
+      <ul><li>Prospect research</li><li>Outreach campaigns</li><li>CRM management</li><li>Follow-up sequences</li></ul>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">03</span>
+      <div class="svc-icon-wrap">📱</div>
+      <h3>Social Media &amp; Marketing</h3>
+      <ul><li>Content creation</li><li>Scheduling &amp; posting</li><li>Community engagement</li><li>Analytics reporting</li></ul>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">04</span>
+      <div class="svc-icon-wrap">⚙️</div>
+      <h3>Automation &amp; Systems</h3>
+      <ul><li>GHL / CRM setup</li><li>Workflow automation</li><li>AI integration</li><li>Systems optimization</li></ul>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">05</span>
+      <div class="svc-icon-wrap">🏠</div>
+      <h3>Real Estate Support</h3>
+      <ul><li>Lead qualification</li><li>Appointment setting</li><li>Listing coordination</li><li>Client follow-up</li></ul>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">06</span>
+      <div class="svc-icon-wrap">🌐</div>
+      <h3>Website &amp; Funnel Development</h3>
+      <ul><li>Website design &amp; build</li><li>Landing page / funnel</li><li>SMS automation</li><li>Voice AI integration</li><li>Lead capture setup</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- HIRING -->
+<section class="hiring-section" id="hire">
+  <div class="section-header">
+    <div class="pill dark">Engagement Options</div>
+    <h2>Flexible Hiring Models</h2>
+    <p class="sub" style="color:var(--grey-blue);">Choose the arrangement that fits your needs and budget perfectly.</p>
+  </div>
+  <div class="hiring-grid">
+    <div class="hire-card">
+      <div class="hire-type">Part-Time</div>
+      <h3>Flexible Hire</h3>
+      <p>Perfect for businesses that need reliable support without a full-time commitment. Scale hours up or down based on your workload.</p>
+      <ul class="hire-features">
+        <li>Flexible scheduling</li>
+        <li>Cost-effective support</li>
+        <li>Scale as you grow</li>
+        <li>No long-term lock-in</li>
+      </ul>
+    </div>
+    <div class="hire-card">
+      <div class="hire-type">Full-Time</div>
+      <h3>Dedicated VA</h3>
+      <p>Your own committed team member fully focused on your business every day. Ideal for growing teams needing consistent support.</p>
+      <ul class="hire-features">
+        <li>40 hours per week</li>
+        <li>Fully dedicated to you</li>
+        <li>Deep business integration</li>
+        <li>Priority availability</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURE -->
+<section class="scripture-section">
+  <blockquote>"Whatever you do, work at it with all your heart, as working for the Lord, not for human masters."</blockquote>
+  <cite>— Colossians 3:23</cite>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="section-header">
+    <div class="pill">Client Reviews</div>
+    <h2>What Our Clients Say</h2>
+    <p class="sub">Real results from real businesses — hear it straight from the people we've had the privilege to serve.</p>
+  </div>
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"Hiring through WWF was the best decision for my business. My VA handles all my scheduling, emails, and follow-ups — I finally have time to focus on what matters most."</p>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Sarah M.</div>
+          <div class="review-role">Real Estate Agent · Texas, USA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"My WWF VA is incredibly reliable and proactive. She catches things before I even notice them. I truly feel like she's a part of our team — not just an assistant."</p>
+      <div class="review-author">
+        <div class="review-avatar">J</div>
+        <div>
+          <div class="review-name">James R.</div>
+          <div class="review-role">E-commerce Owner · California, USA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"What sets WWF apart is the heart behind the work. My VA genuinely cares about our mission. The quality, attention to detail, and dedication are unmatched."</p>
+      <div class="review-author">
+        <div class="review-avatar">P</div>
+        <div>
+          <div class="review-name">Pastor David P.</div>
+          <div class="review-role">Ministry Leader · Florida, USA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"Lead generation used to be my biggest headache. Now my VA manages it all — pipeline, follow-ups, CRM. My conversion rate has gone up by 40% in 3 months!"</p>
+      <div class="review-author">
+        <div class="review-avatar">A</div>
+        <div>
+          <div class="review-name">Amanda K.</div>
+          <div class="review-role">Sales Consultant · New York, USA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"I was skeptical at first, but from day one my VA hit the ground running. Social media, content scheduling, engagement — all handled professionally and consistently."</p>
+      <div class="review-author">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-name">Michelle T.</div>
+          <div class="review-role">Brand Coach · Georgia, USA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"The faith and values that WWF operates with really shows. My VA is trustworthy, honest, and goes above and beyond every single day. 10/10 would recommend!"</p>
+      <div class="review-author">
+        <div class="review-avatar">R</div>
+        <div>
+          <div class="review-name">Robert C.</div>
+          <div class="review-role">Startup Founder · Colorado, USA</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-header">
+    <div class="pill">Get In Touch</div>
+    <h2>Let's Work Together</h2>
+    <p class="sub">Ready to grow your business with a trusted VA? We'd love to hear from you.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-left">
+      <h2 style="font-size:28px;margin-bottom:12px;">Contact Us</h2>
+      <p class="sub" style="text-align:left;margin:0 0 28px;">Reach out through any of the methods below and we'll get back to you promptly.</p>
+
+      <a href="#" id="email-contact-btn" class="contact-method" onclick="openEmailContact(); return false;">
+        <div class="cm-icon email-icon">✉️</div>
+        <div class="cm-info">
+          <div class="cm-label">Email Us</div>
+          <div class="cm-val">walkwithfaithvirtualassistant@gmail.com</div>
+        </div>
+      </a>
+
+      <a href="https://wa.me/639976459454" target="_blank" class="contact-method">
+        <div class="cm-icon wa-icon">
+          <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div class="cm-info">
+          <div class="cm-label">WhatsApp</div>
+          <div class="cm-val">+63 997 645 9454</div>
+        </div>
+      </a>
+
+      <div class="cta-box">
+        <h4>✦ Now Accepting Clients</h4>
+        <p>Limited spots available for new clients this month. Book your free discovery call and let's talk about how we can support your business.</p>
+        <span class="spots">Spots Available</span>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contact-form">
+      <h3>Send Us a Message</h3>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input id="cf-first" name="first_name" type="text" placeholder="Enter first name" required/></div>
+        <div class="form-group"><label>Last Name</label><input id="cf-last" name="last_name" type="text" placeholder="Enter last name"/></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input id="cf-email" name="email" type="email" placeholder="joy@example.com" required/></div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select id="cf-service" name="service">
+          <option value="">Select a service...</option>
+          <option>Administrative Support</option>
+          <option>Lead Generation &amp; Sales</option>
+          <option>Social Media &amp; Marketing</option>
+          <option>Automation &amp; Systems</option>
+          <option>Real Estate Support</option>
+          <option>Website &amp; Funnel Development</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Engagement Type</label>
+        <div class="radio-row">
+          <label><input type="radio" name="engagement_type" value="Part-Time"/> Part-Time</label>
+          <label><input type="radio" name="engagement_type" value="Full-Time"/> Full-Time</label>
+        </div>
+      </div>
+      <div class="form-group"><label>Your Message</label><textarea id="cf-message" name="message" placeholder="Tell us about your business and how we can help..."></textarea></div>
+      <button class="submit-btn" type="submit" id="submit-btn">Send Message →</button>
+    </form>
+
+    <div id="thank-you-box" style="display:none;background:#f5faff;border-radius:24px;padding:48px 40px;border:2px solid #e0edf8;text-align:center;">
+      <div style="width:72px;height:72px;background:linear-gradient(135deg,#132952,#1e3d7a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#87ceeb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div style="display:inline-block;background:rgba(135,206,235,0.2);color:#132952;border-radius:999px;padding:5px 16px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">Message Received</div>
+      <h3 style="font-size:26px;font-weight:900;color:#132952;margin-bottom:12px;">Thank You for <span style="color:#6ab8de;">Reaching Out!</span></h3>
+      <p style="font-size:15px;color:#5a7a9a;line-height:1.75;margin-bottom:20px;">Your message has been sent. We'll review your inquiry and get back to you within <strong>24–48 hours</strong>.</p>
+      <div style="background:#fff;border-radius:14px;padding:20px 24px;text-align:left;border:1px solid #e0edf8;">
+        <div style="font-size:12px;font-weight:700;color:#132952;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">What Happens Next</div>
+        <div style="font-size:14px;color:#5a7a9a;line-height:1.8;">✦ We'll match you with the right VA for your needs.<br/>✦ Expect our reply within 24–48 hours.<br/>✦ We'll schedule a quick discovery call to get started.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><img src="https://assets.cdn.filesafe.space/e5HujYlEswi6VYYMX4Mt/media/69f7541ed868be008546752e.png" class="wwf-logo" alt="WWF Virtual Assistants" style="filter:brightness(0) invert(1) brightness(2) drop-shadow(0 0 10px white) drop-shadow(0 0 20px white) drop-shadow(0 0 30px rgba(255,255,255,0.7));"/></div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#hire">Hire</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 <span>WWF Virtual Assistants</span> · All Rights Reserved</div>
+</footer>
+
+</div><!-- end wwf-wrap -->
+
+<!-- FLOATING WHATSAPP BUTTON - outside wrap so position:fixed works -->
+<a href="https://wa.me/639976459454" target="_blank" class="wa-float" title="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<div class="wa-tooltip">Chat on WhatsApp</div>
+
+<script>
+(function(){
+  var logo='https://assets.cdn.filesafe.space/e5HujYlEswi6VYYMX4Mt/media/69f7541ed868be008546752e.png';
+  document.querySelectorAll('img.wwf-logo').forEach(function(img){img.src=logo;});
+})();
+
+function openEmailContact() {
+  var to = 'walkwithfaithvirtualassistant@gmail.com';
+  window.open('https://mail.google.com/mail/?view=cm&to=' + encodeURIComponent(to), '_blank');
+}
+
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  var data = new FormData(this);
+  data.append('_captcha', 'false');
+  try {
+    var res = await fetch('https://formsubmit.co/ajax/walkwithfaithvirtualassistant@gmail.com', {
+      method: 'POST',
+      body: data
+    });
+    var out = await res.json();
+    if (out.success === 'true' || out.success === true) {
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('thank-you-box').style.display = 'block';
+    } else {
+      throw new Error('failed');
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Send Message →';
+    alert('Something went wrong. Please email us directly at walkwithfaithvirtualassistant@gmail.com');
+  }
+});
+
+</script>
+</body>
+</html>

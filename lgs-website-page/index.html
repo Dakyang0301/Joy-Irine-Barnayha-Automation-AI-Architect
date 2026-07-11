@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATEX LEADS — Premium Lead Generation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050508;--bg2:#09090f;--surface:#0e0e1a;
+  --border:rgba(255,255,255,0.08);
+  --accent:#4f6ef7;--cyan:#00d4ff;--green:#22c55e;
+  --text:#f2f2fc;--sub:#c8c8dc;--muted:#a8a8c0;--faint:#6b7280;
+  --g:linear-gradient(135deg,#4f6ef7 0%,#7c3aed 50%,#00d4ff 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;background:#050508;}
+body{background:#050508 !important;color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:16px 60px;background:rgba(5,5,8,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;cursor:pointer;}
+.nav-links a.active,.nav-links a:hover{color:var(--text);}
+.nav-cta{padding:10px 22px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;text-decoration:none;}
+.nav-cta:hover{background:#3d5af0;transform:translateY(-1px);}
+
+/* SHARED */
+.wrap{max-width:1120px;margin:0 auto;padding:0 60px;}
+section{scroll-margin-top:70px;}
+.lbl{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3.8vw,46px);font-weight:700;letter-spacing:-1.5px;line-height:1.08;margin-bottom:14px;}
+.sub{color:var(--sub);font-size:16px;line-height:1.75;}
+.btn{display:inline-block;padding:14px 32px;background:var(--g);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .3s;text-decoration:none;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(79,110,247,.35);}
+.btn-o{display:inline-block;padding:14px 32px;background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.13);border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;text-decoration:none;}
+.btn-o:hover{border-color:rgba(255,255,255,.28);}
+
+/* SECTION 1 — HOME */
+#home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 60px 80px;position:relative;overflow:hidden;}
+.hglow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(79,110,247,.22) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 85% 60%,rgba(124,58,237,.14) 0%,transparent 55%);}
+.hgrid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 0%,transparent 100%);}
+.hi{position:relative;max-width:860px;}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:5px 18px;margin-bottom:28px;background:rgba(79,110,247,.1);border:1px solid rgba(79,110,247,.28);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#818cf8;}
+.bdot{width:6px;height:6px;border-radius:50%;background:#4f6ef7;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hh1{font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,6.5vw,82px);font-weight:700;letter-spacing:-3px;line-height:1.02;margin-bottom:22px;}
+.hh1 em{font-style:normal;background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hsub{font-size:19px;color:var(--sub);line-height:1.72;max-width:600px;margin:0 auto 44px;}
+.hbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.hstats{display:flex;gap:56px;justify-content:center;margin-top:72px;padding-top:48px;border-top:1px solid var(--border);}
+.sn{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:800;background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.sl{font-size:12px;color:var(--muted);margin-top:6px;}
+
+/* Pain points */
+.pain{padding:88px 0;background:var(--bg2);}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.pc{padding:30px;background:var(--surface);border:1px solid var(--border);border-left:3px solid transparent;border-radius:16px;transition:all .3s;}
+.pc:hover{border-left-color:var(--accent);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4);}
+.pi{font-size:26px;margin-bottom:14px;}
+.pc h3{font-size:16px;font-weight:600;margin-bottom:8px;}
+.pc p{font-size:13px;color:var(--muted);line-height:1.75;}
+.pfix{margin-top:12px;font-size:12px;color:var(--green);font-weight:600;display:flex;align-items:flex-start;gap:5px;}
+.pfix::before{content:'✓';flex-shrink:0;}
+
+/* Industries */
+.ind{padding:80px 0;}
+.ind-in{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.itags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.itag{flex:0 0 calc(25% - 6px);padding:8px 6px;background:var(--surface);border:1px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--sub);transition:all .25s;cursor:default;user-select:none;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.itag:hover{border-color:var(--accent);color:var(--text);box-shadow:0 0 12px rgba(79,110,247,.4);}
+.itag.pulse{border-color:var(--accent);color:var(--text);}
+
+
+/* SECTION 2 — SERVICES */
+#services{padding:88px 0;background:var(--bg2);}
+.shead{text-align:center;margin-bottom:52px;}
+.sgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.sc{padding:40px;background:var(--surface);border:1px solid var(--border);border-radius:20px;transition:all .3s;position:relative;overflow:hidden;}
+.sc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--g);opacity:0;transition:opacity .3s;}
+.sc:hover{border-color:rgba(79,110,247,.3);transform:translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,.35);}
+.sc:hover::after{opacity:1;}
+.sn2{position:absolute;top:18px;right:24px;font-family:'Space Grotesk',sans-serif;font-size:72px;font-weight:800;color:rgba(79,110,247,.05);line-height:1;}
+.stag{display:inline-block;padding:4px 11px;margin-bottom:12px;background:rgba(79,110,247,.1);border-radius:6px;font-size:10px;font-weight:700;color:#818cf8;letter-spacing:1.5px;text-transform:uppercase;}
+.sc h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;}
+.oc{font-size:13px;color:var(--green);font-weight:600;margin-bottom:14px;}
+.sc p{color:var(--muted);font-size:14px;line-height:1.75;margin-bottom:22px;}
+.sl2{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.sl2 li{font-size:13px;color:var(--sub);display:flex;align-items:flex-start;gap:8px;}
+.sl2 li::before{content:'→';color:var(--accent);font-size:12px;flex-shrink:0;margin-top:1px;}
+
+/* SECTION 3 — HOW IT WORKS */
+#how{padding:88px 0;}
+.hhead{text-align:center;margin-bottom:52px;}
+.steps{max-width:840px;margin:0 auto;}
+.step{display:flex;gap:28px;padding:34px;margin-bottom:14px;background:var(--surface);border:1px solid var(--border);border-radius:16px;position:relative;transition:border-color .3s;}
+.step:hover{border-color:rgba(79,110,247,.3);}
+.sline{position:absolute;left:61px;bottom:-14px;width:2px;height:14px;background:var(--border);}
+.stepn{width:52px;height:52px;border-radius:14px;flex-shrink:0;background:var(--g);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#fff;}
+.sb h3{font-size:17px;font-weight:600;margin-bottom:7px;}
+.sb p{font-size:14px;color:var(--muted);line-height:1.75;}
+.steptag{display:inline-block;margin-top:10px;padding:3px 10px;background:rgba(0,212,255,.08);border-radius:4px;font-size:11px;color:var(--cyan);font-weight:500;}
+.why{padding:72px 0;background:var(--bg2);}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.wc{padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:all .2s;}
+.wc:hover{border-color:rgba(79,110,247,.3);}
+.wi{font-size:24px;margin-bottom:12px;}
+.wc h4{font-size:15px;font-weight:600;margin-bottom:6px;}
+.wc p{font-size:13px;color:var(--muted);line-height:1.72;}
+
+/* SECTION 4 — RESULTS */
+#results{padding:88px 0;}
+.rhead{text-align:center;margin-bottom:52px;}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:60px;}
+.mc{padding:32px 20px;background:var(--surface);border:1px solid var(--border);border-radius:16px;text-align:center;transition:all .3s;}
+.mc:hover{border-color:rgba(79,110,247,.3);transform:translateY(-4px);}
+.mn{font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:800;background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:8px;}
+.ml{font-size:12px;color:var(--muted);line-height:1.5;}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;}
+.tc{padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px;transition:all .3s;display:flex;flex-direction:column;}
+.tc:hover{border-color:rgba(79,110,247,.3);}
+.stars{color:#f59e0b;font-size:13px;letter-spacing:2px;margin-bottom:14px;}
+.tt{font-size:14px;color:var(--sub);line-height:1.75;font-style:italic;margin-bottom:20px;flex:1;}
+.ta{display:flex;align-items:center;gap:10px;}
+.av{width:38px;height:38px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;color:#fff;}
+.an{font-weight:600;font-size:13px;}
+.ar{font-size:11px;color:var(--muted);}
+.casec{padding:48px;border-radius:20px;background:linear-gradient(135deg,rgba(79,110,247,.07),rgba(124,58,237,.07));border:1px solid rgba(79,110,247,.18);}
+.ctag{display:inline-block;padding:4px 12px;margin-bottom:14px;background:rgba(79,110,247,.15);border-radius:6px;font-size:10px;font-weight:700;color:#818cf8;letter-spacing:1.5px;text-transform:uppercase;}
+.casec h3{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;margin-bottom:14px;}
+.casec>p{color:var(--muted);font-size:14px;line-height:1.8;max-width:680px;margin-bottom:28px;}
+.cnums{display:flex;gap:44px;flex-wrap:wrap;}
+.cn span{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:800;color:var(--cyan);display:block;}
+.cn p{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* SECTION 5 — GET LEADS (no form, chat CTA) */
+#contact{padding:100px 0;background:var(--bg2);}
+.cta-center{text-align:center;max-width:700px;margin:0 auto;}
+.cta-center .h2{margin-bottom:20px;}
+.cta-center .sub{margin-bottom:40px;}
+.cta-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:48px 0;}
+.cta-card{padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:16px;text-align:center;}
+.cta-card .ico{font-size:28px;margin-bottom:12px;}
+.cta-card h4{font-size:14px;font-weight:600;margin-bottom:6px;}
+.cta-card p{font-size:12px;color:var(--muted);line-height:1.6;}
+.chat-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--g);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .3s;margin-top:8px;}
+.chat-cta-btn:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(79,110,247,.4);}
+
+/* FOOTER */
+footer{padding:36px 60px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+footer p{font-size:13px;color:var(--faint);}
+
+/* CHAT WIDGET */
+.cw{position:fixed;bottom:24px;right:24px;z-index:9999;}
+.cpromo{position:absolute;bottom:72px;right:0;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:9px 14px;font-size:12px;color:var(--text);white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:opacity .5s;}
+.cwin{position:absolute;bottom:76px;right:0;width:340px;max-height:520px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,.6);display:none;flex-direction:column;}
+.cwin.open{display:flex;}
+.chead{padding:14px 18px;background:var(--g);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.chl{display:flex;align-items:center;gap:10px;}
+.chav{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:16px;}
+.chname{font-size:13px;font-weight:600;color:#fff;}
+.chst{font-size:10px;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:4px;}
+.chst::before{content:'●';color:#4ade80;font-size:7px;}
+.chclose{background:none;border:none;color:rgba(255,255,255,.7);font-size:18px;cursor:pointer;line-height:1;}
+.cmsgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:120px;}
+.cmsgs::-webkit-scrollbar{width:3px;}
+.cmsgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+.msg{max-width:85%;padding:10px 13px;border-radius:12px;font-size:13px;line-height:1.55;}
+.msg.bot{background:var(--bg2);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:3px;color:var(--text);}
+.msg.usr{background:var(--accent);color:#fff;align-self:flex-end;border-bottom-right-radius:3px;}
+.qrow{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:8px 12px 10px;flex-shrink:0;max-height:140px;overflow-y:auto;}
+.qb{width:100%;text-align:center;padding:8px 10px;background:transparent;border:1px solid rgba(79,110,247,.45);border-radius:10px;color:#818cf8;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;}
+.qb:hover{background:rgba(79,110,247,.15);color:var(--text);border-color:rgba(79,110,247,.8);}
+.cfoot{padding:10px;border-top:1px solid var(--border);display:flex;gap:7px;}
+.cinp{flex:1;padding:9px 12px;background:var(--bg);border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;font-family:'Inter',sans-serif;outline:none;}
+.cinp:focus{border-color:rgba(79,110,247,.45);}
+.cinp::placeholder{color:var(--faint);}
+.csend{width:34px;height:34px;border-radius:7px;background:var(--accent);border:none;color:#fff;cursor:pointer;font-size:14px;}
+.csend:hover{background:#3d5af0;}
+.typing{display:flex;gap:3px;align-items:center;padding:9px 13px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;border-bottom-left-radius:3px;max-width:56px;}
+.td{width:5px;height:5px;border-radius:50%;background:var(--muted);animation:ta 1.2s infinite;}
+.td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
+@keyframes ta{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.cbtn{width:56px;height:56px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;box-shadow:0 8px 24px rgba(79,110,247,.4);transition:all .3s;position:relative;}
+.cbtn:hover{transform:scale(1.08);}
+.cbadge{position:absolute;top:-3px;right:-3px;width:17px;height:17px;background:#ef4444;border-radius:50%;border:2px solid var(--bg);font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;}
+
+@media(max-width:900px){
+  nav{padding:12px 16px;}.nav-links{display:none;}.logo{font-size:15px;}.nav-cta{font-size:11px;padding:7px 11px;white-space:nowrap;}
+  .step{flex-direction:column;gap:12px;padding:20px 18px;}
+  .stepn{width:48px;height:48px;border-radius:12px;font-size:18px;padding:0;justify-content:center;}
+  .sline{display:none;}
+  .sb h3{font-size:15px;}
+  .sb p{font-size:13px;}
+  .itag{flex:0 0 calc(50% - 4px);white-space:normal;font-size:12px;}
+  .wrap{padding:0 20px;}
+  #home{padding:90px 20px 60px;}
+  .hh1{letter-spacing:-1.5px;}
+  .hsub{font-size:16px;}
+  .hstats{gap:20px;flex-wrap:wrap;justify-content:center;}
+  .hstats>div{text-align:center;min-width:80px;}
+  .sn{font-size:32px;}
+  .hbtns{flex-direction:column;align-items:center;}
+  .btn,.btn-o{width:100%;max-width:320px;text-align:center;}
+  .pgrid,.sgrid,.metrics,.tgrid,.wgrid,.cta-cards{grid-template-columns:1fr;}
+  .ind-in{grid-template-columns:1fr;gap:32px;}
+  .cnums{gap:20px;flex-wrap:wrap;}
+  section{padding:64px 0;}
+  .pain{padding:64px 0;}
+  .ind{padding:60px 0;}
+  .why{padding:60px 0;}
+  footer{flex-direction:column;gap:12px;text-align:center;padding:24px 20px;}
+  /* Chat full-width on mobile */
+  .cw{bottom:0;right:0;left:0;width:100%;}
+  .cwin{position:fixed;bottom:0;right:0;left:0;width:100%;border-radius:18px 18px 0 0;border-bottom:none;}
+  .cwin.open{display:flex;}
+  .cmsgs{height:240px;}
+  .cbtn{position:fixed;bottom:20px;right:20px;}
+  .cpromo{right:80px;bottom:26px;position:fixed;}
+}
+</style>
+</head>
+<body style="background:#050508;color:#f2f2fc;">
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#home">STRATEX LEADS</a>
+  <ul class="nav-links">
+    <li><a href="#home"     class="nl active" data-s="home">Home</a></li>
+    <li><a href="#services" class="nl"         data-s="services">Services</a></li>
+    <li><a href="#how"      class="nl"         data-s="how">How It Works</a></li>
+    <li><a href="#results"  class="nl"         data-s="results">Results</a></li>
+    <li><a href="#contact"  class="nl"         data-s="contact">Get Leads</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact" onclick="openChat()">Get More Leads →</a>
+</nav>
+
+<!-- ══ 1. HOME ══ -->
+<section id="home">
+  <div class="hglow"></div><div class="hgrid"></div>
+  <div class="hi">
+    <div class="badge"><div class="bdot"></div>Lead Generation for Local Businesses</div>
+    <h1 class="hh1">Your Pipeline.<br><em>Full. Predictable. Profitable.</em></h1>
+    <p class="hsub">Most businesses don't have a sales problem — they have a lead problem. We fix that. Consistent, qualified prospects so your team focuses only on closing.</p>
+    <div class="hbtns">
+      <a class="btn" href="#contact" onclick="openChat()">Start Getting More Leads</a>
+      <a class="btn-o" href="#how">See How It Works →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pain Points -->
+<div class="pain">
+  <div class="wrap">
+    <div style="text-align:center">
+      <div class="lbl">Sound Familiar?</div>
+      <h2 class="h2">The real reason most businesses struggle to grow</h2>
+      <p class="sub" style="max-width:500px;margin:0 auto">It's not your service. It's not your pricing. It's an inconsistent, unreliable stream of new prospects.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pc"><div class="pi">📉</div><h3>Feast or Famine Pipeline</h3><p>Slammed one month, dead the next. You can't scale a business built on unpredictable referrals alone.</p><div class="pfix">We deliver a steady, predictable flow of prospects every week.</div></div>
+      <div class="pc"><div class="pi">💸</div><h3>Burning Money on Ads</h3><p>High ad spend, low-quality leads, and no clear answer for why it's not converting.</p><div class="pfix">We reach verified, in-market prospects who actually need your service.</div></div>
+      <div class="pc"><div class="pi">⏳</div><h3>Closers Chasing Cold Leads</h3><p>Your best people spending their days chasing cold leads instead of closing warm ones.</p><div class="pfix">We fill your calendar — your team only talks to qualified prospects.</div></div>
+      <div class="pc"><div class="pi">🔕</div><h3>Leads That Never Respond</h3><p>You call. No answer. You follow up. Nothing. Hours wasted chasing ghosts.</p><div class="pfix">Multi-touch outreach reaches prospects at exactly the right moment.</div></div>
+      <div class="pc"><div class="pi">📋</div><h3>No System or Visibility</h3><p>Leads fall through the cracks, follow-ups forgotten, zero visibility into what's working.</p><div class="pfix">Every lead tracked, followed up, and reported automatically.</div></div>
+      <div class="pc"><div class="pi">🏁</div><h3>Competitors Winning Your Deals</h3><p>Your competitor isn't better than you. They just have better lead flow.</p><div class="pfix">We level the playing field — then tip it decisively in your favor.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Industries -->
+<div class="ind">
+  <div class="wrap">
+    <div class="ind-in">
+      <div>
+        <div class="lbl">Industries We Serve</div>
+        <h2 class="h2">We generate leads for any local business niche</h2>
+        <p class="sub">If you sell to homeowners or local businesses, we can build your pipeline. Dozens of markets and niches — we know what works in each.</p>
+        <div style="margin-top:32px"><a class="btn" href="#contact" onclick="openChat()">See What's Possible →</a></div>
+      </div>
+      <div class="itags">
+        <div class="itag" onclick="selectInd(this,'Roofing')">🏠 Roofing</div>
+        <div class="itag" onclick="selectInd(this,'HVAC')">❄️ HVAC</div>
+        <div class="itag" onclick="selectInd(this,'Solar')">☀️ Solar</div>
+        <div class="itag" onclick="selectInd(this,'Real Estate')">🏡 Real Estate</div>
+        <div class="itag" onclick="selectInd(this,'Dental')">🦷 Dental</div>
+        <div class="itag" onclick="selectInd(this,'Insurance')">🛡️ Insurance</div>
+        <div class="itag" onclick="selectInd(this,'Landscaping')">🌿 Landscaping</div>
+        <div class="itag" onclick="selectInd(this,'Plumbing')">🔧 Plumbing</div>
+        <div class="itag" onclick="selectInd(this,'Electrical')">⚡ Electrical</div>
+        <div class="itag" onclick="selectInd(this,'Construction')">🏗️ Construction</div>
+        <div class="itag" onclick="selectInd(this,'Med Spa')">💆 Med Spa</div>
+        <div class="itag" onclick="selectInd(this,'Auto Services')">🚗 Auto Services</div>
+        <div class="itag" onclick="selectInd(this,'Moving')">📦 Moving</div>
+        <div class="itag" onclick="selectInd(this,'Cleaning')">🧹 Cleaning</div>
+        <div class="itag" onclick="selectInd(this,'Fitness')">🏋️ Fitness</div>
+        <div class="itag" onclick="selectInd(this,'Other')">💼 Other</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 2. SERVICES ══ -->
+<section id="services">
+  <div class="wrap">
+    <div class="shead">
+      <div class="lbl">Our Services</div>
+      <h2 class="h2">More leads. Better quality. Faster.</h2>
+      <p class="sub" style="max-width:500px;margin:0 auto">We don't sell clicks or impressions. We deliver real conversations with real prospects ready to buy.</p>
+    </div>
+    <div class="sgrid">
+      <div class="sc"><div class="sn2">01</div><div class="stag">Lead Generation</div><h3>Targeted Prospect Lists</h3><div class="oc">→ A full inbox of qualified prospects every week</div><p>Your exact ideal customer — filtered by city, niche, and business type. Every prospect fits your offer.</p><ul class="sl2"><li>Niche + city-specific prospect lists</li><li>Verified phone numbers and emails</li><li>Deduplication and quality filtering</li><li>Fresh lists weekly, never recycled</li></ul></div>
+      <div class="sc"><div class="sn2">02</div><div class="stag">Outreach</div><h3>Voicemail Drop Campaigns</h3><div class="oc">→ Inbound callbacks from already-interested prospects</div><p>Personalized voicemails to prospect inboxes — no cold calls. When they call back, they're already interested.</p><ul class="sl2"><li>Niche-specific scripts and messaging</li><li>Tested for maximum callback rate</li><li>Hundreds to thousands of drops per day</li><li>Every callback tracked and logged</li></ul></div>
+      <div class="sc"><div class="sn2">03</div><div class="stag">Qualification</div><h3>AI Lead Qualification &amp; Booking</h3><div class="oc">→ Only warm, pre-qualified leads reach your team</div><p>Every inbound response handled instantly by AI — 24/7. Qualifies the prospect and books the appointment.</p><ul class="sl2"><li>Instant SMS response to every lead</li><li>Qualification built for your specific offer</li><li>Automatic appointment booking</li><li>Hot lead alerts to your phone</li></ul></div>
+      <div class="sc"><div class="sn2">04</div><div class="stag">Full Package</div><h3>Done-For-You Lead System</h3><div class="oc">→ Complete lead machine live in 48 hours</div><p>We build and run everything — targeting, outreach, follow-up, qualification. Full calendar of appointments. No tech headaches.</p><ul class="sl2"><li>Full system setup in 48 hours</li><li>Ongoing campaign management</li><li>Weekly performance reports</li><li>Scale up or down anytime</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. HOW IT WORKS ══ -->
+<section id="how">
+  <div class="wrap">
+    <div class="hhead">
+      <div class="lbl">The Process</div>
+      <h2 class="h2">From zero to a full calendar in 48 hours</h2>
+      <p class="sub" style="max-width:500px;margin:0 auto">A proven, repeatable system refined across dozens of niches and markets.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="sline"></div><div class="stepn">1</div><div class="sb"><h3>We Define Your Ideal Customer</h3><p>Niche, location, business size, buying signals. Tighter target = higher lead quality. No guessing, no spray-and-pray.</p><span class="steptag">Niche Targeting · City Selection · ICP Definition</span></div></div>
+      <div class="step"><div class="sline"></div><div class="stepn">2</div><div class="sb"><h3>We Build Your Prospect List</h3><p>Scraped and verified — no dead numbers, no closed businesses. Every contact ready for outreach.</p><span class="steptag">Data Scraping · Phone Verification · List Cleaning</span></div></div>
+      <div class="step"><div class="sline"></div><div class="stepn">3</div><div class="sb"><h3>We Launch Your Outreach Campaign</h3><p>Personalized voicemail drops crafted for your niche. Hundreds of inboxes hit daily — zero cold calls from your team.</p><span class="steptag">Voicemail Drops · Personalized Scripts · A/B Testing</span></div></div>
+      <div class="step"><div class="sline"></div><div class="stepn">4</div><div class="sb"><h3>AI Handles Every Inbound Response</h3><p>Qualifies the prospect and books the appointment instantly. Hot leads flagged to you in real time. Cold leads nurtured automatically.</p><span class="steptag">SMS AI · Instant Response · Appointment Booking</span></div></div>
+      <div class="step"><div class="stepn">5</div><div class="sb"><h3>You Close. We Keep Filling the Pipeline.</h3><p>Live dashboard — every lead, every conversation, every booked call. Optimized every week to improve results.</p><span class="steptag">Live Dashboard · Weekly Reports · Ongoing Optimization</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="why">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="lbl">Why We're Different</div>
+      <h2 class="h2">We don't just hand you a list.<br>We deliver results.</h2>
+    </div>
+    <div class="wgrid">
+      <div class="wc"><div class="wi">🎯</div><h4>Only the Right People</h4><p>Every lead targeted by niche, location, and intent. No tire-kickers wasting your team's time.</p></div>
+      <div class="wc"><div class="wi">⚡</div><h4>Speed Wins Deals</h4><p>First business to engage a prospect wins the deal 78% of the time. We respond in seconds.</p></div>
+      <div class="wc"><div class="wi">📊</div><h4>Full Transparency</h4><p>Real-time dashboard — every lead, every response, every booked call. No mystery metrics.</p></div>
+      <div class="wc"><div class="wi">🔄</div><h4>Optimized Every Week</h4><p>We adjust targeting, scripts, and timing weekly. Results improve the longer we work together.</p></div>
+      <div class="wc"><div class="wi">📅</div><h4>Live in 48 Hours</h4><p>Slow setup means leads going to your competition. We're live in two business days.</p></div>
+      <div class="wc"><div class="wi">🤝</div><h4>Aligned With Your Success</h4><p>We're built on results. When you close more deals, everyone wins.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 4. RESULTS ══ -->
+<section id="results">
+  <div class="wrap">
+    <div class="rhead">
+      <div class="lbl">Real Results</div>
+      <h2 class="h2">Leads that turned into real revenue</h2>
+      <p class="sub" style="max-width:480px;margin:0 auto">We report on what matters: qualified conversations, booked appointments, and closed deals.</p>
+    </div>
+    <div class="metrics">
+      <div class="mc"><div class="mn">3.2x</div><div class="ml">Average lead volume increase within 60 days</div></div>
+      <div class="mc"><div class="mn">$31</div><div class="ml">Average cost per qualified lead across all niches</div></div>
+      <div class="mc"><div class="mn">68%</div><div class="ml">Voicemail callback rate in top-performing markets</div></div>
+      <div class="mc"><div class="mn">94%</div><div class="ml">Client retention after the first 90 days</div></div>
+    </div>
+    <div style="margin-bottom:20px"><div class="lbl">Client Stories</div><h2 class="h2">What happened when the leads started coming in</h2></div>
+    <div class="tgrid">
+      <div class="tc"><div class="stars">★★★★★</div><p class="tt">"We went from chasing referrals to 8–12 booked appointments every week. I haven't made a cold call in two months."</p><div class="ta"><div class="av">MR</div><div><div class="an">Marcus R.</div><div class="ar">Roofing Owner, Texas</div></div></div></div>
+      <div class="tc"><div class="stars">★★★★★</div><p class="tt">"Slow season used to kill us. This year we had more leads in January than we normally get in June."</p><div class="ta"><div class="av">SK</div><div><div class="an">Sandra K.</div><div class="ar">HVAC Owner, Florida</div></div></div></div>
+      <div class="tc"><div class="stars">★★★★★</div><p class="tt">"Real business owners in our service area who actually needed solar. Cost per lead was $28. We scaled immediately."</p><div class="ta"><div class="av">JL</div><div><div class="an">James L.</div><div class="ar">Solar Company, California</div></div></div></div>
+    </div>
+    <div style="margin-bottom:20px"><div class="lbl">Case Study</div></div>
+    <div class="casec">
+      <div class="ctag">Roofing · Dallas, TX · 60-Day Campaign</div>
+      <h3>From 18 leads/month to 127 — in 60 days</h3>
+      <p>This roofing company was spending $4,200/month on Facebook ads getting 18–22 low-quality leads. We replaced their ad spend with a targeted voicemail campaign to 3,400 homeowners in their exact service radius, paired with AI follow-up for every response.</p>
+      <div class="cnums">
+        <div class="cn"><span>127</span><p>Qualified leads in 60 days</p></div>
+        <div class="cn"><span>$31</span><p>Cost per qualified lead</p></div>
+        <div class="cn"><span>5.7x</span><p>ROI vs. prior ad spend</p></div>
+        <div class="cn"><span>48hr</span><p>Time to first leads</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. GET LEADS ══ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-center">
+      <div class="lbl">Get Started</div>
+      <h2 class="h2">Ready to fill your pipeline?</h2>
+      <p class="sub">Chat with our lead advisor now. Tell us about your business and we'll send you a custom quotation right away.</p>
+      <div class="cta-cards">
+        <div class="cta-card"><div class="ico">📅</div><h4>Book an Appointment</h4><p>Get a strategy call scheduled in minutes through our AI chat.</p></div>
+        <div class="cta-card"><div class="ico">💬</div><h4>Instant Quotation</h4><p>Tell us your niche and city — we'll send a custom lead plan shortly.</p></div>
+        <div class="cta-card"><div class="ico">⚡</div><h4>Live in 48 Hours</h4><p>From first conversation to first leads in two business days.</p></div>
+      </div>
+      <button class="chat-cta-btn" onclick="openChat()">💬 Chat With Us Now — Get a Free Quote</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="logo" href="#home" style="font-size:18px">STRATEX LEADS</a>
+  <p>© 2026 Stratex Leads · All rights reserved.</p>
+  <p>hello@stratexleads.io</p>
+</footer>
+
+<!-- ══ CHAT WIDGET ══ -->
+<div class="cw">
+  <div id="cpromo" class="cpromo">💬 Get a free lead quote — chat now</div>
+  <div class="cwin" id="cwin">
+    <div class="chead">
+      <div class="chl"><div class="chav">⚡</div><div><div class="chname">Stratex Lead Advisor</div><div class="chst">Online now</div></div></div>
+      <button class="chclose" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="cmsgs" id="cmsgs"></div>
+    <div id="qrow" class="qrow" style="display:none;"></div>
+    <div class="cfoot">
+      <input class="cinp" id="cinp" type="text" placeholder="Or type here..." onkeypress="if(event.key==='Enter')send()">
+      <button class="csend" onclick="send()">→</button>
+    </div>
+  </div>
+  <div class="cbtn" id="cbtn" onclick="toggleChat()">💬<div class="cbadge">1</div></div>
+</div>
+
+<script>
+/* Scroll-spy */
+var secs=document.querySelectorAll('section[id]');
+var nls=document.querySelectorAll('.nl');
+new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      nls.forEach(function(l){l.classList.remove('active');});
+      var a=document.querySelector('.nl[data-s="'+e.target.id+'"]');
+      if(a)a.classList.add('active');
+    }
+  });
+},{rootMargin:'-35% 0px -60% 0px'}).observe && secs.forEach(function(s){
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        nls.forEach(function(l){l.classList.remove('active');});
+        var a=document.querySelector('.nl[data-s="'+e.target.id+'"]');
+        if(a)a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-35% 0px -60% 0px'}).observe(s);
+});
+
+/* Chat */
+var open=false,step=0,biz='';
+var chatOpen=false,waitingOther=false,chatInited=false;
+
+function openChat(){event&&event.preventDefault();if(!chatOpen)toggleChat();}
+
+function selectInd(el,name){
+  el.classList.add('pulse');
+  setTimeout(function(){el.classList.remove('pulse');},600);
+}
+
+function startChat(){
+  if(chatInited)return;
+  chatInited=true;
+  showTyping(function(){
+    addMsg("Hi! 👋 I'm your Stratex lead advisor. We help local businesses get more qualified leads — fast. Which industry are you in? Pick one below or type it!",'bot');
+    setQR(['🏠 Roofing','❄️ HVAC','☀️ Solar','🏡 Real Estate','🦷 Dental','🛡️ Insurance','🌿 Landscaping','🔧 Plumbing','⚡ Electrical','🏗️ Construction','💆 Med Spa','🚗 Auto','📦 Moving','🧹 Cleaning','🏋️ Fitness','➕ Other']);
+  });
+}
+
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('cwin').classList.toggle('open',chatOpen);
+  var p=document.getElementById('cpromo');p.style.display=chatOpen?'none':'block';
+  var b=document.getElementById('cbtn');
+  b.innerHTML=chatOpen?'✕':'💬<div class="cbadge">1</div>';
+  b.style.fontSize=chatOpen?'18px':'22px';
+  if(chatOpen){
+    setTimeout(function(){document.getElementById('cinp').focus();},80);
+    startChat();
+  }
+}
+
+function addMsg(txt,cls){
+  var el=document.getElementById('cmsgs');
+  var d=document.createElement('div');d.className='msg '+cls;d.textContent=txt;
+  el.appendChild(d);el.scrollTop=el.scrollHeight;
+}
+
+function showTyping(cb){
+  var el=document.getElementById('cmsgs');
+  var d=document.createElement('div');d.className='typing';d.id='typ';
+  d.innerHTML='<div class="td"></div><div class="td"></div><div class="td"></div>';
+  el.appendChild(d);el.scrollTop=el.scrollHeight;
+  setTimeout(function(){var t=document.getElementById('typ');if(t)t.remove();cb();},650);
+}
+
+function setQR(opts){
+  var r=document.getElementById('qrow');r.innerHTML='';
+  if(!opts||!opts.length){r.style.display='none';return;}
+  opts.forEach(function(o){
+    var b=document.createElement('button');b.className='qb';b.textContent=o;
+    b.onclick=function(){qr(o);};r.appendChild(b);
+  });
+  r.style.display='grid';
+}
+
+function reply(txt,qopts){
+  showTyping(function(){addMsg(txt,'bot');setQR(qopts||[]);});
+}
+
+function process(txt){
+  if(waitingOther){
+    waitingOther=false;biz=txt;step=1;
+    reply('What city or area are you targeting?',[]);
+  } else if(step===0){
+    if(txt.includes('Other')){
+      waitingOther=true;
+      reply('What type of business is it? Type it below 👇',[]);
+    } else {
+      biz=txt.replace(/^[\p{Emoji}\s]+/u,'').trim();step=1;
+      reply('What city or area are you targeting?',[]);
+    }
+  } else if(step===1){
+    step=2;
+    reply('How many leads per month are you looking for?',['10–20 leads','20–50 leads','50–100 leads','100+ leads']);
+  } else if(step===2){
+    step=3;
+    reply('What is your biggest challenge right now?',['Not enough leads','Low quality leads','Wasting ad spend','Slow follow-up']);
+  } else if(step===3){
+    step=4;
+    reply('What\'s your name and best phone number? We\'ll send your quotation shortly. 📲',[]);
+  } else if(step===4){
+    var digits=txt.replace(/\D/g,'');
+    if(digits.length<7){
+      reply('Please include your phone number too so we can reach you! 📞',[]);
+      return;
+    }
+    step=5;setQR([]);
+    reply('Got it! ✅ We\'re sending your custom '+biz+' lead quotation shortly. Check your phone! 📲',[]);
+    setTimeout(function(){document.getElementById('contact').scrollIntoView({behavior:'smooth'});},1200);
+  } else {
+    reply('Our team is preparing your quote! Check your phone shortly. 📲',[]);
+  }
+}
+
+function qr(val){setQR([]);addMsg(val,'usr');process(val);}
+
+function send(){
+  var inp=document.getElementById('cinp'),txt=inp.value.trim();
+  if(!txt)return;setQR([]);addMsg(txt,'usr');inp.value='';process(txt);
+}
+
+var initVH=window.innerHeight;
+var cinpEl=document.getElementById('cinp');
+
+cinpEl.addEventListener('focus',function(){
+  setTimeout(function(){
+    var kbH=initVH-window.innerHeight;
+    var w=document.getElementById('cwin');
+    if(!w)return;
+    if(kbH>80){
+      w.style.bottom=kbH+'px';
+      w.style.maxHeight=(window.innerHeight-10)+'px';
+    }
+    var msgs=document.getElementById('cmsgs');
+    if(msgs)msgs.scrollTop=msgs.scrollHeight;
+  },400);
+});
+
+cinpEl.addEventListener('blur',function(){
+  setTimeout(function(){
+    var w=document.getElementById('cwin');
+    if(w){w.style.bottom='0';w.style.maxHeight='';}
+  },150);
+});
+
+setTimeout(function(){
+  var p=document.getElementById('cpromo');
+  if(p&&!chatOpen){p.style.opacity='0';setTimeout(function(){if(p)p.style.display='none';},500);}
+},6000);
+</script>
+</body>
+</html>

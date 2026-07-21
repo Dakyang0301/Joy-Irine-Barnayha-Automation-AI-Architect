@@ -26,13 +26,13 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 .sec-label{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--mg);font-weight:700;text-align:center;margin-bottom:16px;}
 .build-lbl{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;text-align:center;margin:40px 0 20px;}
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:32px;max-width:1600px;margin:0 auto;}
-.video-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
+.video-card{background:#111;border:1.5px solid rgba(237,185,46,0.35);border-radius:16px;overflow:hidden;}
 .video-card video{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;background:#000;}
-.video-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);}
+.video-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);text-align:center;}
 .shot-carousel{position:relative;height:380px;max-width:1200px;margin:0 auto;cursor:pointer;user-select:none;perspective:1400px;}
-.shot-slide{position:absolute;top:0;left:50%;width:560px;height:100%;margin-left:-280px;background:#111;border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;transition:all .5s cubic-bezier(.4,0,.2,1);}
+.shot-slide{position:absolute;top:0;left:50%;width:560px;height:100%;margin-left:-280px;background:#111;border:1.5px solid rgba(237,185,46,0.35);border-radius:16px;overflow:hidden;transition:all .5s cubic-bezier(.4,0,.2,1);}
 .shot-slide img{width:100%;height:calc(100% - 52px);display:block;object-fit:contain;background:#000;}
-.shot-slide .vlabel{padding:14px 18px;font-size:12px;font-weight:700;color:var(--w);}
+.shot-slide .vlabel{padding:14px 18px;font-size:12px;font-weight:700;color:var(--w);text-align:center;}
 .shot-slide.cf-center{transform:translateX(0) scale(1) rotateY(0deg);z-index:3;opacity:1;box-shadow:0 24px 60px rgba(0,0,0,0.6);}
 .shot-slide.cf-next{transform:translateX(340px) scale(0.78) rotateY(-22deg);z-index:2;opacity:0.5;}
 .shot-slide.cf-prev{transform:translateX(-340px) scale(0.78) rotateY(22deg);z-index:2;opacity:0.5;}

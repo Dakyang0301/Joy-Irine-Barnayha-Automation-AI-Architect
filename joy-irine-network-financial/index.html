@@ -30,6 +30,11 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 .feat-card .icon{font-size:24px;margin-bottom:14px;}
 .feat-card h3{font-size:15px;font-weight:700;margin:0 0 8px;color:var(--gold);}
 .feat-card p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;margin:0;}
+.build-lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;text-align:center;margin:64px 0 24px;}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto;}
+.video-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
+.video-card video{width:100%;display:block;background:#000;}
+.video-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);}
 
 /* SECTION 3 - INSTRUCTIONS */
 .instructions{padding:80px 24px;background:#080808;}
@@ -68,6 +73,18 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
     <div class="feat-card"><div class="icon">🏠</div><h3>Purchase or Refinance</h3><p>Qualifies callers on loan purpose and property details in a natural conversation.</p></div>
     <div class="feat-card"><div class="icon">✅</div><h3>Compliance-Aware</h3><p>Delivers required disclosures — recording consent, NMLS ID, Equal Housing — every call.</p></div>
     <div class="feat-card"><div class="icon">📅</div><h3>Books the Appointment</h3><p>Offers real time slots and confirms a consultation with a licensed loan officer.</p></div>
+  </div>
+
+  <div class="build-lbl">Behind The Build</div>
+  <div class="video-grid">
+    <div class="video-card">
+      <video controls preload="metadata"><source src="/videos/claude-code-build.mp4" type="video/mp4"></video>
+      <div class="vlabel">Building the Voice Agent with Claude Code</div>
+    </div>
+    <div class="video-card">
+      <video controls preload="metadata"><source src="/videos/n8n-automation-build.mp4" type="video/mp4"></video>
+      <div class="vlabel">Wiring the Lead Automation with n8n</div>
+    </div>
   </div>
 </section>
 

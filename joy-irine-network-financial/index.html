@@ -21,15 +21,9 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 .pulse{width:10px;height:10px;border-radius:50%;background:var(--gold);animation:pulse 1.6s infinite;}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(237,185,46,0.6);}70%{box-shadow:0 0 0 10px rgba(237,185,46,0);}100%{box-shadow:0 0 0 0 rgba(237,185,46,0);}}
 
-/* SECTION 2 - WHAT SHE CAN HELP WITH */
+/* SECTION 2 - HOW IT WAS BUILT */
 .features{padding:80px 24px;background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);}
 .sec-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mg);font-weight:700;text-align:center;margin-bottom:16px;}
-.features h2{text-align:center;font-size:clamp(24px,3.5vw,36px);font-weight:800;margin:0 0 48px;}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:900px;margin:0 auto;}
-.feat-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px 24px;}
-.feat-card .icon{font-size:24px;margin-bottom:14px;}
-.feat-card h3{font-size:15px;font-weight:700;margin:0 0 8px;color:var(--gold);}
-.feat-card p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;margin:0;}
 .build-lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;text-align:center;margin:40px 0 20px;}
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto;}
 .video-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
@@ -65,17 +59,9 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
   <button class="call-btn" onclick="buksanAngAi()"><span class="pulse"></span>Call Joy Irine</button>
 </section>
 
-<!-- SECTION 2: WHAT SHE CAN HELP WITH -->
+<!-- SECTION 2: HOW IT WAS BUILT -->
 <section class="features">
-  <div class="sec-label">What She Handles</div>
-  <h2>Built for Mortgage Intake</h2>
-  <div class="feat-grid">
-    <div class="feat-card"><div class="icon">🏠</div><h3>Purchase or Refinance</h3><p>Qualifies callers on loan purpose and property details in a natural conversation.</p></div>
-    <div class="feat-card"><div class="icon">✅</div><h3>Compliance-Aware</h3><p>Delivers required disclosures — recording consent, NMLS ID, Equal Housing — every call.</p></div>
-    <div class="feat-card"><div class="icon">📅</div><h3>Books the Appointment</h3><p>Offers real time slots and confirms a consultation with a licensed loan officer.</p></div>
-  </div>
-
-  <div class="build-lbl">How I Built This With AI</div>
+  <div class="build-lbl" style="margin-top:0;">How I Built This With AI</div>
   <div class="video-grid">
     <div class="video-card">
       <video controls preload="metadata"><source src="/videos/claude-code-build.mp4" type="video/mp4"></video>

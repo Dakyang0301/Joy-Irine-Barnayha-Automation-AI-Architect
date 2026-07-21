@@ -29,13 +29,13 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 .video-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
 .video-card video{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;background:#000;}
 .video-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);}
-.shot-carousel{position:relative;height:420px;max-width:1000px;margin:0 auto;cursor:pointer;user-select:none;perspective:1400px;}
-.shot-slide{position:absolute;top:0;left:50%;width:320px;height:100%;margin-left:-160px;background:#111;border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;transition:all .5s cubic-bezier(.4,0,.2,1);}
+.shot-carousel{position:relative;height:380px;max-width:1200px;margin:0 auto;cursor:pointer;user-select:none;perspective:1400px;}
+.shot-slide{position:absolute;top:0;left:50%;width:560px;height:100%;margin-left:-280px;background:#111;border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;transition:all .5s cubic-bezier(.4,0,.2,1);}
 .shot-slide img{width:100%;height:calc(100% - 52px);display:block;object-fit:contain;background:#000;}
 .shot-slide .vlabel{padding:14px 18px;font-size:12px;font-weight:700;color:var(--w);}
 .shot-slide.cf-center{transform:translateX(0) scale(1) rotateY(0deg);z-index:3;opacity:1;box-shadow:0 24px 60px rgba(0,0,0,0.6);}
-.shot-slide.cf-next{transform:translateX(210px) scale(0.8) rotateY(-22deg);z-index:2;opacity:0.5;}
-.shot-slide.cf-prev{transform:translateX(-210px) scale(0.8) rotateY(22deg);z-index:2;opacity:0.5;}
+.shot-slide.cf-next{transform:translateX(340px) scale(0.78) rotateY(-22deg);z-index:2;opacity:0.5;}
+.shot-slide.cf-prev{transform:translateX(-340px) scale(0.78) rotateY(22deg);z-index:2;opacity:0.5;}
 .shot-hint{position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.6);font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:100px;pointer-events:none;z-index:4;}
 .shot-dots{display:flex;justify-content:center;gap:8px;margin-top:20px;}
 .shot-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background .2s;}

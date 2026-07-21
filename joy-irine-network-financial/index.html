@@ -51,6 +51,24 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 .step-text h4{margin:0 0 4px;font-size:14px;font-weight:700;}
 .step-text p{margin:0;font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
 
+/* SECTION 4 - Q&A ACCORDION */
+.qa{padding:100px 24px;background:#000;border-top:1px solid rgba(255,255,255,0.06);}
+.qa-list{max-width:760px;margin:0 auto;}
+.qa-item{border:1px solid rgba(255,255,255,0.1);border-radius:12px;margin-bottom:12px;overflow:hidden;background:#0a0a0a;transition:border-color .2s;}
+.qa-item.open{border-color:rgba(237,185,46,0.4);}
+.qa-q{width:100%;text-align:left;background:none;border:none;color:var(--w);padding:20px 24px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.qa-q .num{color:var(--gold);margin-right:10px;}
+.qa-q .chev{transition:transform .3s;color:var(--gold);flex-shrink:0;font-size:14px;}
+.qa-item.open .qa-q .chev{transform:rotate(180deg);}
+.qa-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.qa-a-inner{padding:0 24px 22px;font-size:13.5px;color:rgba(255,255,255,0.6);line-height:1.75;}
+.qa-a-inner a{color:var(--gold);text-decoration:underline;}
+.other-work{max-width:760px;margin:48px auto 0;padding:28px;background:#0a0a0a;border:1px solid rgba(237,185,46,0.3);border-radius:12px;text-align:center;}
+.other-work .ow-lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mg);font-weight:700;margin-bottom:10px;}
+.other-work a{color:var(--gold);font-weight:700;font-size:15px;text-decoration:none;}
+.other-work a:hover{text-decoration:underline;}
+.other-work .ow-tag{margin-top:10px;font-size:12px;color:rgba(255,255,255,0.4);font-style:italic;}
+
 /* MODAL */
 #aiModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999998;align-items:center;justify-content:center;}
 #aiModal .card{position:relative;width:300px;border-radius:28px;background:#0a0a0a;border:2px solid var(--gold);padding:48px 28px 40px;display:flex;flex-direction:column;align-items:center;gap:20px;box-shadow:0 24px 80px rgba(237,185,46,0.15),0 24px 64px rgba(0,0,0,0.8);}
@@ -124,6 +142,81 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
   </div>
 </section>
 
+<!-- SECTION 4: Q&A ACCORDION -->
+<section class="qa">
+  <div class="sec-label">Working With Me</div>
+  <h2 style="text-align:center;font-size:clamp(24px,3.5vw,36px);font-weight:800;margin:0 0 48px;">Questions I'd Expect You To Ask</h2>
+  <div class="qa-list" id="qaList">
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">01</span>Most complete system built</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">The Network Financial voice agent above. It qualifies the caller, calculates real appointment times, and hands off to the CRM — end to end. I designed the conversation flow and the architecture. Claude Code wrote the handler to my spec.<br><br>Similar routing logic runs in client accounts — the <a href="https://joyirinebarnayha.com/high-ticket-lead-routing" target="_blank">round-robin lead assignment</a> linked below is mine end to end.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">02</span>Last 90 days</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">8 GHL accounts, 2 agency-level — real estate, coaching, auction, e-commerce, HVAC, and solar. High-ticket lead routing with round-robin assignment. SMS AI agent. The agent above: built today, after I read your email reply.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">03</span>Production ratings</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">GHL 8 · Vapi 8 · n8n 8 · ElevenLabs 8<br><br>Built a full GHL system for one client in 2 days after studying their sales process. The voice agent above took one.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">04</span>Weeks 2–12</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Week 2 is watching, not building. Weeks 3–6, fix what real usage exposed — production always teaches you things you couldn't predict. Weeks 7–12, shift from fixing to improving.<br><br>Automations decay quietly. Nothing goes live and gets forgotten.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">05</span>Knowing before you do</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">I alert on silence, not errors. A workflow that fails loudly is easy to catch. One that quietly stops triggering is what costs money — so I watch volume drops, not just failures.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">06</span>Vapi booking wrong times</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Flag the wrong bookings first so the team can call those leads back. That comes before the fix.<br><br>Then isolate before touching anything. Timezone bugs live at the seam between systems, not inside one. Fix it in a single place, verify at the edges where offsets break, and make sure there's one source of truth instead of four.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">07</span>Managing GHL beyond workflows</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Weekly: what's moving and what's stuck. Monthly: what's decaying — unused workflows, expired tokens, duplicate contacts, compliance status.<br><br>Half of GHL ownership is deleting what nobody uses anymore.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">08</span>Weekly reporting</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Dashboard as source of truth, plus a Monday summary: what moved, what broke, what I'm changing, one recommendation.<br><br>I'd lead with cost per booked appointment. That's the number that connects everything else to revenue.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">09</span>Why full-time ownership</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Project work means you build it, hand it off, and never see what happens after week 3.<br><br>The first build is a guess. Months 2 through 6 are where it becomes reliable — and that's the part I want to be there for.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">10</span>Compliance on every call</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">The strongest control is scope, not rules. The agent qualifies and books — it doesn't advise. It can't say the wrong thing about something it never discusses.<br><br>On top of that: hard-coded disclosures, a deny list, every call transcribed and reviewed, and no prompt change goes live without a test call.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">11</span>A failure I owned</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">The greeting stuttered on cold starts. My first fix made it worse because I changed a setting on a hunch instead of measuring.<br><br>Small problem, but the lesson was the pattern: I acted before I isolated. That's the mistake I don't want to repeat on something bigger.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">12</span>No one to escalate to</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Run the whole system and find where it actually breaks, not where I assume. Most problems get misdiagnosed because people fix before they isolate.<br><br>Once I know which layer is broken, I use Claude Code to fix it, then test until the output matches what it should be. And I don't go quiet. You'd hear the same day what I've ruled out.</div></div>
+    </div>
+
+  </div>
+
+  <div class="other-work">
+    <div class="ow-lbl">Other Work</div>
+    <a href="https://joyirinebarnayha.com/high-ticket-lead-routing" target="_blank">High-Ticket Lead Routing &amp; Sales Team Round-Robin →</a>
+    <div class="ow-tag">"I prefer work that speaks for itself."</div>
+  </div>
+</section>
+
 <!-- MODAL -->
 <div id="aiModal" onclick="sarhanAngAi()">
   <div class="card" onclick="event.stopPropagation()">
@@ -136,6 +229,14 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 </div>
 
 <script>
+function toggleQA(btn){
+  var item=btn.parentElement;
+  var ans=item.querySelector('.qa-a');
+  var isOpen=item.classList.contains('open');
+  item.classList.toggle('open');
+  ans.style.maxHeight=isOpen?0:(ans.scrollHeight+'px');
+}
+
 function syncNarration(vidId,narId){
   var vid=document.getElementById(vidId);
   var nar=document.getElementById(narId);

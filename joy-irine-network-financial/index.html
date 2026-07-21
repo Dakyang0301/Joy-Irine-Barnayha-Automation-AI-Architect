@@ -28,11 +28,16 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:32px;max-width:1600px;margin:0 auto;}
 .video-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
 .video-card video{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;background:#000;}
-.shot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1600px;margin:0 auto;}
-.shot-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
-.shot-card img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#000;}
-.shot-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);}
 .video-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);}
+.shot-carousel{position:relative;max-width:900px;margin:0 auto;background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;cursor:pointer;user-select:none;}
+.shot-slide{display:none;}
+.shot-slide.active{display:block;}
+.shot-slide img{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;background:#000;}
+.shot-slide .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);}
+.shot-hint{position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.6);font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:100px;pointer-events:none;}
+.shot-dots{display:flex;justify-content:center;gap:8px;margin-top:20px;}
+.shot-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background .2s;}
+.shot-dot.active{background:var(--gold);}
 
 /* SECTION 3 - INSTRUCTIONS */
 .instructions{padding:80px 24px;background:#080808;}
@@ -78,19 +83,25 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
   </div>
 
   <div class="build-lbl">The Tech Stack Behind Her</div>
-  <div class="shot-grid">
-    <div class="shot-card">
+  <div class="shot-carousel" id="shotCarousel" onclick="nextShot()">
+    <div class="shot-hint">Click to see next →</div>
+    <div class="shot-slide active">
       <img src="/images/vapi-voice-config.png" alt="Vapi assistant voice configuration">
       <div class="vlabel">Vapi — Assistant + Voice Config</div>
     </div>
-    <div class="shot-card">
+    <div class="shot-slide">
       <img src="/images/n8n-workflow.png" alt="n8n automation workflow">
       <div class="vlabel">n8n — Lead Automation Workflow</div>
     </div>
-    <div class="shot-card">
+    <div class="shot-slide">
       <img src="/images/elevenlabs-dashboard.png" alt="ElevenLabs dashboard">
       <div class="vlabel">ElevenLabs — Voice Platform</div>
     </div>
+  </div>
+  <div class="shot-dots" id="shotDots">
+    <div class="shot-dot active"></div>
+    <div class="shot-dot"></div>
+    <div class="shot-dot"></div>
   </div>
 </section>
 
@@ -117,6 +128,26 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 </div>
 
 <script>
+var shotIdx=0;
+var shotSlides=document.querySelectorAll('.shot-slide');
+var shotDots=document.querySelectorAll('.shot-dot');
+var shotTimer=null;
+
+function showShot(i){
+  shotIdx=(i+shotSlides.length)%shotSlides.length;
+  shotSlides.forEach(function(s,n){s.classList.toggle('active',n===shotIdx);});
+  shotDots.forEach(function(d,n){d.classList.toggle('active',n===shotIdx);});
+}
+function nextShot(){
+  showShot(shotIdx+1);
+  resetShotTimer();
+}
+function resetShotTimer(){
+  if(shotTimer)clearInterval(shotTimer);
+  shotTimer=setInterval(function(){showShot(shotIdx+1);},4000);
+}
+resetShotTimer();
+
 var vapiInst=null,vapiOk=false,aiActive=false;
 var ASSISTANT_ID='4b473895-6b98-4ec0-b72a-7124ee0e663d';
 var PUBLIC_KEY='ffcc1ddc-3e6b-4f52-9673-22f5a2b7a79c';

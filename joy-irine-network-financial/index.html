@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joy Irine — Network Financial Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{--mg:#8B004B;--gold:#edb92e;--w:#fff;}
+*{box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margin:0;padding:0;overflow-x:hidden;}
+
+/* SECTION 1 - HERO / CALL */
+.hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;background:radial-gradient(circle at 50% 20%,rgba(139,0,75,0.25),transparent 60%),#080808;}
+.hero-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:18px;}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;line-height:1.15;margin:0 0 16px;}
+.hero h1 span{color:var(--mg);}
+.hero p{font-size:15px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 0 40px;line-height:1.7;}
+.call-btn{background:#000;color:var(--gold);padding:20px 48px;border-radius:100px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;border:2px solid var(--gold);cursor:pointer;letter-spacing:2px;text-transform:uppercase;box-shadow:0 0 24px rgba(237,185,46,0.4),0 12px 40px rgba(0,0,0,0.6);transition:all .25s;display:inline-flex;align-items:center;gap:12px;}
+.call-btn:hover{transform:translateY(-2px);box-shadow:0 0 32px rgba(237,185,46,0.6),0 16px 48px rgba(0,0,0,0.7);}
+.pulse{width:10px;height:10px;border-radius:50%;background:var(--gold);animation:pulse 1.6s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(237,185,46,0.6);}70%{box-shadow:0 0 0 10px rgba(237,185,46,0);}100%{box-shadow:0 0 0 0 rgba(237,185,46,0);}}
+
+/* SECTION 2 - WHAT SHE CAN HELP WITH */
+.features{padding:80px 24px;background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);}
+.sec-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mg);font-weight:700;text-align:center;margin-bottom:16px;}
+.features h2{text-align:center;font-size:clamp(24px,3.5vw,36px);font-weight:800;margin:0 0 48px;}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:900px;margin:0 auto;}
+.feat-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px 24px;}
+.feat-card .icon{font-size:24px;margin-bottom:14px;}
+.feat-card h3{font-size:15px;font-weight:700;margin:0 0 8px;color:var(--gold);}
+.feat-card p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;margin:0;}
+
+/* SECTION 3 - INSTRUCTIONS */
+.instructions{padding:80px 24px;background:#080808;}
+.instructions h2{text-align:center;font-size:clamp(24px,3.5vw,36px);font-weight:800;margin:0 0 48px;}
+.steps{max-width:640px;margin:0 auto;}
+.step{display:flex;gap:20px;margin-bottom:28px;align-items:flex-start;}
+.step-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(237,185,46,0.1);border:1.5px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;}
+.step-text h4{margin:0 0 4px;font-size:14px;font-weight:700;}
+.step-text p{margin:0;font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
+
+/* MODAL */
+#aiModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999998;align-items:center;justify-content:center;}
+#aiModal .card{position:relative;width:300px;border-radius:28px;background:#0a0a0a;border:2px solid var(--gold);padding:48px 28px 40px;display:flex;flex-direction:column;align-items:center;gap:20px;box-shadow:0 24px 80px rgba(237,185,46,0.15),0 24px 64px rgba(0,0,0,0.8);}
+#aiModal .close{position:absolute;top:12px;right:14px;background:#000;color:var(--gold);border:2px solid var(--gold);border-radius:50%;width:30px;height:30px;font-size:14px;font-weight:700;cursor:pointer;line-height:1;}
+#aiOrb{width:100px;height:100px;border-radius:50%;overflow:hidden;border:2.5px solid var(--gold);box-shadow:0 0 28px rgba(237,185,46,0.35);transition:box-shadow .4s;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#111;font-size:36px;}
+#aiTitle{font-size:12px;font-weight:800;letter-spacing:3px;color:var(--gold);text-transform:uppercase;text-align:center;}
+#aiStatus{font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.65);text-align:center;}
+#aiSub{font-size:10px;color:rgba(255,255,255,0.28);text-align:center;line-height:1.7;}
+</style>
+</head>
+<body>
+
+<!-- SECTION 1: HERO / CALL BUTTON -->
+<section class="hero">
+  <div class="hero-label">Network Financial · AI Voice Assistant</div>
+  <h1>Talk to <span>Joy Irine</span><br/>right now.</h1>
+  <p>Our AI Mortgage Intake Specialist is live in your browser — no phone call, no download. Click below, allow your microphone, and start the conversation.</p>
+  <button class="call-btn" onclick="buksanAngAi()"><span class="pulse"></span>Call Joy Irine</button>
+</section>
+
+<!-- SECTION 2: WHAT SHE CAN HELP WITH -->
+<section class="features">
+  <div class="sec-label">What She Handles</div>
+  <h2>Built for Mortgage Intake</h2>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="icon">🏠</div><h3>Purchase or Refinance</h3><p>Qualifies callers on loan purpose and property details in a natural conversation.</p></div>
+    <div class="feat-card"><div class="icon">✅</div><h3>Compliance-Aware</h3><p>Delivers required disclosures — recording consent, NMLS ID, Equal Housing — every call.</p></div>
+    <div class="feat-card"><div class="icon">📅</div><h3>Books the Appointment</h3><p>Offers real time slots and confirms a consultation with a licensed loan officer.</p></div>
+  </div>
+</section>
+
+<!-- SECTION 3: INSTRUCTIONS -->
+<section class="instructions">
+  <div class="sec-label">How To Test</div>
+  <h2>3 Quick Steps</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-text"><h4>Click "Call Joy Irine"</h4><p>Above, on this same page — no new tab or app needed.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text"><h4>Allow microphone access</h4><p>Your browser will ask for permission — click "Allow" to connect.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text"><h4>Say "Hello"</h4><p>Joy Irine will greet you and walk through a mortgage intake call.</p></div></div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="aiModal" onclick="sarhanAngAi()">
+  <div class="card" onclick="event.stopPropagation()">
+    <button class="close" onclick="sarhanAngAi()">✕</button>
+    <div id="aiOrb">💬</div>
+    <div id="aiTitle">Joy Irine · Network Financial</div>
+    <div id="aiStatus">Connecting...</div>
+    <div id="aiSub">Allow microphone when prompted.<br>Say <b style="color:rgba(237,185,46,0.7)">hello</b> to start the conversation!</div>
+  </div>
+</div>
+
+<script>
+var vapiInst=null,vapiOk=false,aiActive=false;
+var ASSISTANT_ID='REPLACE_WITH_ASSISTANT_ID';
+var PUBLIC_KEY='ffcc1ddc-3e6b-4f52-9673-22f5a2b7a79c';
+
+(function(d,t){
+  var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src='https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js';
+  g.async=true;
+  s.parentNode.insertBefore(g,s);
+  g.onload=function(){
+    vapiInst=window.vapiSDK.run({
+      apiKey:PUBLIC_KEY,
+      assistant:ASSISTANT_ID,
+      config:{position:'bottom-right',offset:'-9999px'}
+    });
+    vapiInst.on('call-start',function(){
+      aiActive=true;
+      setAiStat('Say hello to start!');
+      document.getElementById('aiOrb').style.boxShadow='0 0 48px rgba(237,185,46,0.7),0 0 80px rgba(237,185,46,0.3)';
+    });
+    vapiInst.on('speech-start',function(){setAiStat('Joy Irine is speaking...');});
+    vapiInst.on('speech-end',function(){setAiStat('Go ahead, I\'m listening...');});
+    vapiInst.on('call-end',function(){
+      aiActive=false;
+      setAiStat('Call ended. Goodbye!');
+      document.getElementById('aiOrb').style.boxShadow='0 0 28px rgba(237,185,46,0.35)';
+      setTimeout(sarhanAngAi,2000);
+    });
+    vapiInst.on('error',function(e){setAiStat('Error — please try again.');});
+    vapiOk=true;
+    setTimeout(function(){
+      var btn=document.querySelector('[class*="vapi"]');
+      if(btn)btn.style.display='none';
+    },2000);
+  };
+})(document,'script');
+
+function setAiStat(msg){var el=document.getElementById('aiStatus');if(el)el.textContent=msg;}
+
+function startVapiCall(){
+  if(ASSISTANT_ID==='REPLACE_WITH_ASSISTANT_ID'){
+    setAiStat('Not connected yet — setup in progress.');
+    return;
+  }
+  var vapiBtn=document.querySelector('button[id*="vapi"],div[id*="vapi"] button,.vapi-btn,#vapi-support-btn');
+  if(vapiBtn){
+    vapiBtn.click();
+  } else if(vapiOk){
+    vapiInst.start(ASSISTANT_ID);
+  } else {
+    var t=setInterval(function(){
+      if(vapiOk){clearInterval(t);vapiInst.start(ASSISTANT_ID);}
+    },400);
+  }
+}
+
+function buksanAngAi(){
+  document.getElementById('aiModal').style.display='flex';
+  document.body.style.overflow='hidden';
+  setAiStat('Connecting...');
+  startVapiCall();
+}
+function sarhanAngAi(){
+  if(aiActive&&vapiInst)vapiInst.stop();
+  document.getElementById('aiModal').style.display='none';
+  document.body.style.overflow='';
+  aiActive=false;
+}
+</script>
+
+</body>
+</html>

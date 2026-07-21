@@ -295,7 +295,10 @@ function syncNarration(vidId,narId){
   var vid=document.getElementById(vidId);
   var nar=document.getElementById(narId);
   if(!vid||!nar)return;
-  vid.addEventListener('play',function(){nar.currentTime=vid.currentTime;nar.play();});
+  vid.addEventListener('play',function(){
+    if(aiActive){vid.pause();return;}
+    nar.currentTime=vid.currentTime;nar.play();
+  });
   vid.addEventListener('pause',function(){nar.pause();});
   vid.addEventListener('seeked',function(){nar.currentTime=vid.currentTime;});
   vid.addEventListener('ended',function(){
@@ -359,6 +362,9 @@ var PUBLIC_KEY='ffcc1ddc-3e6b-4f52-9673-22f5a2b7a79c';
       aiActive=true;
       setAiStat('Say hello to start!');
       document.getElementById('aiOrb').style.boxShadow='0 0 48px rgba(237,185,46,0.7),0 0 80px rgba(237,185,46,0.3)';
+      var cv=document.getElementById('claudeVid'),nv=document.getElementById('n8nVid');
+      if(cv&&!cv.paused)cv.pause();
+      if(nv&&!nv.paused)nv.pause();
     });
     vapiInst.on('speech-start',function(){setAiStat('Joy Irine is speaking...');});
     vapiInst.on('speech-end',function(){setAiStat('Go ahead, I\'m listening...');});

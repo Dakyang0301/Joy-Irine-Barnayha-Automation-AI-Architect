@@ -75,7 +75,8 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
   <div class="build-lbl" style="margin-top:0;">How I Built This With AI</div>
   <div class="video-grid">
     <div class="video-card">
-      <video controls preload="metadata"><source src="/videos/claude-code-build.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" id="claudeVid" muted><source src="/videos/claude-code-build.mp4" type="video/mp4"></video>
+      <audio id="claudeNarration" preload="metadata"><source src="/audio/claude-code-narration.mp3" type="audio/mpeg"></audio>
       <div class="vlabel">Building the Voice Agent with Claude Code</div>
     </div>
     <div class="video-card">
@@ -130,6 +131,16 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 </div>
 
 <script>
+(function(){
+  var vid=document.getElementById('claudeVid');
+  var nar=document.getElementById('claudeNarration');
+  if(!vid||!nar)return;
+  vid.addEventListener('play',function(){nar.currentTime=vid.currentTime;nar.play();});
+  vid.addEventListener('pause',function(){nar.pause();});
+  vid.addEventListener('seeked',function(){nar.currentTime=vid.currentTime;});
+  vid.addEventListener('ended',function(){nar.pause();nar.currentTime=0;});
+})();
+
 var shotIdx=0;
 var shotSlides=document.querySelectorAll('.shot-slide');
 var shotDots=document.querySelectorAll('.shot-dot');

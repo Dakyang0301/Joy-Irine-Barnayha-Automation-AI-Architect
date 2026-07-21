@@ -28,6 +28,10 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:32px;max-width:1600px;margin:0 auto;}
 .video-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
 .video-card video{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;background:#000;}
+.shot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1600px;margin:0 auto;}
+.shot-card{background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
+.shot-card img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#000;}
+.shot-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);}
 .video-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);}
 
 /* SECTION 3 - INSTRUCTIONS */
@@ -70,6 +74,22 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
     <div class="video-card">
       <video controls preload="metadata"><source src="/videos/n8n-automation-build.mp4" type="video/mp4"></video>
       <div class="vlabel">Wiring the Lead Automation with n8n</div>
+    </div>
+  </div>
+
+  <div class="build-lbl">The Tech Stack Behind Her</div>
+  <div class="shot-grid">
+    <div class="shot-card">
+      <img src="/images/vapi-voice-config.png" alt="Vapi assistant voice configuration">
+      <div class="vlabel">Vapi — Assistant + Voice Config</div>
+    </div>
+    <div class="shot-card">
+      <img src="/images/n8n-workflow.png" alt="n8n automation workflow">
+      <div class="vlabel">n8n — Lead Automation Workflow</div>
+    </div>
+    <div class="shot-card">
+      <img src="/images/elevenlabs-dashboard.png" alt="ElevenLabs dashboard">
+      <div class="vlabel">ElevenLabs — Voice Platform</div>
     </div>
   </div>
 </section>

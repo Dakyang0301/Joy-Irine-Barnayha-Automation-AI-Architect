@@ -80,7 +80,8 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
       <div class="vlabel">Building the Voice Agent with Claude Code</div>
     </div>
     <div class="video-card">
-      <video controls preload="metadata"><source src="/videos/n8n-automation-build.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" id="n8nVid" muted><source src="/videos/n8n-automation-build.mp4" type="video/mp4"></video>
+      <audio id="n8nNarration" preload="metadata"><source src="/audio/n8n-narration.mp3" type="audio/mpeg"></audio>
       <div class="vlabel">Wiring the Lead Automation with n8n</div>
     </div>
   </div>
@@ -131,15 +132,17 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 </div>
 
 <script>
-(function(){
-  var vid=document.getElementById('claudeVid');
-  var nar=document.getElementById('claudeNarration');
+function syncNarration(vidId,narId){
+  var vid=document.getElementById(vidId);
+  var nar=document.getElementById(narId);
   if(!vid||!nar)return;
   vid.addEventListener('play',function(){nar.currentTime=vid.currentTime;nar.play();});
   vid.addEventListener('pause',function(){nar.pause();});
   vid.addEventListener('seeked',function(){nar.currentTime=vid.currentTime;});
   vid.addEventListener('ended',function(){nar.pause();nar.currentTime=0;});
-})();
+}
+syncNarration('claudeVid','claudeNarration');
+syncNarration('n8nVid','n8nNarration');
 
 var shotIdx=0;
 var shotSlides=document.querySelectorAll('.shot-slide');

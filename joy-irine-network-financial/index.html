@@ -250,7 +250,14 @@ function syncNarration(vidId,narId){
   vid.addEventListener('pause',function(){nar.pause();});
   vid.addEventListener('seeked',function(){nar.currentTime=vid.currentTime;});
   vid.addEventListener('ended',function(){
-    if(nar.currentTime>=nar.duration-0.3)nar.currentTime=0;
+    if(nar.paused||nar.currentTime>=nar.duration-0.3){
+      nar.currentTime=0;
+      vid.currentTime=0;
+    }
+  });
+  nar.addEventListener('ended',function(){
+    nar.currentTime=0;
+    vid.currentTime=0;
   });
 }
 syncNarration('claudeVid','claudeNarration');

@@ -68,6 +68,12 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 #aiTitle{font-size:12px;font-weight:800;letter-spacing:3px;color:var(--gold);text-transform:uppercase;text-align:center;}
 #aiStatus{font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.65);text-align:center;}
 #aiSub{font-size:10px;color:rgba(255,255,255,0.28);text-align:center;line-height:1.7;}
+
+/* EXTERNAL PAGE MODAL */
+#extModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999998;align-items:center;justify-content:center;padding:24px;}
+.ext-card{position:relative;width:100%;max-width:1100px;height:85vh;border-radius:20px;background:#0a0a0a;border:2px solid var(--gold);overflow:hidden;box-shadow:0 24px 80px rgba(237,185,46,0.15),0 24px 64px rgba(0,0,0,0.8);}
+.ext-close{position:absolute;top:14px;right:14px;background:#000;color:var(--gold);border:2px solid var(--gold);border-radius:50%;width:34px;height:34px;font-size:15px;font-weight:700;cursor:pointer;line-height:1;z-index:2;}
+#extFrame{width:100%;height:100%;border:0;display:block;background:#fff;}
 </style>
 </head>
 <body>
@@ -130,7 +136,7 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 
     <div class="qa-item">
       <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">01</span>Most complete system built</span><span class="chev">▾</span></button>
-      <div class="qa-a"><div class="qa-a-inner">The Network Financial voice agent above. It qualifies the caller, calculates real appointment times, and hands off to the CRM — end to end. I designed the conversation flow and the architecture. Claude Code wrote the handler to my spec.<br><br>Similar routing logic runs in client accounts — the <a href="https://joyirinebarnayha.com/high-ticket-lead-routing" target="_blank">round-robin lead assignment</a> linked below is mine end to end.</div></div>
+      <div class="qa-a"><div class="qa-a-inner">The Network Financial voice agent above. It qualifies the caller, calculates real appointment times, and hands off to the CRM — end to end. I designed the conversation flow and the architecture. Claude Code wrote the handler to my spec.<br><br>Similar routing logic runs in client accounts — the <a href="#" onclick="openExternal('https://joyirinebarnayha.com/high-ticket-lead-routing');return false;">round-robin lead assignment</a> linked below is mine end to end.</div></div>
     </div>
 
     <div class="qa-item">
@@ -192,7 +198,7 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
 
   <div class="other-work">
     <div class="ow-lbl">Other Work</div>
-    <a href="https://joyirinebarnayha.com/high-ticket-lead-routing" target="_blank">High-Ticket Lead Routing &amp; Sales Team Round-Robin →</a>
+    <a href="#" onclick="openExternal('https://joyirinebarnayha.com/high-ticket-lead-routing');return false;">High-Ticket Lead Routing &amp; Sales Team Round-Robin →</a>
     <div class="ow-tag">"I prefer work that speaks for itself."</div>
   </div>
 </section>
@@ -208,7 +214,26 @@ body{font-family:'Montserrat',sans-serif;background:#080808;color:var(--w);margi
   </div>
 </div>
 
+<!-- EXTERNAL PAGE MODAL -->
+<div id="extModal" onclick="closeExternal()">
+  <div class="ext-card" onclick="event.stopPropagation()">
+    <button class="ext-close" onclick="closeExternal()">✕</button>
+    <iframe id="extFrame" src="about:blank"></iframe>
+  </div>
+</div>
+
 <script>
+function openExternal(url){
+  document.getElementById('extFrame').src=url;
+  document.getElementById('extModal').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeExternal(){
+  document.getElementById('extModal').style.display='none';
+  document.getElementById('extFrame').src='about:blank';
+  document.body.style.overflow='';
+}
+
 function toggleQA(btn){
   var item=btn.parentElement;
   var ans=item.querySelector('.qa-a');

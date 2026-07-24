@@ -163,7 +163,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#0f0f0f;height:8
 .svc:hover p{color:rgba(255,255,255,0.8);}
 
 /* VIDEO CARD */
-.vid-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.52);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;cursor:pointer;transition:background .3s;z-index:2;}
+.vid-overlay{position:absolute;inset:0;width:100%;height:100%;background:rgba(0,0,0,0.52);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;cursor:pointer;transition:background .3s;z-index:2;text-align:center;}
 .vid-overlay:hover{background:rgba(0,0,0,0.35);}
 .vid-play-btn{width:76px;height:76px;border-radius:50%;background:var(--mg);display:flex;align-items:center;justify-content:center;box-shadow:0 0 48px rgba(139,0,75,0.7),0 0 0 12px rgba(139,0,75,0.15);transition:transform .2s;}
 .vid-overlay:hover .vid-play-btn{transform:scale(1.1);}
@@ -924,7 +924,7 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
           </div>
           <div class="vid-overlay-label">Watch Demo</div>
         </div>
-        <button id="vidStopBtn" onclick="stopVid()" style="display:none;position:absolute;top:50%;right:16px;transform:translateY(-50%);z-index:999;align-items:center;gap:6px;background:var(--mg);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;">
+        <button id="vidStopBtn" onclick="stopVid()" style="display:none;position:absolute;top:50%;left:70%;transform:translateY(-50%);z-index:999;align-items:center;gap:6px;white-space:nowrap;background:var(--mg);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;">
           <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><rect x="5" y="5" width="14" height="14"></rect></svg>
           Stop
         </button>

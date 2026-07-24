@@ -1629,8 +1629,9 @@ function smmOpenSamples(idx){
 function smmCloseSamples(){
   const main = document.getElementById('smm-main-view');
   const view = document.getElementById('smm-samples-view');
+  const wasOpen = view.style.display === 'block';
   view.style.opacity = '0';
-  setTimeout(()=>{ view.style.display='none'; main.style.display='block'; main.style.opacity='0'; document.getElementById('smm').scrollIntoView({block:'start'}); setTimeout(()=>main.style.opacity='1',20); smmOpenNiche=-1; smmResetAuto(); },350);
+  setTimeout(()=>{ view.style.display='none'; main.style.display='block'; main.style.opacity='0'; if(wasOpen) document.getElementById('smm').scrollIntoView({block:'start'}); setTimeout(()=>main.style.opacity='1',20); smmOpenNiche=-1; smmResetAuto(); },350);
 }
 
 function smmDoNext(){ smmRotate(SMM_MOVES[smmMoveIdx%SMM_MOVES.length]); smmMoveIdx++; smmTimer=setTimeout(smmDoNext,SMM_DELAYS[smmMoveIdx%SMM_DELAYS.length]); }

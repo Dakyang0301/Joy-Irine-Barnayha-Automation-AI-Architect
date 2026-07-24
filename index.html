@@ -370,6 +370,8 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
   .pitem.wide[style*="grid-template-columns:2fr 1fr"]{display:block!important;}
   #vidWrap{border-radius:12px 12px 0 0!important;height:220px!important;}
   .pinfo{height:auto!important;min-height:unset;}
+  .vid-stop-btn{right:8px!important;padding:5px 9px!important;font-size:9px!important;gap:4px!important;}
+  .vid-stop-btn svg{width:8px!important;height:8px!important;}
   /* Funnel section */
   .portfolio>div[style*="margin:120px -64px"]{margin:40px -20px 0!important;padding:40px 20px!important;}
   .portfolio>div[style*="margin:120px -64px"]>div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;}
@@ -924,8 +926,8 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
           </div>
           <div class="vid-overlay-label">Watch Demo</div>
         </div>
-        <button id="vidStopBtn" onclick="stopVid()" style="display:none;position:absolute;top:50%;left:62%;transform:translateY(-50%);z-index:999;align-items:center;gap:4px;white-space:nowrap;background:var(--mg);color:#fff;border:none;border-radius:6px;padding:5px 9px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><rect x="5" y="5" width="14" height="14"></rect></svg>
+        <button id="vidStopBtn" class="vid-stop-btn" onclick="stopVid()" style="display:none;position:absolute;top:50%;right:16px;transform:translateY(-50%);z-index:999;align-items:center;gap:6px;white-space:nowrap;background:var(--mg);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><rect x="5" y="5" width="14" height="14"></rect></svg>
           Stop
         </button>
       </div>

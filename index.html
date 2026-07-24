@@ -924,12 +924,15 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
           </div>
           <div class="vid-overlay-label">Watch Demo</div>
         </div>
-        <button id="vidStopBtn" onclick="stopVid()" style="display:none;position:absolute;top:12px;right:12px;z-index:999;width:44px;height:44px;border-radius:50%;border:none;background:rgba(0,0,0,0.75);color:#fff;cursor:pointer;align-items:center;justify-content:center;">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><rect x="5" y="5" width="14" height="14"></rect></svg>
-        </button>
       </div>
       <div class="pinfo" style="display:flex;flex-direction:column;justify-content:center;gap:14px;height:auto;overflow:hidden;padding:32px 28px;background:var(--bg);">
-        <div class="pcat">Automation · Make.com · Lead Gen</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+          <div class="pcat">Automation · Make.com · Lead Gen</div>
+          <button id="vidStopBtn" onclick="stopVid()" style="display:none;align-items:center;gap:6px;background:var(--mg);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;flex-shrink:0;">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><rect x="5" y="5" width="14" height="14"></rect></svg>
+            Stop
+          </button>
+        </div>
         <h3>Fully Automated Lead Generation System Demo</h3>
         <p>Full end-to-end automation on Make.com. Leads are captured, tagged, scored, enrolled in email sequences, notified via WhatsApp, and auto-booked into GHL — zero manual work.</p>
         <div class="ptags" style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:12px;"><span class="ptag" style="text-align:center;">Make.com</span><span class="ptag" style="text-align:center;">GHL Pipeline</span><span class="ptag" style="text-align:center;">Lead Scoring</span><span class="ptag" style="text-align:center;">Auto Email</span><span class="ptag" style="text-align:center;">WhatsApp Notify</span><span class="ptag" style="text-align:center;">Auto Book</span></div>

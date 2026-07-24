@@ -593,6 +593,62 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
   .tour-stats{grid-template-columns:repeat(2,1fr);}
   .timeslots{grid-template-columns:repeat(3,1fr);}
 }
+
+/* AI BUILD SHOWCASE (network-financial demo, sections 2+3) */
+.aibuild-features{padding:0 64px 80px;}
+.aibuild-techstack{padding:80px 64px;background:var(--s1);margin:0 -64px;}
+.build-lbl{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;text-align:center;margin:0 0 20px;}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:32px;max-width:1600px;margin:0 auto;}
+.video-card{background:#111;border:1.5px solid rgba(237,185,46,0.35);border-radius:16px;overflow:hidden;}
+.video-card video{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;background:#000;}
+.video-card .vlabel{padding:16px 20px;font-size:13px;font-weight:700;color:var(--w);text-align:center;}
+.shot-carousel{position:relative;height:380px;max-width:1200px;margin:0 auto;cursor:pointer;user-select:none;perspective:1400px;}
+.shot-slide{position:absolute;top:0;left:50%;width:560px;height:100%;margin-left:-280px;background:#111;border:1.5px solid rgba(237,185,46,0.35);border-radius:16px;overflow:hidden;transition:all .5s cubic-bezier(.4,0,.2,1);}
+.shot-slide img{width:100%;height:calc(100% - 52px);display:block;object-fit:contain;background:#000;}
+.shot-slide .vlabel{padding:14px 18px;font-size:12px;font-weight:700;color:var(--w);text-align:center;}
+.shot-slide.cf-center{transform:translateX(0) scale(1) rotateY(0deg);z-index:3;opacity:1;box-shadow:0 24px 60px rgba(0,0,0,0.6);}
+.shot-slide.cf-next{transform:translateX(340px) scale(0.78) rotateY(-22deg);z-index:2;opacity:0.5;}
+.shot-slide.cf-prev{transform:translateX(-340px) scale(0.78) rotateY(22deg);z-index:2;opacity:0.5;}
+.shot-hint{position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.6);font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:100px;pointer-events:none;z-index:4;}
+.shot-dots{display:flex;justify-content:center;gap:8px;margin-top:20px;}
+.shot-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background .2s;}
+.shot-dot.active{background:var(--gold);}
+.aibuild-qa{padding:80px 64px;}
+.qa-list{max-width:760px;margin:0 auto;}
+.qa-item{border:1px solid rgba(255,255,255,0.1);border-radius:12px;margin-bottom:12px;overflow:hidden;background:var(--s1);transition:border-color .2s;}
+.qa-item.open{border-color:rgba(237,185,46,0.4);}
+.qa-q{width:100%;text-align:left;background:none;border:none;color:var(--w);padding:20px 24px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.qa-q .num{color:var(--gold);margin-right:10px;}
+.qa-q .chev{transition:transform .3s;color:var(--gold);flex-shrink:0;font-size:14px;}
+.qa-item.open .qa-q .chev{transform:rotate(180deg);}
+.qa-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.qa-a-inner{padding:0 24px 22px;font-size:13.5px;color:rgba(255,255,255,0.6);line-height:1.75;}
+.qa-a-inner a{color:var(--gold);text-decoration:underline;}
+.other-work{max-width:760px;margin:48px auto 0;padding:28px;background:var(--s1);border:1px solid rgba(237,185,46,0.3);border-radius:12px;text-align:center;}
+.other-work .ow-lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mg);font-weight:700;margin-bottom:10px;}
+.other-work a{color:var(--gold);font-weight:700;font-size:15px;text-decoration:none;}
+.other-work a:hover{text-decoration:underline;}
+.other-work .ow-tag{margin-top:10px;font-size:12px;color:rgba(255,255,255,0.4);font-style:italic;}
+#extModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999998;align-items:center;justify-content:center;padding:24px;}
+.ext-card{position:relative;width:100%;max-width:1100px;height:85vh;border-radius:20px;background:#0a0a0a;border:2px solid var(--gold);overflow:hidden;box-shadow:0 24px 80px rgba(237,185,46,0.15),0 24px 64px rgba(0,0,0,0.8);}
+.ext-close{position:absolute;top:14px;right:14px;background:#000;color:var(--gold);border:2px solid var(--gold);border-radius:50%;width:34px;height:34px;font-size:15px;font-weight:700;cursor:pointer;line-height:1;z-index:2;}
+#extFrame{width:100%;height:100%;border:0;display:block;background:#fff;}
+@media(max-width:700px){
+  .aibuild-features{padding:0 20px 56px;}
+  .aibuild-techstack{padding:56px 20px;margin:0 -20px;}
+  .aibuild-qa{padding:56px 20px;}
+  .video-grid{grid-template-columns:1fr;gap:20px;max-width:100%;}
+  .shot-carousel{overflow:hidden;height:300px;max-width:100%;}
+  .shot-slide{width:88vw;margin-left:-44vw;}
+  .shot-slide img{height:calc(100% - 46px);}
+  .shot-slide.cf-next{transform:translateX(92vw) scale(0.8) rotateY(-22deg);}
+  .shot-slide.cf-prev{transform:translateX(-92vw) scale(0.8) rotateY(22deg);}
+  .shot-hint{font-size:9px;padding:5px 10px;}
+  .qa-q{padding:16px 18px;font-size:13px;}
+  .qa-a-inner{padding:0 18px 18px;font-size:13px;}
+  .other-work{padding:20px;margin-top:32px;}
+  .ext-card{height:80vh;border-radius:14px;}
+}
 </style>
 </head>
 <body>
@@ -872,6 +928,137 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 
 </section>
 
+<!-- AI BUILD SHOWCASE -->
+<section class="aibuild-features" id="ai-build">
+  <div class="sec-label">Case Study</div>
+  <div class="sec-h2" style="margin-bottom:48px;">How I Built This <em>With</em> <span class="mg">AI</span></div>
+  <div class="video-grid">
+    <div class="video-card">
+      <video controls preload="metadata" id="claudeVid" muted><source src="/videos/claude-code-build.mp4" type="video/mp4"></video>
+      <audio id="claudeNarration" preload="metadata"><source src="/audio/claude-code-narration.mp3" type="audio/mpeg"></audio>
+      <div class="vlabel">Building the Voice Agent with Claude Code</div>
+    </div>
+    <div class="video-card">
+      <video controls preload="metadata" id="n8nVid" muted><source src="/videos/n8n-automation-build.mp4" type="video/mp4"></video>
+      <audio id="n8nNarration" preload="metadata"><source src="/audio/n8n-narration.mp3" type="audio/mpeg"></audio>
+      <div class="vlabel">Wiring the Lead Automation with n8n</div>
+    </div>
+  </div>
+</section>
+
+<section class="aibuild-techstack">
+  <div class="build-lbl">The Tech Stack Behind Her</div>
+  <div class="shot-carousel" id="shotCarousel" onclick="nextShot()">
+    <div class="shot-hint">Click to see next →</div>
+    <div class="shot-slide">
+      <img src="/images/vapi-voice-config.png" alt="Vapi assistant voice configuration">
+      <div class="vlabel">Vapi — Assistant + Voice Configuration</div>
+    </div>
+    <div class="shot-slide">
+      <img src="/images/n8n-workflow.png" alt="n8n automation workflow">
+      <div class="vlabel">n8n — Lead Automation Workflow</div>
+    </div>
+    <div class="shot-slide">
+      <img src="/images/elevenlabs-dashboard.png" alt="ElevenLabs dashboard">
+      <div class="vlabel">ElevenLabs — Voice Platform</div>
+    </div>
+  </div>
+  <div class="shot-dots" id="shotDots">
+    <div class="shot-dot"></div>
+    <div class="shot-dot"></div>
+    <div class="shot-dot"></div>
+  </div>
+</section>
+
+<!-- AI SPECIALIST Q&A -->
+<section class="aibuild-qa">
+  <div class="sec-label">Network Financial</div>
+  <div class="sec-h2" style="margin-bottom:48px;">AI Specialist <em>Screening</em> <span class="mg">Questions</span></div>
+  <div class="qa-list" id="qaList">
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">01</span>Most complete system built</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">The Network Financial voice agent above. It qualifies the caller, calculates real appointment times, and hands off to the CRM — end to end. I designed the conversation flow and the architecture. Claude Code wrote the handler to my spec.<br><br>Similar routing logic runs in client accounts — the <a href="#" onclick="openExternal('https://joyirinebarnayha.com/high-ticket-lead-routing');return false;">round-robin lead assignment</a> linked below is mine end to end.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">02</span>Last 90 days</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">8 GHL accounts, 2 agency-level — real estate, coaching, auction, e-commerce, HVAC, and solar. High-ticket lead routing with round-robin assignment. SMS AI agent. The agent above: built today, after I read your email reply.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">03</span>Production ratings</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">GHL 8 · Vapi 8 · n8n 8 · ElevenLabs 8<br><br>Built a full GHL system for one client in 2 days after studying their sales process. The voice agent above took one.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">04</span>Weeks 2–12</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Week 2 is watching, not building. Weeks 3–6, fix what real usage exposed — production always teaches you things you couldn't predict. Weeks 7–12, shift from fixing to improving.<br><br>Automations decay quietly. Nothing goes live and gets forgotten.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">05</span>Knowing before you do</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">I alert on silence, not errors. A workflow that fails loudly is easy to catch. One that quietly stops triggering is what costs money — so I watch volume drops, not just failures.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">06</span>Vapi booking wrong times</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Flag the wrong bookings first so the team can call those leads back. That comes before the fix.<br><br>Then isolate before touching anything. Timezone bugs live at the seam between systems, not inside one. Fix it in a single place, verify at the edges where offsets break, and make sure there's one source of truth instead of four.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">07</span>Managing GHL beyond workflows</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Weekly: what's moving and what's stuck. Monthly: what's decaying — unused workflows, expired tokens, duplicate contacts, compliance status.<br><br>Half of GHL ownership is deleting what nobody uses anymore.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">08</span>Weekly reporting</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Dashboard as source of truth, plus a Monday summary: what moved, what broke, what I'm changing, one recommendation.<br><br>I'd lead with cost per booked appointment. That's the number that connects everything else to revenue.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">09</span>Why full-time ownership</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Project work means you build it, hand it off, and never see what happens after week 3.<br><br>The first build is a guess. Months 2 through 6 are where it becomes reliable — and that's the part I want to be there for.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">10</span>Compliance on every call</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">The strongest control is scope, not rules. The agent qualifies and books — it doesn't advise. It can't say the wrong thing about something it never discusses.<br><br>On top of that: hard-coded disclosures, a deny list, every call transcribed and reviewed, and no prompt change goes live without a test call.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">11</span>A failure I owned</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">The greeting stuttered on cold starts. My first fix made it worse because I changed a setting on a hunch instead of measuring.<br><br>Small problem, but the lesson was the pattern: I acted before I isolated. That's the mistake I don't want to repeat on something bigger.</div></div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-q" onclick="toggleQA(this)"><span><span class="num">12</span>No one to escalate to</span><span class="chev">▾</span></button>
+      <div class="qa-a"><div class="qa-a-inner">Run the whole system and find where it actually breaks, not where I assume. Most problems get misdiagnosed because people fix before they isolate.<br><br>Once I know which layer is broken, I use Claude Code to fix it, then test until the output matches what it should be. And I don't go quiet. You'd hear the same day what I've ruled out.</div></div>
+    </div>
+
+  </div>
+
+  <!-- Other Work — visual card -->
+  <div class="other-work" style="padding:0;overflow:hidden;cursor:pointer;" onclick="openExternal('https://joyirinebarnayha.com/high-ticket-lead-routing')">
+    <div style="aspect-ratio:16/9;overflow:hidden;background:#000;">
+      <img src="/images/ghl-round-robin-workflow.png" alt="High-Ticket Lead Routing & Sales Team Round-Robin workflow" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+    </div>
+    <div style="padding:24px 28px;">
+      <div class="ow-lbl">Other Work</div>
+      <div style="color:var(--gold);font-weight:700;font-size:16px;">High-Ticket Lead Routing &amp; Sales Team Round-Robin →</div>
+      <div class="ow-tag">"I prefer work that speaks for itself."</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTERNAL PAGE PREVIEW MODAL -->
+<div id="extModal" onclick="closeExternal()">
+  <div class="ext-card" onclick="event.stopPropagation()">
+    <button class="ext-close" onclick="closeExternal()">✕</button>
+    <iframe id="extFrame" src="about:blank"></iframe>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="sec-label">What I Offer</div>
@@ -1109,6 +1296,77 @@ function sarhanAngAi(){
   document.body.style.overflow='';
   aiActive=false;
 }
+
+/* AI BUILD SHOWCASE — sections 2+3 */
+function openExternal(url){
+  document.getElementById('extFrame').src=url;
+  document.getElementById('extModal').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeExternal(){
+  document.getElementById('extModal').style.display='none';
+  document.getElementById('extFrame').src='about:blank';
+  document.body.style.overflow='';
+}
+
+function toggleQA(btn){
+  var item=btn.parentElement;
+  var ans=item.querySelector('.qa-a');
+  var isOpen=item.classList.contains('open');
+  item.classList.toggle('open');
+  ans.style.maxHeight=isOpen?0:(ans.scrollHeight+'px');
+}
+
+function syncNarration(vidId,narId){
+  var vid=document.getElementById(vidId);
+  var nar=document.getElementById(narId);
+  if(!vid||!nar)return;
+  vid.addEventListener('play',function(){
+    if(aiActive){vid.pause();return;}
+    nar.currentTime=vid.currentTime;nar.play();
+  });
+  vid.addEventListener('pause',function(){nar.pause();});
+  vid.addEventListener('seeked',function(){nar.currentTime=vid.currentTime;});
+  vid.addEventListener('ended',function(){
+    if(nar.paused||nar.currentTime>=nar.duration-0.3){
+      nar.currentTime=0;
+      vid.currentTime=0;
+    }
+  });
+  nar.addEventListener('ended',function(){
+    nar.currentTime=0;
+    vid.currentTime=0;
+  });
+}
+syncNarration('claudeVid','claudeNarration');
+syncNarration('n8nVid','n8nNarration');
+
+var shotIdx=0;
+var shotSlides=document.querySelectorAll('.shot-slide');
+var shotDots=document.querySelectorAll('.shot-dot');
+var shotTimer=null;
+
+function showShot(i){
+  var n=shotSlides.length;
+  shotIdx=(i+n)%n;
+  shotSlides.forEach(function(s,idx){
+    s.classList.remove('cf-center','cf-next','cf-prev');
+    var offset=(idx-shotIdx+n)%n;
+    if(offset===0)s.classList.add('cf-center');
+    else if(offset===1)s.classList.add('cf-next');
+    else s.classList.add('cf-prev');
+  });
+  shotDots.forEach(function(d,idx){d.classList.toggle('active',idx===shotIdx);});
+}
+function nextShot(){
+  showShot(shotIdx+1);
+  resetShotTimer();
+}
+function resetShotTimer(){
+  if(shotTimer)clearInterval(shotTimer);
+  shotTimer=setInterval(function(){showShot(shotIdx+1);},4000);
+}
+if(shotSlides.length){showShot(0);resetShotTimer();}
 </script>
 
 <!-- SAMPLE BUILDS MODAL -->

@@ -1142,6 +1142,7 @@ function playVid(){
   v.style.height='100%';
   v.style.objectFit='cover';
   v.style.objectPosition='center top';
+  v.setAttribute('controls','');
   v.play();
   v.onended=function(){
     v.currentTime=0.001;
@@ -1151,6 +1152,7 @@ function playVid(){
     v.style.height='100%';
     v.style.objectFit='cover';
     v.style.objectPosition='center 50%';
+    v.removeAttribute('controls');
     o.style.display='flex';
   };
 }

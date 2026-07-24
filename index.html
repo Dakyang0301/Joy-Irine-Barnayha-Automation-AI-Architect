@@ -1220,7 +1220,11 @@ function sarhanAngAi(){
 function openExternal(url){
   document.getElementById('extModal').style.display='flex';
   document.body.style.overflow='hidden';
-  document.getElementById('extFrame').src=url;
+  var sep=url.indexOf('?')===-1?'?':'&';
+  var bustedUrl=url+sep+'_t='+Date.now();
+  setTimeout(function(){
+    document.getElementById('extFrame').src=bustedUrl;
+  },20);
 }
 function closeExternal(){
   document.getElementById('extModal').style.display='none';

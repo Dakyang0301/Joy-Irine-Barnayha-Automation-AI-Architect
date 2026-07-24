@@ -979,7 +979,7 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 <div id="extModal" onclick="closeExternal()">
   <div class="ext-card" onclick="event.stopPropagation()">
     <button class="ext-close" onclick="closeExternal()">✕</button>
-    <iframe id="extFrame" src="about:blank"></iframe>
+    <iframe id="extFrame" src="/high-ticket-lead-routing" loading="eager"></iframe>
   </div>
 </div>
 
@@ -1243,15 +1243,9 @@ function sarhanAngAi(){
 function openExternal(url){
   document.getElementById('extModal').style.display='flex';
   document.body.style.overflow='hidden';
-  var sep=url.indexOf('?')===-1?'?':'&';
-  var bustedUrl=url+sep+'_t='+Date.now();
-  setTimeout(function(){
-    document.getElementById('extFrame').src=bustedUrl;
-  },20);
 }
 function closeExternal(){
   document.getElementById('extModal').style.display='none';
-  document.getElementById('extFrame').src='about:blank';
   document.body.style.overflow='';
 }
 

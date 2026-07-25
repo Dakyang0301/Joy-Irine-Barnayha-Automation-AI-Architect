@@ -44,9 +44,9 @@
   .ty-up { animation:ty-up 640ms cubic-bezier(.2,.7,.2,1) both; }
   @media (max-width:900px) {
     .fs-nav-links { display:none !important; }
-    .fs-nav-cta { padding:10px 16px !important; font-size:11.5px !important; }
-    .fs-nav-cta-full { display:none !important; }
-    .fs-nav-cta-short { display:inline !important; }
+    .fs-nav-cta { padding:8px 12px !important; font-size:9.5px !important; letter-spacing:0.03em !important; }
+    .fs-nav-name { font-size:11.5px !important; }
+    .fs-nav-tagline { font-size:12px !important; }
     .fs-hero-h { font-size:clamp(42px,11vw,64px) !important; }
     .fs-two-col { grid-template-columns:1fr !important; }
     .fs-two-col .fs-video-wrap { width:100% !important; height:auto !important; aspect-ratio:9/16; }
@@ -74,8 +74,8 @@
   <!-- ===== NAV ===== -->
   <nav style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; backdrop-filter:blur(16px); background:rgba(10,10,10,0.55); border-bottom:1px solid var(--border-1);" class="fs-pad">
     <div style="display:flex; flex-direction:column; gap:2px; line-height:1.1;">
-      <span style="font-family:var(--font-display); font-weight:800; font-size:15px; letter-spacing:0.04em; white-space:nowrap;">K. HOVNANIAN'S</span>
-      <span style="font-family:var(--font-accent); font-style:italic; font-size:16px; color:var(--gold-500); white-space:nowrap;">Four Seasons</span>
+      <span class="fs-nav-name" style="font-family:var(--font-display); font-weight:800; font-size:15px; letter-spacing:0.04em; white-space:nowrap;">K. HOVNANIAN'S</span>
+      <span class="fs-nav-tagline" style="font-family:var(--font-accent); font-style:italic; font-size:16px; color:var(--gold-500); white-space:nowrap;">Four Seasons</span>
     </div>
     <div class="fs-nav-links" style="display:flex; align-items:center; gap:34px;">
       <a href="#about" style="color:var(--fg-2); text-decoration:none; font-size:14px; font-weight:500;">The Home</a>
@@ -83,7 +83,7 @@
       <a href="#gallery" style="color:var(--fg-2); text-decoration:none; font-size:14px; font-weight:500;">Gallery</a>
       <a href="#specs" style="color:var(--fg-2); text-decoration:none; font-size:14px; font-weight:500;">Details</a>
     </div>
-    <a href="#book" class="fs-nav-cta" style="display:inline-flex; align-items:center; gap:8px; background:var(--accentBg); color:var(--accentInk); font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; padding:12px 22px; border-radius:var(--r-pill); box-shadow:var(--accentShadow);"><span class="fs-nav-cta-full">Schedule a Viewing</span><span class="fs-nav-cta-short" style="display:none;">Book Now</span></a>
+    <a href="#book" class="fs-nav-cta" style="display:inline-flex; align-items:center; gap:8px; background:var(--accentBg); color:var(--accentInk); font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; padding:12px 22px; border-radius:var(--r-pill); box-shadow:var(--accentShadow); white-space:nowrap;">Schedule a Viewing</a>
   </nav>
 
   <!-- ===== HERO ===== -->

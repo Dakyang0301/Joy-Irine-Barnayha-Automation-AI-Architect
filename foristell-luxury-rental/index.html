@@ -78,7 +78,7 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
     <div class="brand">Foristell Luxury Rental</div>
     <div class="links">
       <a href="#residence">Residence</a><a href="#features">Features</a><a href="#gallery">Gallery</a>
-      <a class="navcta" href="https://calendly.com/jirineautomationservices/30min" onclick="Calendly.initPopupWidget({url:'https://calendly.com/jirineautomationservices/30min'});return false;">Schedule a Showing</a>
+      <a class="navcta" href="https://calendly.com/jirineautomationservices/30min" onclick="return openCalendly('https://calendly.com/jirineautomationservices/30min');">Schedule a Showing</a>
     </div>
   </div>
 </nav>
@@ -103,7 +103,7 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
     <div class="sub"><span>4 Bedrooms</span><span>2.5 Baths</span><span>Full Basement</span><span>2-Car Garage</span></div>
     <div class="herorow">
       <div class="price">$3,000 <small>/ month</small></div>
-      <a href="https://calendly.com/jirineautomationservices/30min" class="btn" onclick="Calendly.initPopupWidget({url:'https://calendly.com/jirineautomationservices/30min'});return false;">Request a Private Showing</a>
+      <a href="https://calendly.com/jirineautomationservices/30min" class="btn" onclick="return openCalendly('https://calendly.com/jirineautomationservices/30min');">Request a Private Showing</a>
     </div>
   </div>
 </header>
@@ -191,7 +191,7 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
   <div class="wrap ctain">
     <div><div class="kicker" style="color:#694f32">Private Showing</div><h2>Ready to see this Foristell home in person?</h2>
     <p>Showings are by appointment only. Send a private message to request a showing and receive application details.</p></div>
-    <a class="btn darkbtn" href="https://calendly.com/jirineautomationservices/30min" onclick="Calendly.initPopupWidget({url:'https://calendly.com/jirineautomationservices/30min'});return false;">Send a Private Message</a>
+    <a class="btn darkbtn" href="https://calendly.com/jirineautomationservices/30min" onclick="return openCalendly('https://calendly.com/jirineautomationservices/30min');">Send a Private Message</a>
   </div>
 </section>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -200,8 +200,22 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
 .calendly-overlay .calendly-popup{position:fixed!important;max-width:820px!important;max-height:640px!important;top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;margin:0!important}
 .calendly-popup-content{max-width:820px!important;max-height:640px!important;overflow:hidden!important}
 .calendly-popup-content iframe{width:100%!important;height:640px!important;max-height:640px!important}
-body:has(.calendly-overlay){overflow:hidden!important}
+html.calendly-lock,html.calendly-lock body{overflow:hidden!important;height:100%!important}
 </style>
+<script>
+function openCalendly(u){
+  document.documentElement.classList.add('calendly-lock');
+  Calendly.initPopupWidget({url:u});
+  var mo=new MutationObserver(function(){
+    if(!document.querySelector('.calendly-overlay')){
+      document.documentElement.classList.remove('calendly-lock');
+      mo.disconnect();
+    }
+  });
+  mo.observe(document.body,{childList:true});
+  return false;
+}
+</script>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <footer><div class="wrap foot"><div>Luxury Rental · Foristell, Missouri</div><div>Rental marketing sample website</div></div></footer>

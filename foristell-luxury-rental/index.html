@@ -72,7 +72,7 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
 
 </style>
 </head>
-<body>
+<body id="top">
 <nav>
   <div class="wrap navin">
     <div class="brand">Foristell Luxury Rental</div>
@@ -193,10 +193,24 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
     <p>Showings are by appointment only. Book a time below to request a showing and receive application details.</p></div>
   </div>
   <div class="wrap">
-    <div class="calendly-inline-widget" data-url="https://calendly.com/jirineautomationservices/30min" style="min-width:320px;height:700px"></div>
+    <div class="calendly-inline-widget" id="calendlyWidget" data-url="https://calendly.com/jirineautomationservices/30min" style="min-width:320px;height:700px"></div>
+    <div id="calendlyThanks" style="display:none;text-align:center;padding:40px 20px;border:1px solid var(--line);border-radius:12px;margin-top:20px">
+      <h3 style="margin:0 0 10px">You're all set! 🎉</h3>
+      <p style="color:var(--muted);margin:0 0 20px">Thank you for booking a showing. A confirmation has been sent to your email.</p>
+      <a class="btn darkbtn" href="#top">← Back to Listing</a>
+    </div>
   </div>
 </section>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+window.addEventListener('message', function(e){
+  if(e.data && e.data.event === 'calendly.event_scheduled'){
+    document.getElementById('calendlyWidget').style.display='none';
+    document.getElementById('calendlyThanks').style.display='block';
+    document.getElementById('calendlyThanks').scrollIntoView({behavior:'smooth', block:'center'});
+  }
+});
+</script>
 
 <footer><div class="wrap foot"><div>Luxury Rental · Foristell, Missouri</div><div>Rental marketing sample website</div></div></footer>
 

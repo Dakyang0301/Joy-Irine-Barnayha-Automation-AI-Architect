@@ -207,13 +207,16 @@ function openCalendly(u){
   var tries=0;
   var iv=setInterval(function(){
     var popup=document.querySelector('.calendly-popup');
-    if(popup){
-      popup.querySelectorAll('div,iframe').forEach(function(el){
+    var frame=popup&&popup.querySelector('iframe');
+    if(frame){
+      var el=frame;
+      while(el&&el!==popup){
         el.style.setProperty('width','100%','important');
         el.style.setProperty('height','100%','important');
         el.style.setProperty('max-width','none','important');
         el.style.setProperty('max-height','none','important');
-      });
+        el=el.parentElement;
+      }
     }
     if(++tries>40) clearInterval(iv);
   },100);

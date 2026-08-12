@@ -194,19 +194,10 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
   </div>
   <div class="wrap">
     <div class="calendly-inline-widget" id="calendlyWidget" data-url="https://calendly.com/jirineautomationservices/30min" style="min-width:320px;height:700px"></div>
-    <div id="calendlyThanks" style="display:none;text-align:center;padding:20px">
-      <a class="btn darkbtn" href="#top">← Back to Listing</a>
-    </div>
   </div>
 </section>
+<a href="#top" style="position:fixed;bottom:20px;left:20px;z-index:999;background:#151515;color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.25)">← Back to Listing</a>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script>
-window.addEventListener('message', function(e){
-  if(e.data && e.data.event === 'calendly.event_scheduled'){
-    document.getElementById('calendlyThanks').style.display='block';
-  }
-});
-</script>
 
 <footer><div class="wrap foot"><div>Luxury Rental · Foristell, Missouri</div><div>Rental marketing sample website</div></div></footer>
 

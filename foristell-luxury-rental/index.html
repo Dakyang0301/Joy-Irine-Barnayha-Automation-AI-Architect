@@ -194,9 +194,7 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
   </div>
   <div class="wrap">
     <div class="calendly-inline-widget" id="calendlyWidget" data-url="https://calendly.com/jirineautomationservices/30min" style="min-width:320px;height:700px"></div>
-    <div id="calendlyThanks" style="display:none;text-align:center;padding:40px 20px;border:1px solid var(--line);border-radius:12px;margin-top:20px">
-      <h3 style="margin:0 0 10px">You're all set! 🎉</h3>
-      <p style="color:var(--muted);margin:0 0 20px">Thank you for booking a showing. A confirmation has been sent to your email.</p>
+    <div id="calendlyThanks" style="display:none;text-align:center;padding:20px">
       <a class="btn darkbtn" href="#top">← Back to Listing</a>
     </div>
   </div>
@@ -205,9 +203,7 @@ footer{background:#111;color:rgba(255,255,255,.66);padding:28px 0}.foot{display:
 <script>
 window.addEventListener('message', function(e){
   if(e.data && e.data.event === 'calendly.event_scheduled'){
-    document.getElementById('calendlyWidget').style.display='none';
     document.getElementById('calendlyThanks').style.display='block';
-    document.getElementById('calendlyThanks').scrollIntoView({behavior:'smooth', block:'center'});
   }
 });
 </script>

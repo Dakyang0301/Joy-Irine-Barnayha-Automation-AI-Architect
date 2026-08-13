@@ -765,30 +765,6 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
   </div>
 </section>
 
-<section class="aibuild-techstack">
-  <div class="build-lbl">The Tech Stack Behind</div>
-  <div class="shot-carousel" id="shotCarousel" onclick="nextShot()">
-    <div class="shot-hint">Click to see next →</div>
-    <div class="shot-slide">
-      <img src="/images/vapi-voice-config.png" alt="Vapi assistant voice configuration">
-      <div class="vlabel">Vapi — Assistant + Voice Configuration</div>
-    </div>
-    <div class="shot-slide">
-      <img src="/images/n8n-workflow.png" alt="n8n automation workflow">
-      <div class="vlabel">n8n — Lead Automation Workflow</div>
-    </div>
-    <div class="shot-slide">
-      <img src="/images/elevenlabs-dashboard.png" alt="ElevenLabs dashboard">
-      <div class="vlabel">ElevenLabs — Voice Platform</div>
-    </div>
-  </div>
-  <div class="shot-dots" id="shotDots">
-    <div class="shot-dot"></div>
-    <div class="shot-dot"></div>
-    <div class="shot-dot"></div>
-  </div>
-</section>
-
 <!-- SAMPLE BUILDS -->
 <section class="samples" id="samples">
   <div class="samples-head">
@@ -1296,32 +1272,6 @@ function syncNarration(vidId,narId){
 syncNarration('claudeVid','claudeNarration');
 syncNarration('n8nVid','n8nNarration');
 
-var shotIdx=0;
-var shotSlides=document.querySelectorAll('.shot-slide');
-var shotDots=document.querySelectorAll('.shot-dot');
-var shotTimer=null;
-
-function showShot(i){
-  var n=shotSlides.length;
-  shotIdx=(i+n)%n;
-  shotSlides.forEach(function(s,idx){
-    s.classList.remove('cf-center','cf-next','cf-prev');
-    var offset=(idx-shotIdx+n)%n;
-    if(offset===0)s.classList.add('cf-center');
-    else if(offset===1)s.classList.add('cf-next');
-    else s.classList.add('cf-prev');
-  });
-  shotDots.forEach(function(d,idx){d.classList.toggle('active',idx===shotIdx);});
-}
-function nextShot(){
-  showShot(shotIdx+1);
-  resetShotTimer();
-}
-function resetShotTimer(){
-  if(shotTimer)clearInterval(shotTimer);
-  shotTimer=setInterval(function(){showShot(shotIdx+1);},4000);
-}
-if(shotSlides.length){showShot(0);resetShotTimer();}
 </script>
 
 <!-- SAMPLE BUILDS MODAL -->

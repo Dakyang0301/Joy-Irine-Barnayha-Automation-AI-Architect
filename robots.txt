@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /1
+Disallow: /2
+Disallow: /3
+
+Sitemap: https://joyirinebarnayha.com/sitemap.xml

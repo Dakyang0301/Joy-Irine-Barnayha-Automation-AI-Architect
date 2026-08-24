@@ -14,6 +14,15 @@
 <meta property="og:image:type" content="image/jpeg"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://joyirinebarnayha.com/"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What services do you offer?","acceptedAnswer":{"@type":"Answer","text":"GoHighLevel CRM setup, Make.com automation, Zapier workflows, AI phone assistants, AI integration (voice agents, chatbots, digital twins), and landing pages/funnels."}},
+{"@type":"Question","name":"What tools/platforms do you work with?","acceptedAnswer":{"@type":"Answer","text":"GoHighLevel, Make.com, Zapier, Claude AI, Vapi.ai, ElevenLabs, ChatGPT, Zoho CRM, Airtable, and more."}},
+{"@type":"Question","name":"How does the process start?","acceptedAnswer":{"@type":"Answer","text":"Book a free call to discuss your business needs and how automation can run your business on autopilot."}},
+{"@type":"Question","name":"Do I need technical knowledge to work with you?","acceptedAnswer":{"@type":"Answer","text":"No, the full setup is handled end-to-end, from strategy to build."}},
+{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on project scope. Book a free call for a custom quote."}}
+]}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -254,6 +263,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#0f0f0f;height:8
 
 /* CONTACTno form, no email, WhatsApp CTA only */
 .contact{padding:120px 64px;background:var(--s1);text-align:center;}
+.faq{padding:100px 64px;background:var(--bg);}
+.faq-inner{max-width:800px;margin:40px auto 0;}
+.faq-item{border-bottom:1px solid rgba(139,0,75,0.3);}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;background:none;border:none;color:#fff;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;text-align:left;cursor:pointer;}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{flex-shrink:0;width:18px;height:18px;position:relative;transition:transform .3s;}
+.faq-icon::before,.faq-icon::after{content:'';position:absolute;background:var(--gold);}
+.faq-icon::before{width:14px;height:2px;top:8px;left:2px;}
+.faq-icon::after{width:2px;height:14px;top:2px;left:8px;transition:opacity .3s;}
+.faq-item.open .faq-icon{transform:rotate(180deg);}
+.faq-item.open .faq-icon::after{opacity:0;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-a p{color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;padding-bottom:24px;margin:0;}
+.faq-item.open .faq-a{max-height:300px;}
 .contact h2{font-size:44px;font-weight:900;letter-spacing:-2px;line-height:1;color:#fff;margin-bottom:20px;}
 .contact h2 .mg{color:var(--mg);}
 .contact h2 em{font-weight:300;font-style:italic;color:rgba(255,255,255,0.35);}
@@ -363,7 +386,7 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
   .hero-desc{font-size:13px;}
 
   /* SECTIONS */
-  .about,.services,.portfolio,.testimonials,.contact,.tools{padding:56px 20px!important;}
+  .about,.services,.portfolio,.testimonials,.contact,.tools,.faq{padding:56px 20px!important;}
   .sec-h2{font-size:30px!important;}
 
   /* ABOUT */
@@ -1114,6 +1137,34 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
       <div class="tool"><div class="tool-logo-wrap"><img src="https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://heygen.com&size=128" alt="HeyGen"></div><span>HeyGen</span></div>
       <div class="tool"><div class="tool-logo-wrap"><img src="https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://canva.com&size=128" alt="Canva"></div><span>Canva</span></div>
       <div class="tool"><div class="tool-logo-wrap"><img src="https://cdn.simpleicons.org/n8n" alt="n8n"></div><span>n8n</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="sec-label">Got Questions?</div>
+  <div class="sec-h2">Frequently Asked <span class="mg">Questions</span></div>
+  <div class="faq-inner">
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What services do you offer?<span class="faq-icon"></span></button>
+      <div class="faq-a"><p>GoHighLevel CRM setup, Make.com automation, Zapier workflows, AI phone assistants, AI integration (voice agents, chatbots, digital twins), and landing pages/funnels.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What tools/platforms do you work with?<span class="faq-icon"></span></button>
+      <div class="faq-a"><p>GoHighLevel, Make.com, Zapier, Claude AI, Vapi.ai, ElevenLabs, ChatGPT, Zoho CRM, Airtable, and more.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the process start?<span class="faq-icon"></span></button>
+      <div class="faq-a"><p>Book a free call — we'll discuss your business needs and I'll walk you through how automation can run your business on autopilot.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need technical knowledge to work with you?<span class="faq-icon"></span></button>
+      <div class="faq-a"><p>No — I handle the full setup end-to-end, from strategy to build.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does it cost?<span class="faq-icon"></span></button>
+      <div class="faq-a"><p>Pricing depends on project scope — book a free call for a custom quote.</p></div>
     </div>
   </div>
 </section>

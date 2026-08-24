@@ -30,6 +30,8 @@ h1{font-size:clamp(26px,4vw,38px);font-weight:800;margin-bottom:12px;}
 h1 span{color:var(--mg2);}
 p{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:36px;}
 .calendly-inline-widget{min-width:280px;height:700px;border-radius:12px;overflow:hidden;background:#111;}
+.wa-alt{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:12px 24px;border-radius:30px;background:#1f9e57;color:#fff;font-weight:700;font-size:14px;}
+.wa-alt:hover{background:#1c8c4d;}
 @media(max-width:600px){nav{padding:0 20px;}}
 </style>
 </head>
@@ -44,6 +46,7 @@ p{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:36px;}
   <h1>Let's Book A <span>Call</span></h1>
   <p>Pick a time that works for you — I'll walk you through how automation can run your business on autopilot.</p>
   <div class="calendly-inline-widget" data-url="https://calendly.com/jirineautomationservices/30min"></div>
+  <a href="https://wa.me/639204826475?text=Hi+Joy!+I%27d+like+to+book+a+call." target="_blank" class="wa-alt" id="wa-alt-btn">Message me on WhatsApp instead</a>
 </div>
 
 <script>
@@ -52,6 +55,8 @@ p{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:36px;}
   if (va) {
     var el = document.querySelector('.calendly-inline-widget');
     el.setAttribute('data-url', el.getAttribute('data-url') + '?utm_source=va' + va);
+    var wa = document.getElementById('wa-alt-btn');
+    wa.setAttribute('href', wa.getAttribute('href') + encodeURIComponent(' (ref: ' + va + ')'));
   }
 })();
 </script>

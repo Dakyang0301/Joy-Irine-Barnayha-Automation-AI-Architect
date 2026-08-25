@@ -532,7 +532,7 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 .smm-head{text-align:center;margin-bottom:80px;}
 .smm-wrap{position:relative;display:flex;align-items:center;justify-content:center;height:520px;}
 .smm-stack{position:relative;width:268px;height:460px;}
-.smm-card{position:absolute;width:268px;height:460px;border-radius:22px;overflow:hidden;transition:transform .65s cubic-bezier(0.16,1,0.3,1),opacity .65s ease,box-shadow .3s ease;cursor:pointer;user-select:none;opacity:0;pointer-events:none;transform:scale(0.3);z-index:1;border:1px solid rgba(255,255,255,0.25);}
+.smm-card{position:absolute;width:268px;height:460px;border-radius:22px;overflow:hidden;transition:transform .65s cubic-bezier(0.16,1,0.3,1),opacity .65s ease,box-shadow .3s ease;cursor:pointer;user-select:none;opacity:0;pointer-events:none;transform:scale(0.3);z-index:1;border:1px solid rgba(255,255,255,0.25);will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;}
 .smm-card[data-pos="0"]{transform:translateX(0) rotate(0deg) scale(1);z-index:5;box-shadow:0 16px 40px rgba(0,0,0,0.5);opacity:1;pointer-events:auto;}
 .smm-card[data-pos="-1"]{transform:translateX(-210px) rotate(-10deg) scale(0.87);z-index:4;box-shadow:0 8px 20px rgba(0,0,0,0.35);opacity:1;pointer-events:auto;}
 .smm-card[data-pos="1"]{transform:translateX(210px) rotate(10deg) scale(0.87);z-index:4;box-shadow:0 8px 20px rgba(0,0,0,0.35);opacity:1;pointer-events:auto;}
@@ -543,34 +543,39 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 .smm-card-bot{position:absolute;bottom:0;left:0;right:0;padding:22px 20px;z-index:2;}
 .smm-counter{text-align:center;margin-top:36px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:rgba(255,255,255,0.25);}
 .smm-card[data-pos="0"]:hover{box-shadow:0 40px 80px rgba(139,0,75,0.5);}
+.smm-card-cover{width:307px;margin-left:-19.5px;border:none;}
 .smm-main-view,.smm-samples-view{transition:opacity .4s ease;}
 .smm-samples-view{display:none;}
-.smm-4row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
+.smm-4row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
 .smm-4card{position:relative;height:320px;border-radius:18px;overflow:hidden;}
+.smm-4card-cover{height:auto!important;aspect-ratio:1024/1536!important;}
 .smm-4card-mid{position:absolute;top:43%;left:12px;right:12px;transform:translateY(-50%);z-index:2;}
 .smm-back-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);padding:10px 20px;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;transition:all .2s;}
 .smm-back-btn:hover{background:var(--mg);border-color:var(--mg);color:#fff;}
 @media(max-width:900px){
   .smm-section{padding:80px 24px;}
   .smm-head{margin-bottom:32px;}
+  .smm-head .samples-eyebrow{gap:8px;}
+  .smm-head .samples-eyebrow::before,.smm-head .samples-eyebrow::after{flex:0 0 16px;}
   .smm-counter{margin-top:16px;}
   .smm-card[data-pos="-2"],.smm-card[data-pos="2"]{opacity:0;pointer-events:none;}
   .smm-4row{grid-template-columns:repeat(3,1fr);}
   .smm-4card{height:220px;}
 }
-@media(max-width:600px){
+@media(max-width:700px){
   .smm-section{padding:60px 16px;overflow:hidden;}
   .smm-wrap{height:400px;}
   .smm-stack{width:200px;height:340px;}
   .smm-card{width:200px;height:340px;}
-  .smm-card[data-pos="-1"]{transform:translateX(-140px) rotate(-10deg) scale(0.87);}
-  .smm-card[data-pos="1"]{transform:translateX(140px) rotate(10deg) scale(0.87);}
+  .smm-card[data-pos="-1"]{transform:translateX(-130px) rotate(-10deg) scale(0.87);}
+  .smm-card[data-pos="1"]{transform:translateX(130px) rotate(10deg) scale(0.87);}
+  .smm-card-cover{width:227px;margin-left:-13.5px;}
   .smm-card[data-pos="-2"],.smm-card[data-pos="2"]{opacity:0;pointer-events:none;}
   .smm-4row{grid-template-columns:repeat(2,1fr);}
   .smm-4card{height:180px;}
   .smm-head h2{font-size:28px!important;}
 }
-@media(max-width:460px){
+@media(max-width:420px){
   .smm-wrap{height:260px;}
   .smm-stack{transform:scale(0.72);}
   .smm-section{padding-bottom:40px;}
@@ -941,25 +946,45 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
   </div>
 </section>
 
-<!-- SMM SHOWCASE -->
-<section style="padding:120px 64px;border-top:1px solid #1d1d1d;background:var(--bg);">
+<!-- SMM CREATIVES -->
+<section class="smm-section" id="smm">
   <div style="max-width:1200px;margin:0 auto;">
-    <div class="sec-label">Social Media Marketing</div>
-    <h2 class="sec-h2" style="margin-bottom:40px;">Content That <em style="color:rgba(255,255,255,0.35);font-style:italic;font-weight:300;">Stops</em> <span class="mg">The Scroll.</span></h2>
-    <a href="https://smm-delta-roan.vercel.app/" target="_blank" style="text-decoration:none;display:block;border-radius:16px;overflow:hidden;position:relative;min-height:240px;background:radial-gradient(ellipse at 30% 50%,#9a0050 0%,#3a0020 70%);padding:32px 28px 72px;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:20px;">Premium Creatives</div>
-      <div style="font-size:32px;font-weight:900;color:#fff;line-height:1.1;letter-spacing:-1px;font-family:'Montserrat',sans-serif;">Built to Convert.<br/>Crafted to Impress.</div>
-      <div style="position:absolute;bottom:24px;left:28px;right:28px;display:flex;align-items:center;justify-content:space-between;">
-        <div style="display:flex;gap:8px;">
-          <span style="width:28px;height:4px;border-radius:2px;background:var(--mg);display:block;"></span>
-          <span style="width:8px;height:4px;border-radius:2px;background:rgba(255,255,255,0.2);display:block;"></span>
-          <span style="width:8px;height:4px;border-radius:2px;background:rgba(255,255,255,0.2);display:block;"></span>
-        </div>
-        <span style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--mg);padding:8px 16px;border-radius:6px;">See It Live →</span>
+    <div class="smm-head">
+      <div class="samples-eyebrow">Social Media Marketing</div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:44px;font-weight:900;letter-spacing:-2px;line-height:1;color:#fff;margin:16px 0;">Content That <em style="color:rgba(255,255,255,0.35);font-style:italic;font-weight:300;">Stops</em> <span style="color:var(--mg);">The Scroll.</span></h2>
+      <p style="color:rgba(255,255,255,0.45);font-size:18px;font-family:'Montserrat',sans-serif;max-width:520px;margin:18px auto 0;line-height:1.7;">Premium creatives across every industry — built to convert, crafted to impress.</p>
+    </div>
+
+    <!-- MAIN: rotating cards -->
+    <div id="smm-main-view">
+      <div class="smm-wrap"><div class="smm-stack" id="smm-stack"></div></div>
+      <div class="smm-counter">tap center card to explore</div>
+    </div>
+
+    <!-- SAMPLES: creatives for selected niche -->
+    <div id="smm-samples-view" style="display:none;">
+      <div style="text-align:center;">
+          <div id="smm-samples-label" style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mg);margin-bottom:8px;"></div>
+        <h3 id="smm-samples-title" style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#fff;margin:0 0 28px;"></h3>
       </div>
-    </a>
+      <div class="smm-4row" id="smm-4row"></div>
+      <div style="text-align:center;margin-top:28px;">
+        <button class="smm-back-btn" onclick="smmCloseSamples()">← Back to niches</button>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<div id="smm-lightbox" onclick="smmCloseLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:99999;align-items:center;justify-content:center;padding:32px;">
+  <img id="smm-lightbox-img" src="" style="max-width:90vw;max-height:90vh;object-fit:contain;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,0.6);"/>
+  <div id="smm-lightbox-card" style="display:none;position:relative;width:min(90vw,calc(90vh * 268 / 460));aspect-ratio:268/460;border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.6);">
+    <div id="smm-lightbox-card-photo" style="position:absolute;inset:0;background-size:cover;background-position:center;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.02) 45%,rgba(0,0,0,0.92) 100%);"></div>
+    <div id="smm-lightbox-card-text" style="position:absolute;bottom:5%;left:6%;right:6%;font-family:'Montserrat',sans-serif;font-size:clamp(28px,5vw,64px);font-weight:900;line-height:.95;letter-spacing:-1px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,1);"></div>
+  </div>
+  <button onclick="smmCloseLightbox()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;">&times;</button>
+</div>
 
 <!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
@@ -1596,16 +1621,20 @@ if(shotSlides.length){showShot(0);resetShotTimer();}
 
 // ── SMM STACK ──
 const SMM_NICHES = [
-  { brand:'PRESTIGE PROPERTIES', l1:'WHERE', l2:'LUXURY', l3:'LIVES.', niche:'REAL ESTATE', biz:'Prestige Properties Group', desc:'Curated listings for discerning buyers.', accent:'#c9a96e', photo:'photo-1600047509807-ba8f99d2cdde',
+  { brand:'PRESTIGE PROPERTIES', l1:'WHERE', l2:'LUXURY', l3:'LIVES.', niche:'REAL ESTATE', biz:'Prestige Properties Group', desc:'Curated listings for discerning buyers.', accent:'#c9a96e', photo:'photo-1600047509807-ba8f99d2cdde', cover:'/images/prestige-properties-cover.png',
     samples:[
-      {l1:'SOLD IN',l2:'72',l3:'HOURS.',photo:'photo-1560518883-ce09059eeffa'},
+      {cover:'/images/prestige-sample-1.png'},
+      {cover:'/images/prestige-sample-3.png'},
+      {cover:'/images/prestige-sample-5.png'},
+      {cover:'/images/prestige-sample-6.png'},
+      {cover:'/images/prestige-sample-16.png'},
       {l1:'OPEN HOUSE',l2:'THIS',l3:'SUNDAY.',photo:'photo-1568605114967-8130f3a36994'},
       {l1:'YOUR DREAM',l2:'HOME',l3:'AWAITS.',photo:'photo-1600596542815-ffad4c1539a9'},
       {l1:'PRIME',l2:'LOCATION',l3:'LISTED.',photo:'photo-1512917774080-9991f1c4c750'},
       {l1:'JUST',l2:'LISTED',l3:'TODAY.',photo:'photo-1570129477492-45c003edd2be'},
       {l1:'INVEST',l2:'SMART',l3:'NOW.',photo:'photo-1560520653-9e0e4c89eb11'},
     ]},
-  { brand:'EMBER & OAK', l1:'TASTE THE', l2:'EXTRA-', l3:'ORDINARY.', niche:'FINE DINING', biz:'Ember & Oak Restaurant', desc:'Where every dish tells a story.', accent:'#e8a060', photo:'photo-1414235077428-338989a2e8c0',
+  { brand:'EMBER & OAK', l1:'TASTE THE', l2:'EXTRA-', l3:'ORDINARY.', niche:'FINE DINING', biz:'Ember & Oak Restaurant', desc:'Where every dish tells a story.', accent:'#e8a060', photo:'photo-1414235077428-338989a2e8c0', cover:'/images/ember-oak-cover.png',
     samples:[
       {l1:'WEEKEND',l2:"CHEF'S",l3:'TABLE.',photo:'photo-1555396273-367ea4eb4db5'},
       {l1:'FARM TO',l2:'TABLE',l3:'FRIDAY.',photo:'photo-1547573854-74d2a71d0826'},
@@ -1613,13 +1642,21 @@ const SMM_NICHES = [
       {l1:'BOOK YOUR',l2:'PRIVATE',l3:'TABLE.',photo:'photo-1414235077428-338989a2e8c0'},
       {l1:'HAPPY HOUR',l2:'STARTS',l3:'AT 5.',photo:'photo-1551218808-94e220e084d2'},
       {l1:'TONIGHT\'S',l2:'SPECIAL',l3:'DISH.',photo:'photo-1504674900247-0877df9cc836'},
+      {l1:'RESERVE',l2:'YOUR',l3:'TABLE.',photo:'photo-1517248135467-4c7edcad34c4'},
+      {l1:'CHEF\'S',l2:'TASTING',l3:'MENU.',photo:'photo-1424847651672-bf20a4b0982b'},
+      {l1:'DINE',l2:'UNDER THE',l3:'STARS.',photo:'photo-1550966871-3ed3cdb5ed0c'},
+      {l1:'TASTE',l2:'THE',l3:'SEASON.',photo:'photo-1467003909585-2f8a72700288'},
     ]},
-  { brand:'APEX PERFORMANCE', l1:'BUILT', l2:'TO', l3:'PERFORM.', niche:'FITNESS & WELLNESS', biz:'Apex Performance', desc:'Fueling elite athletes worldwide.', accent:'#e03030', photo:'photo-1534438327276-14e5300c3a48',
+  { brand:'APEX PERFORMANCE', l1:'BUILT', l2:'TO', l3:'PERFORM.', niche:'FITNESS & WELLNESS', biz:'Apex Performance', desc:'Fueling elite athletes worldwide.', accent:'#e03030', photo:'photo-1534438327276-14e5300c3a48', cover:'/images/apex-performance-cover.png',
     samples:[
+      {cover:'/images/apex-performance-sample-1.png'},
+      {cover:'/images/apex-performance-sample-2.png'},
+      {cover:'/images/apex-performance-sample-3.png'},
+      {cover:'/images/apex-performance-sample-4.png'},
+      {cover:'/images/apex-performance-sample-5.png'},
       {l1:'TRAIN',l2:'LIKE A',l3:'CHAMPION.',photo:'photo-1571019614242-c5c5dee9f50b'},
       {l1:'NO',l2:'DAYS',l3:'OFF.',photo:'photo-1517836357463-d25dfeac3438'},
       {l1:'ELITE',l2:'COACHING',l3:'NOW.',photo:'photo-1583454110551-21f2fa2afe61'},
-      {l1:'YOUR',l2:'BEST',l3:'SEASON.',photo:'photo-1534438327276-14e5300c3a48'},
       {l1:'STRONGER',l2:'EVERY',l3:'REP.',photo:'photo-1549060279-7e168fcee0c2'},
       {l1:'RESULTS',l2:"DON'T",l3:'LIE.',photo:'photo-1571019613454-1cb2f99b2d8b'},
     ]},
@@ -1631,15 +1668,23 @@ const SMM_NICHES = [
       {l1:'STYLE',l2:'THAT',l3:'SPEAKS.',photo:'photo-1469334031218-e382a71b716b'},
       {l1:'YOUR NEXT',l2:'SIGNATURE',l3:'LOOK.',photo:'photo-1483985988355-763728e1935b'},
       {l1:'SHOP',l2:'THE',l3:'EDIT.',photo:'photo-1445205170230-053b83016050'},
+      {l1:'DRESSED',l2:'TO',l3:'IMPRESS.',photo:'photo-1490114538077-0a7f8cb49891'},
+      {l1:'THE',l2:'DETAILS',l3:'MATTER.',photo:'photo-1441984904996-e0b6ba687e04'},
+      {l1:'ELEVATE',l2:'YOUR',l3:'WARDROBE.',photo:'photo-1529139574466-a303027c1d8b'},
+      {l1:'CRAFTED',l2:'FOR',l3:'ICONS.',photo:'photo-1524504388940-b1c1722653e1'},
     ]},
-  { brand:'MERIDIAN LABS', l1:'THINK.', l2:'BUILD.', l3:'LAUNCH.', niche:'TECHNOLOGY', biz:'Meridian Labs', desc:'SaaS solutions built for scale.', accent:'#38b6ff', photo:'photo-1518770660439-4636190af475',
+  { brand:'COOLCREST', l1:'COMFORT', l2:'ON', l3:'DEMAND.', niche:'HVAC SERVICES', biz:'Coolcrest HVAC', desc:'Heating & cooling done right.', accent:'#4fc3f7', photo:'photo-1642749776312-aa42ce20c9f5', cover:'/images/coolcrest-cover.png',
     samples:[
-      {l1:'AUTOMATE',l2:'EVERY-',l3:'THING.',photo:'photo-1551288049-bebda4e38f71'},
-      {l1:'SCALE',l2:'WITHOUT',l3:'LIMITS.',photo:'photo-1460925895917-afdab827c52f'},
-      {l1:'AI-POWERED',l2:'SOLU-',l3:'TIONS.',photo:'photo-1504384308090-c894fdcc538d'},
-      {l1:'GO LIVE',l2:'IN',l3:'48 HRS.',photo:'photo-1461749280684-dccba630e2f6'},
-      {l1:'ZERO',l2:'DOWN-',l3:'TIME.',photo:'photo-1518770660439-4636190af475'},
-      {l1:'YOUR DATA.',l2:'YOUR',l3:'POWER.',photo:'photo-1555949963-ff9fe0c870eb'},
+      {l1:'ROOFTOP',l2:'INSTALLS',l3:'DONE RIGHT.',photo:'photo-1705579605238-24a90c8799c5'},
+      {l1:'CERTIFIED',l2:'TECHS',l3:'ON CALL.',photo:'photo-1660330589693-99889d60181e'},
+      {l1:'SAME-DAY',l2:'SERVICE',l3:'CALLS.',photo:'photo-1660330589827-da8ab7dd3c02'},
+      {l1:'HEATING',l2:'SYSTEMS',l3:'EXPERTS.',photo:'photo-1732660513320-a6b489f3fece'},
+      {l1:'SAFETY',l2:'FIRST.',l3:'ALWAYS.',photo:'photo-1621905251189-08b45d6a269e'},
+      {l1:'FULLY',l2:'EQUIPPED',l3:'CREWS.',photo:'photo-1625148230889-8195e85aae6b'},
+      {l1:'PRECISION',l2:'DIAGNOS-',l3:'TICS.',photo:'photo-1748027869634-fc2e545cfb0c'},
+      {l1:'FRIENDLY',l2:'RELIABLE',l3:'SERVICE.',photo:'photo-1732395805034-e0bf859665e5'},
+      {l1:'COMMERCIAL',l2:'HVAC',l3:'SYSTEMS.',photo:'photo-1634740682789-1208227f82dd'},
+      {l1:'CLEAN',l2:'DUCT-',l3:'WORK.',photo:'photo-1615309662243-70f6df917b59'},
     ]},
 ];
 let smmCurrent = 0, smmTimer = null, smmOpenNiche = -1, smmMoveIdx = 0;
@@ -1649,7 +1694,12 @@ const SMM_DELAYS = [3200, 3200, 1000];
 function smmBuildCards(){
   const stack = document.getElementById('smm-stack');
   if(!stack) return;
-  stack.innerHTML = SMM_NICHES.map((n,i) => `<div class="smm-card" onclick="smmClickCard(this)" data-niche="${i}">
+  stack.innerHTML = SMM_NICHES.map((n,i) => n.cover ? `<div class="smm-card smm-card-cover" onclick="smmClickCard(this)" data-niche="${i}">
+    <div style="position:absolute;inset:0;background:url('${n.cover}') center/cover no-repeat;"></div>
+    <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
+      <span style="font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);padding:7px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.2);">Tap to explore ↓</span>
+    </div>
+  </div>` : `<div class="smm-card" onclick="smmClickCard(this)" data-niche="${i}">
     <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/${n.photo}?w=600&q=80') center/cover;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.05) 42%,rgba(0,0,0,0.96) 100%);"></div>
     <div class="smm-card-top"><span style="font-family:'Courier New',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.85);background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);display:inline-block;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.15);">${n.brand}</span></div>
@@ -1699,7 +1749,9 @@ function smmOpenSamples(idx){
   const n = SMM_NICHES[idx];
   document.getElementById('smm-samples-label').textContent = '— ' + n.niche;
   document.getElementById('smm-samples-title').textContent = n.biz;
-  document.getElementById('smm-4row').innerHTML = n.samples.map(s => `<div class="smm-4card">
+  document.getElementById('smm-4row').innerHTML = n.samples.map(s => s.cover ? `<div class="smm-4card smm-4card-cover" onclick="smmOpenLightbox('${s.cover}',event)" style="cursor:pointer;">
+    <div style="position:absolute;inset:0;background:url('${s.cover}') center/contain no-repeat;"></div>
+  </div>` : `<div class="smm-4card" onclick="smmOpenLightboxCard('${(s.l1||'').replace(/'/g,"\\'")}','${(s.l2||'').replace(/'/g,"\\'")}','${(s.l3||'').replace(/'/g,"\\'")}','${s.photo}','${n.accent}',event)" style="cursor:pointer;">
     <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/${s.photo}?w=500&q=80') center/cover;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.02) 45%,rgba(0,0,0,0.92) 100%);"></div>
     <div class="smm-4card-mid"><div style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;line-height:.9;letter-spacing:-.5px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,1);">${s.l1}<br>${s.l2}<br><span style="color:${n.accent};">${s.l3}</span></div></div>
@@ -1716,6 +1768,26 @@ function smmCloseSamples(){
   const wasOpen = view.style.display === 'block';
   view.style.opacity = '0';
   setTimeout(()=>{ view.style.display='none'; main.style.display='block'; main.style.opacity='0'; if(wasOpen) document.getElementById('smm').scrollIntoView({block:'start'}); setTimeout(()=>main.style.opacity='1',20); smmOpenNiche=-1; smmResetAuto(); },350);
+}
+
+function smmOpenLightbox(src, e){
+  if(e) e.stopPropagation();
+  document.getElementById('smm-lightbox-card').style.display = 'none';
+  const img = document.getElementById('smm-lightbox-img');
+  img.style.display = 'block';
+  img.src = src;
+  document.getElementById('smm-lightbox').style.display = 'flex';
+}
+function smmOpenLightboxCard(l1, l2, l3, photo, accent, e){
+  if(e) e.stopPropagation();
+  document.getElementById('smm-lightbox-img').style.display = 'none';
+  document.getElementById('smm-lightbox-card-photo').style.backgroundImage = `url('https://images.unsplash.com/${photo}?w=1200&q=90')`;
+  document.getElementById('smm-lightbox-card-text').innerHTML = `${l1}<br>${l2}<br><span style="color:${accent};">${l3}</span>`;
+  document.getElementById('smm-lightbox-card').style.display = 'block';
+  document.getElementById('smm-lightbox').style.display = 'flex';
+}
+function smmCloseLightbox(){
+  document.getElementById('smm-lightbox').style.display = 'none';
 }
 
 function smmDoNext(){ smmRotate(SMM_MOVES[smmMoveIdx%SMM_MOVES.length]); smmMoveIdx++; smmTimer=setTimeout(smmDoNext,SMM_DELAYS[smmMoveIdx%SMM_DELAYS.length]); }

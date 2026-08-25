@@ -54,10 +54,16 @@ p{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:36px;}
 (function(){
   var va = new URLSearchParams(window.location.search).get('va');
   if (va) {
+    try { sessionStorage.setItem('va_ref', va); } catch(e){}
+  } else {
+    try { va = sessionStorage.getItem('va_ref'); } catch(e){}
+  }
+  if (va) {
     var el = document.querySelector('.calendly-inline-widget');
-    el.setAttribute('data-url', el.getAttribute('data-url') + '?utm_source=va' + va);
-    var wa = document.getElementById('wa-alt-btn');
-    wa.setAttribute('href', wa.getAttribute('href') + encodeURIComponent(' (ref: ' + va + ')'));
+    if (el) el.setAttribute('data-url', el.getAttribute('data-url') + '?utm_source=va' + va);
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a){
+      a.setAttribute('href', a.getAttribute('href') + encodeURIComponent(' (ref: ' + va + ')'));
+    });
   }
 })();
 </script>

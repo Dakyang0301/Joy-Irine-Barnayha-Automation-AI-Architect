@@ -521,6 +521,16 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 .s-mini h2{font-size:24px;line-height:.95;font-family:'Montserrat',sans-serif;}
 .s-mini .s-lead{font-size:10px;line-height:1.5;opacity:.7;margin:0;}
 .s-mini .s-cta{display:inline-block;padding:8px 14px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-align:center;}
+/* AI Sales Systems (live niche demos) */
+a.sample-card{display:block;text-decoration:none;color:inherit;}
+.ais-stages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-family:'Montserrat',sans-serif;}
+.ais-stages li{display:flex;align-items:center;gap:10px;font-size:11px;color:rgba(255,255,255,0.8);}
+.ais-stages li::before{content:'✓';flex:0 0 18px;height:18px;border-radius:50%;background:rgba(237,185,46,0.15);color:var(--gold);font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.sample-card.is-soon{cursor:default;}
+.sample-card.is-soon:hover{transform:none;border-color:#1d1d1d;box-shadow:none;}
+.ais-soon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-family:'Montserrat',sans-serif;}
+.ais-soon b{font-size:22px;font-weight:900;letter-spacing:-1px;color:rgba(255,255,255,0.25);}
+.ais-soon span{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(237,185,46,0.6);border:1px solid rgba(237,185,46,0.35);border-radius:999px;padding:5px 12px;}
 @media(max-width:900px){
   .samples{padding:80px 32px;}
   .samples-grid{grid-template-columns:1fr;}
@@ -944,6 +954,67 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
         <span class="s-industry">F&amp;B · Reservations</span>
       </div>
       <div style="text-align:center;padding:6px 0 10px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(237,185,46,0.5);">Tap to preview ↗</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AI SALES SYSTEMS (live niche demos) -->
+<section class="samples" id="ai-sales">
+  <div class="samples-head">
+    <div class="samples-eyebrow">AI Sales Systems</div>
+    <h2>Sales &amp; Contracts <em>On</em><br/><span class="mg">Autopilot.</span></h2>
+    <p>Live AI sales systems, built niche by niche. Each one answers every inquiry in minutes, books the appointment, then sends proposals, contracts and invoices on its own.</p>
+  </div>
+  <div class="samples-grid">
+
+    <!-- SYSTEM 1: Construction (live) -->
+    <a class="sample-card" href="https://construction.joyirinebarnayha.com/" target="_blank" rel="noopener">
+      <div class="s-frame">
+        <div class="s-mini" style="background:#0c0c0c;color:#fff;min-height:280px;">
+          <div class="s-mini-nav">
+            <span style="font-weight:900;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.08em;">CONSTRUCTION <span style="color:var(--gold);">AI</span></span>
+            <span class="s-pill" style="background:var(--gold);color:#0c0c0c;">Live</span>
+          </div>
+          <ul class="ais-stages" style="margin:auto 0;">
+            <li>Inquiry answered in minutes</li>
+            <li>Site visit booked</li>
+            <li>Proposal signed</li>
+            <li>Contract + deposit invoice</li>
+            <li>Payment received</li>
+            <li>Review requested</li>
+          </ul>
+        </div>
+      </div>
+      <div class="s-label">
+        <span class="s-name">Construction</span>
+        <span class="s-industry">Live Demo</span>
+      </div>
+      <div style="text-align:center;padding:6px 0 10px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(237,185,46,0.5);">Try the live demo ↗</div>
+    </a>
+
+    <!-- SYSTEM 2: Med Spa (coming soon) -->
+    <div class="sample-card is-soon">
+      <div class="s-frame">
+        <div class="ais-soon"><b>Med Spa</b><span>Coming soon</span></div>
+      </div>
+      <div class="s-label">
+        <span class="s-name">Med Spa</span>
+        <span class="s-industry">Coming Soon</span>
+      </div>
+      <div style="padding:6px 0 10px;font-size:9px;">&nbsp;</div>
+    </div>
+
+    <!-- SYSTEM 3: HVAC (coming soon) -->
+    <div class="sample-card is-soon">
+      <div class="s-frame">
+        <div class="ais-soon"><b>HVAC</b><span>Coming soon</span></div>
+      </div>
+      <div class="s-label">
+        <span class="s-name">HVAC</span>
+        <span class="s-industry">Coming Soon</span>
+      </div>
+      <div style="padding:6px 0 10px;font-size:9px;">&nbsp;</div>
     </div>
 
   </div>

@@ -522,15 +522,33 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 .s-mini .s-lead{font-size:10px;line-height:1.5;opacity:.7;margin:0;}
 .s-mini .s-cta{display:inline-block;padding:8px 14px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-align:center;}
 /* AI Sales Systems (live niche demos) */
-a.sample-card{display:block;text-decoration:none;color:inherit;}
-.ais-stages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-family:'Montserrat',sans-serif;}
-.ais-stages li{display:flex;align-items:center;gap:10px;font-size:11px;color:rgba(255,255,255,0.8);}
-.ais-stages li::before{content:'✓';flex:0 0 18px;height:18px;border-radius:50%;background:rgba(237,185,46,0.15);color:var(--gold);font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
-.sample-card.is-soon{cursor:default;}
-.sample-card.is-soon:hover{transform:none;border-color:#1d1d1d;box-shadow:none;}
-.ais-soon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-family:'Montserrat',sans-serif;}
-.ais-soon b{font-size:22px;font-weight:900;letter-spacing:-1px;color:rgba(255,255,255,0.25);}
-.ais-soon span{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(237,185,46,0.6);border:1px solid rgba(237,185,46,0.35);border-radius:999px;padding:5px 12px;}
+.ais-grid{display:grid;grid-template-columns:repeat(3,minmax(0,340px));gap:24px;justify-content:center;font-family:'Montserrat',sans-serif;}
+.ais-card{position:relative;display:flex;flex-direction:column;background:#0f0f0f;border:1px solid #1d1d1d;border-radius:24px;padding:28px 26px;text-decoration:none;color:#fff;overflow:hidden;transition:transform .6s var(--ease-out),border-color .6s,box-shadow .6s;}
+.ais-card.is-live{border-color:rgba(237,185,46,0.35);background:radial-gradient(120% 70% at 50% 0%,rgba(139,0,75,0.28),transparent 60%),#0f0f0f;}
+.ais-card.is-live:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 18px 60px rgba(139,0,75,0.25);}
+.ais-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
+.ais-niche{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--gold);}
+.ais-live{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#0c0c0c;background:var(--gold);border-radius:999px;padding:5px 12px;}
+.ais-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#0c0c0c;animation:aisPulse 2.4s ease-in-out infinite;}
+.ais-hook{font-size:26px;font-weight:900;letter-spacing:-1px;line-height:1.08;margin:0 0 24px;}
+.ais-hook em{font-style:italic;font-weight:300;color:rgba(255,255,255,0.55);}
+.ais-stages{list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:12px;}
+.ais-stages li{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:rgba(255,255,255,0.45);transition:color .8s;}
+.ais-stages li::before{content:'✓';flex:0 0 24px;height:24px;border-radius:50%;border:1px solid rgba(237,185,46,0.35);color:transparent;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;transition:background .8s,color .8s,border-color .8s;}
+.ais-stages li.on{color:#fff;}
+.ais-stages li.on::before{background:var(--gold);border-color:var(--gold);color:#0c0c0c;}
+.ais-cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#0c0c0c;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border-radius:14px;padding:16px;transition:background .4s;}
+.ais-card.is-live:hover .ais-cta{background:#fff;}
+.ais-card.is-soon{cursor:default;}
+.ais-soon-name{font-size:30px;font-weight:900;letter-spacing:-1.5px;line-height:1;margin:0 0 24px;color:rgba(255,255,255,0.85);}
+.ais-ghost{display:flex;flex-direction:column;gap:14px;margin-bottom:28px;}
+.ais-ghost span{display:block;height:12px;border-radius:6px;background:linear-gradient(90deg,#161616 0%,#222 50%,#161616 100%);background-size:200% 100%;animation:aisShimmer 4s ease-in-out infinite;}
+.ais-ghost span:nth-child(1){width:85%}.ais-ghost span:nth-child(2){width:65%}.ais-ghost span:nth-child(3){width:75%}.ais-ghost span:nth-child(4){width:55%}.ais-ghost span:nth-child(5){width:70%}.ais-ghost span:nth-child(6){width:60%}
+.ais-soon-tag{margin-top:auto;text-align:center;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(237,185,46,0.7);border:1px solid rgba(237,185,46,0.3);border-radius:14px;padding:15px;}
+@keyframes aisPulse{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes aisShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+@media(prefers-reduced-motion:reduce){.ais-live::before,.ais-ghost span{animation:none}}
+@media(max-width:1100px){.ais-grid{grid-template-columns:minmax(0,420px);}}
 @media(max-width:900px){
   .samples{padding:80px 32px;}
   .samples-grid{grid-template-columns:1fr;}
@@ -966,58 +984,53 @@ a.sample-card{display:block;text-decoration:none;color:inherit;}
     <h2>Sales &amp; Contracts <em>On</em><br/><span class="mg">Autopilot.</span></h2>
     <p>Live AI sales systems, built niche by niche. Each one answers every inquiry in minutes, books the appointment, then sends proposals, contracts and invoices on its own.</p>
   </div>
-  <div class="samples-grid">
+  <div class="ais-grid">
 
     <!-- SYSTEM 1: Construction (live) -->
-    <a class="sample-card" href="https://construction.joyirinebarnayha.com/" target="_blank" rel="noopener">
-      <div class="s-frame">
-        <div class="s-mini" style="background:#0c0c0c;color:#fff;min-height:280px;">
-          <div class="s-mini-nav">
-            <span style="font-weight:900;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.08em;">CONSTRUCTION <span style="color:var(--gold);">AI</span></span>
-            <span class="s-pill" style="background:var(--gold);color:#0c0c0c;">Live</span>
-          </div>
-          <ul class="ais-stages" style="margin:auto 0;">
-            <li>Inquiry answered in minutes</li>
-            <li>Site visit booked</li>
-            <li>Proposal signed</li>
-            <li>Contract + deposit invoice</li>
-            <li>Payment received</li>
-            <li>Review requested</li>
-          </ul>
-        </div>
+    <a class="ais-card is-live" href="https://construction.joyirinebarnayha.com/" target="_blank" rel="noopener">
+      <div class="ais-top">
+        <span class="ais-niche">Construction</span>
+        <span class="ais-live">Live</span>
       </div>
-      <div class="s-label">
-        <span class="s-name">Construction</span>
-        <span class="s-industry">Live Demo</span>
-      </div>
-      <div style="text-align:center;padding:6px 0 10px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(237,185,46,0.5);">Try the live demo ↗</div>
+      <h3 class="ais-hook">From first inquiry to <em>signed contract.</em></h3>
+      <ul class="ais-stages" id="aisStages">
+        <li>Inquiry answered in minutes</li>
+        <li>Site visit booked</li>
+        <li>Proposal signed</li>
+        <li>Contract + deposit invoice</li>
+        <li>Payment received</li>
+        <li>Review requested</li>
+      </ul>
+      <span class="ais-cta">Try the live demo →</span>
     </a>
 
     <!-- SYSTEM 2: Med Spa (coming soon) -->
-    <div class="sample-card is-soon">
-      <div class="s-frame">
-        <div class="ais-soon"><b>Med Spa</b><span>Coming soon</span></div>
-      </div>
-      <div class="s-label">
-        <span class="s-name">Med Spa</span>
-        <span class="s-industry">Coming Soon</span>
-      </div>
-      <div style="padding:6px 0 10px;font-size:9px;">&nbsp;</div>
+    <div class="ais-card is-soon">
+      <h3 class="ais-soon-name">Med Spa</h3>
+      <div class="ais-ghost"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="ais-soon-tag">Coming soon</span>
     </div>
 
     <!-- SYSTEM 3: HVAC (coming soon) -->
-    <div class="sample-card is-soon">
-      <div class="s-frame">
-        <div class="ais-soon"><b>HVAC</b><span>Coming soon</span></div>
-      </div>
-      <div class="s-label">
-        <span class="s-name">HVAC</span>
-        <span class="s-industry">Coming Soon</span>
-      </div>
-      <div style="padding:6px 0 10px;font-size:9px;">&nbsp;</div>
+    <div class="ais-card is-soon">
+      <h3 class="ais-soon-name">HVAC</h3>
+      <div class="ais-ghost"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="ais-soon-tag">Coming soon</span>
     </div>
 
   </div>
+  <script>
+  // Stages light up one by one, slowly, then restart (like the live demo tracker)
+  (function(){
+    var items=document.querySelectorAll('#aisStages li'); if(!items.length) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(function(li){li.classList.add('on')});return;}
+    var i=0;
+    setInterval(function(){
+      if(i<items.length){items[i].classList.add('on');i++;}
+      else{items.forEach(function(li){li.classList.remove('on')});i=0;}
+    },1400);
+  })();
+  </script>
 </section>
 
 <!-- SMM CREATIVES -->

@@ -871,6 +871,62 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
   </div>
 </section>
 
+<!-- AI SALES SYSTEMS (live niche demos) -->
+<section class="samples" id="ai-sales">
+  <div class="samples-head">
+    <div class="samples-eyebrow">AI Sales Systems</div>
+    <h2>Sales &amp; Contracts <em>On</em><br/><span class="mg">Autopilot.</span></h2>
+    <p>Live AI sales systems, built niche by niche. Each one answers every inquiry in minutes, books the appointment, then sends proposals, contracts and invoices on its own.</p>
+  </div>
+  <div class="ais-grid">
+
+    <!-- SYSTEM 1: Construction (live) -->
+    <a class="ais-card is-live" href="https://construction.joyirinebarnayha.com/" target="_blank" rel="noopener">
+      <div class="ais-top">
+        <span class="ais-niche">Construction</span>
+        <span class="ais-live">Live</span>
+      </div>
+      <h3 class="ais-hook">From first inquiry to <em>signed contract.</em></h3>
+      <ul class="ais-stages" id="aisStages">
+        <li>Inquiry answered in minutes</li>
+        <li>Site visit booked</li>
+        <li>Proposal signed</li>
+        <li>Contract + deposit invoice</li>
+        <li>Payment received</li>
+        <li>Review requested</li>
+      </ul>
+      <span class="ais-cta">Try the live demo →</span>
+    </a>
+
+    <!-- SYSTEM 2: Med Spa (coming soon) -->
+    <div class="ais-card is-soon">
+      <h3 class="ais-soon-name">Med Spa</h3>
+      <div class="ais-ghost"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="ais-soon-tag">Coming soon</span>
+    </div>
+
+    <!-- SYSTEM 3: HVAC (coming soon) -->
+    <div class="ais-card is-soon">
+      <h3 class="ais-soon-name">HVAC</h3>
+      <div class="ais-ghost"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="ais-soon-tag">Coming soon</span>
+    </div>
+
+  </div>
+  <script>
+  // Stages light up one by one, slowly, then restart (like the live demo tracker)
+  (function(){
+    var items=document.querySelectorAll('#aisStages li'); if(!items.length) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(function(li){li.classList.add('on')});return;}
+    var i=0;
+    setInterval(function(){
+      if(i<items.length){items[i].classList.add('on');i++;}
+      else{items.forEach(function(li){li.classList.remove('on')});i=0;}
+    },1400);
+  })();
+  </script>
+</section>
+
 <!-- SAMPLE BUILDS -->
 <section class="samples" id="samples">
   <div class="samples-head">
@@ -975,62 +1031,6 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
     </div>
 
   </div>
-</section>
-
-<!-- AI SALES SYSTEMS (live niche demos) -->
-<section class="samples" id="ai-sales">
-  <div class="samples-head">
-    <div class="samples-eyebrow">AI Sales Systems</div>
-    <h2>Sales &amp; Contracts <em>On</em><br/><span class="mg">Autopilot.</span></h2>
-    <p>Live AI sales systems, built niche by niche. Each one answers every inquiry in minutes, books the appointment, then sends proposals, contracts and invoices on its own.</p>
-  </div>
-  <div class="ais-grid">
-
-    <!-- SYSTEM 1: Construction (live) -->
-    <a class="ais-card is-live" href="https://construction.joyirinebarnayha.com/" target="_blank" rel="noopener">
-      <div class="ais-top">
-        <span class="ais-niche">Construction</span>
-        <span class="ais-live">Live</span>
-      </div>
-      <h3 class="ais-hook">From first inquiry to <em>signed contract.</em></h3>
-      <ul class="ais-stages" id="aisStages">
-        <li>Inquiry answered in minutes</li>
-        <li>Site visit booked</li>
-        <li>Proposal signed</li>
-        <li>Contract + deposit invoice</li>
-        <li>Payment received</li>
-        <li>Review requested</li>
-      </ul>
-      <span class="ais-cta">Try the live demo →</span>
-    </a>
-
-    <!-- SYSTEM 2: Med Spa (coming soon) -->
-    <div class="ais-card is-soon">
-      <h3 class="ais-soon-name">Med Spa</h3>
-      <div class="ais-ghost"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-      <span class="ais-soon-tag">Coming soon</span>
-    </div>
-
-    <!-- SYSTEM 3: HVAC (coming soon) -->
-    <div class="ais-card is-soon">
-      <h3 class="ais-soon-name">HVAC</h3>
-      <div class="ais-ghost"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-      <span class="ais-soon-tag">Coming soon</span>
-    </div>
-
-  </div>
-  <script>
-  // Stages light up one by one, slowly, then restart (like the live demo tracker)
-  (function(){
-    var items=document.querySelectorAll('#aisStages li'); if(!items.length) return;
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(function(li){li.classList.add('on')});return;}
-    var i=0;
-    setInterval(function(){
-      if(i<items.length){items[i].classList.add('on');i++;}
-      else{items.forEach(function(li){li.classList.remove('on')});i=0;}
-    },1400);
-  })();
-  </script>
 </section>
 
 <!-- SMM CREATIVES -->

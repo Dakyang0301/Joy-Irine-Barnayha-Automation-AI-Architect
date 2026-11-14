@@ -899,16 +899,23 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
       <span class="ais-cta">Try the live demo →</span>
     </a>
 
-    <!-- SYSTEM: Med Spa (coming soon) -->
-    <div class="ais-card is-live is-soon">
-      <div class="ais-blur" aria-hidden="true">
-        <div class="ais-top"><span class="ais-niche">Med Spa</span><span class="ais-live">Live</span></div>
-        <h3 class="ais-hook">Every inquiry to <em>booked and paid.</em></h3>
-        <ul class="ais-stages"><li class="on">Inquiry answered in minutes</li><li class="on">Consultation booked</li><li class="on">Treatment plan sent</li><li>Deposit paid</li><li>Reminder sent</li><li>Review requested</li></ul>
-        <span class="ais-cta">Try the live demo →</span>
+    <!-- SYSTEM 2: Med Spa (live) -->
+    <a class="ais-card is-live" href="https://medspa-demo-one.vercel.app/" target="_blank" rel="noopener">
+      <div class="ais-top">
+        <span class="ais-niche">Med Spa</span>
+        <span class="ais-live">Live</span>
       </div>
-      <div class="ais-soon-overlay"><b>Med Spa</b><span>Coming soon</span></div>
-    </div>
+      <h3 class="ais-hook">From first inquiry to <em>booked and paid.</em></h3>
+      <ul class="ais-stages" id="aisStagesMedspa">
+        <li>Inquiry answered in minutes</li>
+        <li>Consultation booked</li>
+        <li>Treatment plan sent</li>
+        <li>Plan accepted</li>
+        <li>Deposit collected</li>
+        <li>Review requested</li>
+      </ul>
+      <span class="ais-cta">Try the live demo →</span>
+    </a>
 
     <!-- SYSTEM: HVAC (coming soon) -->
     <div class="ais-card is-live is-soon">
@@ -924,15 +931,15 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
   </div>
   <script>
   // Stages light up one by one, slowly, then restart (like the live demo tracker)
-  (function(){
-    var items=document.querySelectorAll('#aisStages li'); if(!items.length) return;
+  ['#aisStages li', '#aisStagesMedspa li'].forEach(function(sel){
+    var items=document.querySelectorAll(sel); if(!items.length) return;
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(function(li){li.classList.add('on')});return;}
     var i=0;
     setInterval(function(){
       if(i<items.length){items[i].classList.add('on');i++;}
       else{items.forEach(function(li){li.classList.remove('on')});i=0;}
     },1400);
-  })();
+  });
   </script>
 </section>
 

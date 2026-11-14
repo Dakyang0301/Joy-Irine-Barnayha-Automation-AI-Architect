@@ -539,15 +539,16 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 .ais-stages li.on::before{background:var(--gold);border-color:var(--gold);color:#0c0c0c;}
 .ais-cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#0c0c0c;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border-radius:14px;padding:16px;transition:background .4s;}
 .ais-card.is-live:hover .ais-cta{background:#fff;}
-.ais-card.is-soon{cursor:default;}
-.ais-soon-name{font-size:30px;font-weight:900;letter-spacing:-1.5px;line-height:1;margin:0 0 24px;color:rgba(255,255,255,0.85);}
-.ais-ghost{display:flex;flex-direction:column;gap:14px;margin-bottom:28px;}
-.ais-ghost span{display:block;height:12px;border-radius:6px;background:linear-gradient(90deg,#161616 0%,#222 50%,#161616 100%);background-size:200% 100%;animation:aisShimmer 4s ease-in-out infinite;}
-.ais-ghost span:nth-child(1){width:85%}.ais-ghost span:nth-child(2){width:65%}.ais-ghost span:nth-child(3){width:75%}.ais-ghost span:nth-child(4){width:55%}.ais-ghost span:nth-child(5){width:70%}.ais-ghost span:nth-child(6){width:60%}
-.ais-soon-tag{margin-top:auto;text-align:center;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(237,185,46,0.7);border:1px solid rgba(237,185,46,0.3);border-radius:14px;padding:15px;}
+.ais-card.is-soon{cursor:default;user-select:none;}
+.ais-card.is-soon:hover{transform:none;border-color:rgba(237,185,46,0.35);box-shadow:none;}
+.ais-card.is-soon:hover .ais-cta{background:var(--gold);}
+.ais-blur{display:flex;flex-direction:column;flex:1;filter:blur(7px);opacity:.55;pointer-events:none;}
+.ais-soon-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(8,8,8,0.25);}
+.ais-soon-overlay b{font-size:34px;font-weight:900;letter-spacing:-1.5px;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,0.8);}
+.ais-soon-overlay span{font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#0c0c0c;background:var(--gold);border-radius:999px;padding:8px 18px;box-shadow:0 8px 30px rgba(237,185,46,0.25);}
 @keyframes aisPulse{0%,100%{opacity:1}50%{opacity:.25}}
 @keyframes aisShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
-@media(prefers-reduced-motion:reduce){.ais-live::before,.ais-ghost span{animation:none}}
+@media(prefers-reduced-motion:reduce){.ais-live::before{animation:none}}
 @media(max-width:1100px){.ais-grid{grid-template-columns:minmax(0,420px);}}
 @media(max-width:900px){
   .samples{padding:80px 32px;}
@@ -898,18 +899,26 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
       <span class="ais-cta">Try the live demo →</span>
     </a>
 
-    <!-- SYSTEM 2: Med Spa (coming soon) -->
-    <div class="ais-card is-soon">
-      <h3 class="ais-soon-name">Med Spa</h3>
-      <div class="ais-ghost"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-      <span class="ais-soon-tag">Coming soon</span>
+    <!-- SYSTEM: Med Spa (coming soon) -->
+    <div class="ais-card is-live is-soon">
+      <div class="ais-blur" aria-hidden="true">
+        <div class="ais-top"><span class="ais-niche">Med Spa</span><span class="ais-live">Live</span></div>
+        <h3 class="ais-hook">Every inquiry to <em>booked and paid.</em></h3>
+        <ul class="ais-stages"><li class="on">Inquiry answered in minutes</li><li class="on">Consultation booked</li><li class="on">Treatment plan sent</li><li>Deposit paid</li><li>Reminder sent</li><li>Review requested</li></ul>
+        <span class="ais-cta">Try the live demo →</span>
+      </div>
+      <div class="ais-soon-overlay"><b>Med Spa</b><span>Coming soon</span></div>
     </div>
 
-    <!-- SYSTEM 3: HVAC (coming soon) -->
-    <div class="ais-card is-soon">
-      <h3 class="ais-soon-name">HVAC</h3>
-      <div class="ais-ghost"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-      <span class="ais-soon-tag">Coming soon</span>
+    <!-- SYSTEM: HVAC (coming soon) -->
+    <div class="ais-card is-live is-soon">
+      <div class="ais-blur" aria-hidden="true">
+        <div class="ais-top"><span class="ais-niche">HVAC</span><span class="ais-live">Live</span></div>
+        <h3 class="ais-hook">Every inquiry to <em>booked and paid.</em></h3>
+        <ul class="ais-stages"><li class="on">Inquiry answered in minutes</li><li class="on">Service call booked</li><li class="on">Quote sent</li><li>Job scheduled</li><li>Invoice paid</li><li>Review requested</li></ul>
+        <span class="ais-cta">Try the live demo →</span>
+      </div>
+      <div class="ais-soon-overlay"><b>HVAC</b><span>Coming soon</span></div>
     </div>
 
   </div>

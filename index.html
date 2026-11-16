@@ -539,6 +539,14 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 .ais-stages li.on::before{background:var(--gold);border-color:var(--gold);color:#0c0c0c;}
 .ais-cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#0c0c0c;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border-radius:14px;padding:16px;transition:background .4s;}
 .ais-card.is-live:hover .ais-cta{background:#fff;}
+/* Slow gold shimmer on the demo buttons, so they read as clickable (staggered per card) */
+.ais-card.is-live .ais-cta{position:relative;overflow:hidden;isolation:isolate;}
+.ais-card.is-live .ais-cta::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,0.55) 50%,transparent 100%);transform:skewX(-18deg);animation:aisShimmer 4.8s ease-in-out infinite;pointer-events:none;z-index:-1;}
+.ais-card.is-live:nth-child(2) .ais-cta::after{animation-delay:1.6s;}
+.ais-card.is-live:nth-child(3) .ais-cta::after{animation-delay:3.2s;}
+.ais-card.is-live:hover .ais-cta::after{animation:none;opacity:0;}
+@keyframes aisShimmer{0%{left:-60%}35%{left:130%}100%{left:130%}}
+@media (prefers-reduced-motion:reduce){.ais-card.is-live .ais-cta::after{animation:none;display:none;}}
 .ais-card.is-soon{cursor:default;user-select:none;}
 .ais-card.is-soon:hover{transform:none;border-color:rgba(237,185,46,0.35);box-shadow:none;}
 .ais-card.is-soon:hover .ais-cta{background:var(--gold);}

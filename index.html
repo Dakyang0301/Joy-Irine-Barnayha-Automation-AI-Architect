@@ -1572,7 +1572,6 @@ function syncNarration(vidId,narId){
   var nar=document.getElementById(narId);
   if(!vid||!nar)return;
   vid.addEventListener('play',function(){
-    if(aiActive){vid.pause();return;}
     nar.currentTime=vid.currentTime;nar.play();
   });
   vid.addEventListener('pause',function(){nar.pause();});

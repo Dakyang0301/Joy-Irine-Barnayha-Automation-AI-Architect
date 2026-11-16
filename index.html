@@ -1943,7 +1943,18 @@ function smmUpdateStack(){
   cards.forEach((card,i) => {
     let pos = (i - smmCurrent + total) % total;
     if(pos > Math.floor(total/2)) pos -= total;
-    card.setAttribute('data-pos', String(pos));
+    const old = parseInt(card.getAttribute('data-pos'));
+    if(!isNaN(old) && Math.abs(pos - old) > 2){
+      // Card wrapping from one end to the other: fade it in at its new spot instead of sweeping across the stack (that sweep was the blink)
+      card.style.transition = 'none';
+      card.style.opacity = '0';
+      card.setAttribute('data-pos', String(pos));
+      void card.offsetWidth;
+      card.style.transition = '';
+      card.style.opacity = '';
+    } else {
+      card.setAttribute('data-pos', String(pos));
+    }
   });
   const c = document.getElementById('smm-counter');
   if(c) c.textContent = 'tap center card to explore';

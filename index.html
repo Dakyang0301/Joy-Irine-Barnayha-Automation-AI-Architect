@@ -918,21 +918,28 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
       <span class="ais-cta">Try the live demo →</span>
     </a>
 
-    <!-- SYSTEM: HVAC (coming soon) -->
-    <div class="ais-card is-live is-soon">
-      <div class="ais-blur" aria-hidden="true">
-        <div class="ais-top"><span class="ais-niche">HVAC</span><span class="ais-live">Live</span></div>
-        <h3 class="ais-hook">Every inquiry to <em>booked and paid.</em></h3>
-        <ul class="ais-stages"><li class="on">Inquiry answered in minutes</li><li class="on">Service call booked</li><li class="on">Quote sent</li><li>Job scheduled</li><li>Invoice paid</li><li>Review requested</li></ul>
-        <span class="ais-cta">Try the live demo →</span>
+    <!-- SYSTEM 3: HVAC (live) -->
+    <a class="ais-card is-live" href="https://hvac-demo-site-phi.vercel.app/" target="_blank" rel="noopener">
+      <div class="ais-top">
+        <span class="ais-niche">HVAC</span>
+        <span class="ais-live">Live</span>
       </div>
-      <div class="ais-soon-overlay"><b>HVAC</b><span>Coming soon</span></div>
-    </div>
+      <h3 class="ais-hook">From service call to <em>booked and paid.</em></h3>
+      <ul class="ais-stages" id="aisStagesHvac">
+        <li>Request answered in minutes</li>
+        <li>Visit booked</li>
+        <li>Good, Better, Best quote sent</li>
+        <li>Quote approved</li>
+        <li>Deposit collected</li>
+        <li>Review requested</li>
+      </ul>
+      <span class="ais-cta">Try the live demo →</span>
+    </a>
 
   </div>
   <script>
   // Stages light up one by one, slowly, then restart (like the live demo tracker)
-  ['#aisStages li', '#aisStagesMedspa li'].forEach(function(sel){
+  ['#aisStages li', '#aisStagesMedspa li', '#aisStagesHvac li'].forEach(function(sel){
     var items=document.querySelectorAll(sel); if(!items.length) return;
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(function(li){li.classList.add('on')});return;}
     var i=0;

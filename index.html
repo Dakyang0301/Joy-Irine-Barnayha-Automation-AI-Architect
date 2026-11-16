@@ -323,6 +323,16 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 .wa-fab{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--mg);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,0.4);transition:transform .2s;animation:waFabGlow 1.8s infinite;}
 @keyframes waFabGlow{0%{box-shadow:0 8px 24px rgba(0,0,0,0.4),0 0 0 0 rgba(237,185,46,0.6);}70%{box-shadow:0 8px 24px rgba(0,0,0,0.4),0 0 0 12px rgba(237,185,46,0);}100%{box-shadow:0 8px 24px rgba(0,0,0,0.4),0 0 0 0 rgba(237,185,46,0);}}
 .wa-fab:hover{transform:scale(1.08);}
+.joy-fab{position:relative;flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--mg);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;padding:0;box-shadow:0 8px 24px rgba(0,0,0,0.4);transition:transform .2s;animation:waFabGlow 1.8s infinite;}
+.joy-fab:hover{transform:scale(1.08);}
+.joy-fab .joy-ic{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.joy-fab .joy-ic-chat{opacity:0;transform:scale(.7);animation:joyIcChat 4s ease-in-out infinite;}
+.joy-fab .joy-ic-call{animation:joyIcCall 4s ease-in-out infinite;}
+@keyframes joyIcCall{0%,40%{opacity:1;transform:scale(1)}50%,90%{opacity:0;transform:scale(.7)}100%{opacity:1;transform:scale(1)}}
+@keyframes joyIcChat{0%,40%{opacity:0;transform:scale(.7)}50%,90%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.7)}}
+@media (max-width:560px){.joy-fab{width:38px;height:38px;}.joy-fab svg{width:19px;height:19px;}}
+@media (prefers-reduced-motion:reduce){.joy-fab{animation:none}.joy-fab .joy-ic-call,.joy-fab .joy-ic-chat{animation:none}.joy-fab .joy-ic-chat{display:none}}
+
 .ai-fab-btn{background:#000;color:var(--gold);padding:10px 18px;border-radius:100px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;border:2px solid var(--gold);cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 0 16px rgba(237,185,46,0.4),0 8px 32px rgba(0,0,0,0.6);transition:all .25s;display:flex;align-items:center;gap:6px;}
 .ai-fab-btn:hover{box-shadow:0 0 28px rgba(237,185,46,0.7),0 8px 32px rgba(0,0,0,0.6);transform:translateY(-2px);}
 .aipulse{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold);animation:blink 2s infinite;}
@@ -1340,23 +1350,169 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
   <a href="https://wa.me/639204826475?text=Hi+Joy!+I+visited+your+website+and+I%27m+interested+in+working+with+you." target="_blank" class="wa-fab" aria-label="Message on WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
-  <button class="ai-fab-btn" onclick="buksanAngAi()">
-    <div class="aipulse"></div>Talk to my AI Twin
-  </button>
+  <button class="joy-fab" onclick="buksanAngAi()" aria-label="Talk to Joy" title="Talk to Joy"><span class="joy-ic joy-ic-call"><svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8Z"/></svg></span><span class="joy-ic joy-ic-chat"><svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-4.4 3.5A.6.6 0 0 1 3.6 21v-3.1A2 2 0 0 1 2 16V6a2 2 0 0 1 2-2Zm3.5 7.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Zm4.5 0a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Zm4.5 0a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z"/></svg></span></button>
 </div>
 
-<!-- AI TWIN MODAL — Vapi SDK (no iframe) -->
-<div id="aiModal" onclick="sarhanAngAi()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999998;align-items:center;justify-content:center;">
-  <div onclick="event.stopPropagation()" style="position:relative;width:300px;border-radius:28px;background:#0a0a0a;border:2px solid #edb92e;padding:48px 28px 40px;display:flex;flex-direction:column;align-items:center;gap:20px;box-shadow:0 24px 80px rgba(237,185,46,0.15),0 24px 64px rgba(0,0,0,0.8);">
-    <button onclick="sarhanAngAi()" style="position:absolute;top:12px;right:14px;background:#000;color:#edb92e;border:2px solid #edb92e;border-radius:50%;width:30px;height:30px;font-size:14px;font-weight:700;cursor:pointer;z-index:9999999;line-height:1;font-family:'Montserrat',sans-serif;">✕</button>
-    <div id="aiOrb" style="width:100px;height:100px;border-radius:50%;overflow:hidden;border:2.5px solid #edb92e;box-shadow:0 0 28px rgba(237,185,46,0.35);transition:box-shadow .4s;flex-shrink:0;">
-      <img src="/images/portfolio-2.png" alt="Joy" style="width:100%;height:100%;object-fit:cover;object-position:82% 12%;">
+<!-- AI TWIN MODAL — ElevenLabs Agent (call or chat), same card design as before -->
+<style>
+#aiModal .ai-box{position:relative;width:300px;max-width:calc(100vw - 32px);border-radius:28px;background:#0a0a0a;border:2px solid #edb92e;padding:44px 24px 28px;display:flex;flex-direction:column;align-items:center;gap:16px;box-shadow:0 24px 80px rgba(237,185,46,0.15),0 24px 64px rgba(0,0,0,0.8);font-family:'Montserrat',sans-serif;}
+#aiModal .ai-box.chat{width:340px;}
+#aiModal .ai-x{position:absolute;top:12px;right:14px;background:#000;color:#edb92e;border:2px solid #edb92e;border-radius:50%;width:30px;height:30px;font-size:14px;font-weight:700;cursor:pointer;line-height:1;font-family:'Montserrat',sans-serif;}
+#aiOrb{width:96px;height:96px;border-radius:50%;overflow:hidden;border:2.5px solid #edb92e;box-shadow:0 0 28px rgba(237,185,46,0.35);transition:box-shadow .4s,width .3s,height .3s;flex-shrink:0;}
+#aiModal .ai-box.chat #aiOrb{width:56px;height:56px;}
+#aiOrb img{width:100%;height:100%;object-fit:cover;object-position:82% 12%;}
+#aiModal .ai-name{font-size:12px;font-weight:800;letter-spacing:3px;color:#edb92e;text-transform:uppercase;}
+#aiStatus{font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.65);text-align:center;min-height:16px;}
+#aiModal .ai-pick{display:flex;gap:10px;width:100%;}
+#aiModal .ai-pick button,#aiModal .ai-end{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 10px;border-radius:14px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .25s;}
+#aiModal .ai-call{background:#edb92e;color:#0c0c0c;border:2px solid #edb92e;}
+#aiModal .ai-chat{background:transparent;color:#edb92e;border:2px solid #edb92e;}
+#aiModal .ai-pick button:hover{transform:translateY(-2px);box-shadow:0 0 22px rgba(237,185,46,0.45);}
+#aiModal .ai-end{flex:none;width:100%;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25);}
+#aiModal .ai-hint{font-size:10px;color:rgba(255,255,255,0.3);text-align:center;line-height:1.7;}
+#aiMsgs{width:100%;height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:4px 2px;}
+#aiMsgs{scrollbar-width:thin;scrollbar-color:rgba(237,185,46,0.35) transparent;}
+#aiMsgs::-webkit-scrollbar{width:4px;}
+#aiMsgs::-webkit-scrollbar-track{background:transparent;}
+#aiMsgs::-webkit-scrollbar-thumb{background:rgba(237,185,46,0.35);border-radius:4px;}
+#aiMsgs::-webkit-scrollbar-thumb:hover{background:rgba(237,185,46,0.6);}
+#aiMsgs::-webkit-scrollbar-button{display:none;height:0;}
+#aiMsgs .m{max-width:85%;padding:9px 12px;border-radius:14px;font-size:12.5px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;}
+#aiMsgs .m.ai{align-self:flex-start;background:#161616;color:#eee;border:1px solid rgba(237,185,46,0.2);border-bottom-left-radius:4px;}
+#aiMsgs .m.me{align-self:flex-end;background:#edb92e;color:#0c0c0c;font-weight:600;border-bottom-right-radius:4px;}
+#aiMsgs .m a{color:#edb92e;font-weight:700;}
+#aiMsgs .m.typing{color:rgba(255,255,255,0.45);}
+#aiModal .ai-input{display:flex;gap:8px;width:100%;}
+#aiModal .ai-input input{flex:1;min-width:0;background:#111;border:1px solid rgba(237,185,46,0.3);border-radius:12px;padding:11px 12px;color:#fff;font-family:'Montserrat',sans-serif;font-size:12.5px;outline:none;}
+#aiModal .ai-input input:focus{border-color:#edb92e;}
+#aiModal .ai-book{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 10px;border-radius:14px;background:#edb92e;color:#0c0c0c;border:2px solid #edb92e;font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;box-sizing:border-box;transition:all .25s;}
+#aiModal .ai-book:hover{transform:translateY(-2px);box-shadow:0 0 22px rgba(237,185,46,0.45);}
+#aiModal .ai-book.sm{padding:10px;font-size:10.5px;}
+#aiModal .ai-link{background:none;border:0;color:rgba(255,255,255,0.45);font-family:'Montserrat',sans-serif;font-size:10.5px;cursor:pointer;text-decoration:underline;}
+#aiModal .ai-input button{background:#edb92e;color:#0c0c0c;border:0;border-radius:12px;padding:0 14px;font-weight:800;cursor:pointer;font-size:14px;}
+#aiModal .ai-box{box-shadow:0 18px 60px rgba(0,0,0,0.75),0 0 40px rgba(237,185,46,0.12);}
+@media (max-width:560px){#aiModal{right:16px!important;bottom:70px!important;}#aiMsgs{height:180px;}}
+</style>
+<div id="aiModal" style="display:none;position:fixed;right:24px;bottom:78px;z-index:9999998;flex-direction:column;align-items:flex-end;">
+  <div class="ai-box" id="aiBox" onclick="event.stopPropagation()">
+    <button class="ai-x" onclick="sarhanAngAi()" aria-label="Close">✕</button>
+    <div id="aiOrb"><img src="/images/portfolio-2.png" alt="Joy"></div>
+    <div class="ai-name">Joy Irine Barnayha</div>
+    <div id="aiStatus">How would you like to talk?</div>
+
+    <div id="aiChoose" style="display:flex;flex-direction:column;gap:12px;width:100%;">
+      <div class="ai-pick">
+        <button class="ai-call" onclick="aiStartCall()">📞 Call</button>
+        <button class="ai-chat" onclick="aiStartChat()">💬 Chat</button>
+      </div>
+      <div class="ai-hint">Talk with my voice, or type if you prefer.</div>
     </div>
-    <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;letter-spacing:3px;color:#edb92e;text-transform:uppercase;">Joy's AI Twin</div>
-    <div id="aiStatus" style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.65);text-align:center;">Connecting...</div>
-    <div style="font-family:'Montserrat',sans-serif;font-size:10px;color:rgba(255,255,255,0.28);text-align:center;line-height:1.7;">Allow microphone when prompted.<br>Say <b style="color:rgba(237,185,46,0.7)">hello</b> to start the conversation!</div>
+
+    <div id="aiCallView" style="display:none;flex-direction:column;gap:12px;width:100%;">
+      <div class="ai-hint">Allow your microphone when asked, then say hello.</div>
+      <button class="ai-end" onclick="aiEndCall()">End call</button>
+    </div>
+
+    <div id="aiChatView" style="display:none;flex-direction:column;gap:10px;width:100%;">
+      <div id="aiMsgs" aria-live="polite"></div>
+      <form class="ai-input" onsubmit="aiSend(event)">
+        <input id="aiText" type="text" placeholder="Type your message..." autocomplete="off" maxlength="500">
+        <button type="submit" aria-label="Send">➤</button>
+      </form>
+      <a class="ai-book sm" href="https://joyirinebarnayha.com/book-a-call" target="_blank" rel="noopener">📅 Book a meeting</a>
+    </div>
+    <div id="aiBookView" style="display:none;flex-direction:column;gap:12px;width:100%;align-items:center;">
+      <div class="ai-hint" style="font-size:11.5px;color:rgba(255,255,255,0.75);">Let's finalize the details together. Pick a time that works for you.</div>
+      <a class="ai-book" href="https://joyirinebarnayha.com/book-a-call" target="_blank" rel="noopener">📅 Book a meeting</a>
+      <button class="ai-link" onclick="aiBack()">Back</button>
+    </div>
   </div>
 </div>
+<script type="module">
+import { Conversation } from 'https://cdn.jsdelivr.net/npm/@elevenlabs/client@1.32.1/+esm';
+const AGENT = 'agent_9001m7hg6c45e1qtqms3kmvsaabs';
+const $ = (id) => document.getElementById(id);
+let conv = null, talked = false, bookShown = false;
+function view(v){ ['aiChoose','aiCallView','aiChatView','aiBookView'].forEach((x) => { $(x).style.display = x === v ? 'flex' : 'none'; }); $('aiBox').classList.toggle('chat', v === 'aiChatView'); }
+function stat(m){ $('aiStatus').textContent = m; }
+function glow(on){ $('aiOrb').style.boxShadow = on ? '0 0 48px rgba(237,185,46,0.7),0 0 80px rgba(237,185,46,0.3)' : '0 0 28px rgba(237,185,46,0.35)'; }
+let starting = null, cancelled = false;
+async function endConv(){
+  cancelled = true;
+  const c = conv; conv = null;
+  const pending = starting; starting = null;
+  for (const x of [c, pending ? await pending.catch(() => null) : null]) {
+    if (!x) continue;
+    try { x.setVolume && x.setVolume({ volume: 0 }); } catch (e) {}
+    try { await x.endSession(); } catch (e) {}
+  }
+  glow(false);
+}
+function esc(s){ return String(s).replace(/[&<>"]/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c])); }
+function linkify(s){
+  return esc(s).replace(/(https?:\/\/)?((?:www\.)?(?:[a-z0-9-]+\.)+(?:com|app|io|me)(?:\/[^\s<]*[^\s<.,!?)])?)/gi, (m, proto, rest) => {
+    const url = (proto || 'https://') + rest;
+    const label = /book-a-call/i.test(rest) ? 'Book A Call' : /wa\.me/i.test(rest) ? 'WhatsApp Joy' : rest.replace(/\/$/, '');
+    return '<a href="' + url + '" target="_blank" rel="noopener">' + label + '</a>';
+  });
+}
+function addMsg(who, text){ const d = document.createElement('div'); d.className = 'm ' + who; if (who === 'ai') d.innerHTML = linkify(text); else d.textContent = text; $('aiMsgs').appendChild(d); $('aiMsgs').scrollTop = $('aiMsgs').scrollHeight; return d; }
+function typing(){ const t = addMsg('ai', '...'); t.classList.add('typing'); t.id = 'aiTyping'; }
+function untype(){ const t = $('aiTyping'); if (t) t.remove(); }
+
+window.buksanAngAi = function(){ $('aiModal').style.display = 'flex'; view('aiChoose'); stat('How would you like to talk?'); talked = false; bookShown = false; };
+function showBook(msg){ view('aiBookView'); stat(msg || 'One last thing'); bookShown = true; }
+window.aiBack = function(){ view('aiChoose'); stat('How would you like to talk?'); };
+window.sarhanAngAi = async function(){
+  await endConv();
+  if (talked && !bookShown) { showBook('Before you go'); return; }
+  $('aiModal').style.display = 'none'; talked = false; bookShown = false;
+};
+window.aiStartCall = async function(){
+  if (conv || starting) return;
+  view('aiCallView'); stat('Connecting...'); cancelled = false;
+  try {
+    await navigator.mediaDevices.getUserMedia({ audio: true });
+    if (cancelled) return;
+    starting = Conversation.startSession({
+      agentId: AGENT, connectionType: 'webrtc',
+      onConnect(){ talked = true; stat('Say hello to start!'); glow(true); },
+      onDisconnect(){ conv = null; glow(false); showBook('Thanks for the call!'); },
+      onModeChange({ mode }){ stat(mode === 'speaking' ? "Joy is speaking..." : "Go ahead, I'm listening..."); },
+      onError(){ stat('Something went wrong. Please try again.'); },
+    });
+    const c = await starting; starting = null;
+    if (cancelled) { try { c.setVolume({ volume: 0 }); } catch (e) {} try { await c.endSession(); } catch (e) {} return; }
+    conv = c;
+  } catch (e) {
+    starting = null;
+    stat(e && e.name === 'NotAllowedError' ? 'Please allow your microphone to talk.' : 'Could not connect. Please try again.');
+  }
+};
+window.aiEndCall = async function(){ await endConv(); showBook('Thanks for the call!'); };
+window.aiStartChat = async function(){
+  cancelled = false;
+  view('aiChatView'); stat('Chatting'); $('aiMsgs').innerHTML = ''; typing();
+  try {
+    conv = await Conversation.startSession({
+      agentId: AGENT, textOnly: true,
+      onMessage(m){ const role = m.role || m.source; if (role === 'user') { talked = true; return; } untype(); addMsg('ai', m.message); },
+      onDisconnect(){ conv = null; },
+      onError(){ untype(); addMsg('ai', 'Something went wrong. Please try again.'); },
+    });
+    setTimeout(() => $('aiText').focus(), 50);
+  } catch (e) { untype(); addMsg('ai', 'Could not connect. Please try again.'); }
+};
+window.aiSend = function(ev){
+  ev.preventDefault();
+  const t = $('aiText').value.trim(); if (!t) return;
+  $('aiText').value = '';
+  addMsg('me', t); talked = true;
+  if (!conv) { addMsg('ai', 'Reconnecting... please send that again in a moment.'); aiStartChat(); return; }
+  typing();
+  try { conv.sendUserMessage(t); } catch (e) { untype(); addMsg('ai', 'Something went wrong. Please try again.'); }
+};
+</script>
 
 <script>
 (function(){
@@ -1404,70 +1560,6 @@ function stopVid(){
   stopBtn.style.display='none';
   o.style.display='flex';
 }
-var vapiInst=null,vapiOk=false,aiActive=false,micStream=null;
-(function(d,t){
-  var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src='https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js';
-  g.async=true;
-  s.parentNode.insertBefore(g,s);
-  g.onload=function(){
-    vapiInst=window.vapiSDK.run({
-      apiKey:'5df25c72-064b-48da-acff-ffe637f50919',
-      assistant:'8445ad07-9e0d-4098-a2b3-a0689ae8d7d7',
-      config:{position:'bottom-right',offset:'-9999px'}
-    });
-    vapiInst.on('call-start',function(){
-      aiActive=true;
-      setAiStat('Say hello to start!');
-      document.getElementById('aiOrb').style.boxShadow='0 0 48px rgba(237,185,46,0.7),0 0 80px rgba(237,185,46,0.3)';
-    });
-    vapiInst.on('speech-start',function(){setAiStat('Joy AI is speaking...');});
-    vapiInst.on('speech-end',function(){setAiStat('Go ahead, I\'m listening...');});
-    vapiInst.on('call-end',function(){
-      aiActive=false;
-      setAiStat('Call ended. Goodbye!');
-      document.getElementById('aiOrb').style.boxShadow='0 0 28px rgba(237,185,46,0.35)';
-      setTimeout(sarhanAngAi,2000);
-    });
-    vapiInst.on('error',function(e){setAiStat('Error — please try again.');});
-    vapiOk=true;
-    // find and hide the Vapi widget button from DOM
-    setTimeout(function(){
-      var btn=document.querySelector('[class*="vapi"]');
-      if(btn)btn.style.display='none';
-    },2000);
-  };
-})(document,'script');
-
-function setAiStat(msg){var el=document.getElementById('aiStatus');if(el)el.textContent=msg;}
-
-function startVapiCall(){
-  // find and click Vapi's own widget button so it handles mic properly
-  var vapiBtn=document.querySelector('button[id*="vapi"],div[id*="vapi"] button,.vapi-btn,#vapi-support-btn');
-  if(vapiBtn){
-    vapiBtn.click();
-  } else if(vapiOk){
-    vapiInst.start('8445ad07-9e0d-4098-a2b3-a0689ae8d7d7');
-  } else {
-    var t=setInterval(function(){
-      if(vapiOk){clearInterval(t);vapiInst.start('8445ad07-9e0d-4098-a2b3-a0689ae8d7d7');}
-    },400);
-  }
-}
-
-async function buksanAngAi(){
-  document.getElementById('aiModal').style.display='flex';
-  document.body.style.overflow='hidden';
-  setAiStat('Connecting...');
-  startVapiCall();
-}
-function sarhanAngAi(){
-  if(aiActive&&vapiInst)vapiInst.stop();
-  document.getElementById('aiModal').style.display='none';
-  document.body.style.overflow='';
-  aiActive=false;
-}
-
 /* AI BUILD SHOWCASE */
 function openExternal(url){
   document.getElementById('extModal').style.display='flex';

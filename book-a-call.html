@@ -74,6 +74,21 @@ p{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:36px;}
 })();
 </script>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+// WhatsApp alert to Joy when someone books here (Calendly tells the page when a booking is done).
+(function(){
+  var q = new URLSearchParams(window.location.search), src = q.get('src');
+  try { if (src) sessionStorage.setItem('book_src', src); else src = sessionStorage.getItem('book_src'); } catch(e){}
+  window.addEventListener('message', function(e){
+    if (e.origin !== 'https://calendly.com' || !e.data || e.data.event !== 'calendly.event_scheduled') return;
+    var p = e.data.payload || {};
+    fetch('https://automatedjirine.app.n8n.cloud/webhook/site-booking', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+      body: JSON.stringify({ src: src || 'nav', event_uri: (p.event && p.event.uri) || '', invitee_uri: (p.invitee && p.invitee.uri) || '' })
+    }).catch(function(){});
+  });
+})();
+</script>
 
 </body>
 </html>

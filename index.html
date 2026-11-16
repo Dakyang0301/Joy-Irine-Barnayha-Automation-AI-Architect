@@ -540,13 +540,13 @@ footer{background:var(--bg);padding:32px 64px;display:flex;align-items:center;ju
 .ais-cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#0c0c0c;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border-radius:14px;padding:16px;transition:background .4s;}
 .ais-card.is-live:hover .ais-cta{background:#fff;}
 /* Slow gold shimmer on the demo buttons, so they read as clickable (staggered per card) */
-.ais-card.is-live .ais-cta{position:relative;overflow:hidden;isolation:isolate;}
-.ais-card.is-live .ais-cta::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,0.55) 50%,transparent 100%);transform:skewX(-18deg);animation:aisShimmer 4.8s ease-in-out infinite;pointer-events:none;z-index:-1;}
-.ais-card.is-live:nth-child(2) .ais-cta::after{animation-delay:1.6s;}
-.ais-card.is-live:nth-child(3) .ais-cta::after{animation-delay:3.2s;}
-.ais-card.is-live:hover .ais-cta::after{animation:none;opacity:0;}
-@keyframes aisShimmer{0%{left:-60%}35%{left:130%}100%{left:130%}}
-@media (prefers-reduced-motion:reduce){.ais-card.is-live .ais-cta::after{animation:none;display:none;}}
+.ais-card.is-live .ais-cta{background-color:var(--gold);background-image:linear-gradient(110deg,rgba(255,255,255,0) 38%,rgba(255,255,255,0.85) 50%,rgba(255,255,255,0) 62%);background-size:260% 100%;background-repeat:no-repeat;background-position:130% 0;animation:aisShimmer 4.2s ease-in-out infinite,aisGlow 4.2s ease-in-out infinite;}
+.ais-card.is-live:nth-child(2) .ais-cta{animation-delay:1.4s,1.4s;}
+.ais-card.is-live:nth-child(3) .ais-cta{animation-delay:2.8s,2.8s;}
+.ais-card.is-live:hover .ais-cta{animation:none;background-image:none;}
+@keyframes aisShimmer{0%{background-position:130% 0}45%{background-position:-30% 0}100%{background-position:-30% 0}}
+@keyframes aisGlow{0%,100%{box-shadow:0 0 0 rgba(237,185,46,0)}25%{box-shadow:0 0 26px rgba(237,185,46,0.55)}}
+@media (prefers-reduced-motion:reduce){.ais-card.is-live .ais-cta{animation:none;background-image:none;}}
 .ais-card.is-soon{cursor:default;user-select:none;}
 .ais-card.is-soon:hover{transform:none;border-color:rgba(237,185,46,0.35);box-shadow:none;}
 .ais-card.is-soon:hover .ais-cta{background:var(--gold);}

@@ -84,7 +84,7 @@ p{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:36px;}
     var p = e.data.payload || {};
     fetch('https://automatedjirine.app.n8n.cloud/webhook/site-booking', {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
-      body: JSON.stringify({ src: src || 'nav', event_uri: (p.event && p.event.uri) || '', invitee_uri: (p.invitee && p.invitee.uri) || '' })
+      body: JSON.stringify({ src: src || 'nav', h: (function(){ try { return localStorage.getItem('sn_h') || ''; } catch(e){ return ''; } })(), event_uri: (p.event && p.event.uri) || '', invitee_uri: (p.invitee && p.invitee.uri) || '' })
     }).catch(function(){});
   });
 })();

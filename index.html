@@ -2126,5 +2126,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }
 })();
 </script>
+<script>
+// Sniper: tell n8n (SN-05) when a lead from a tracked outreach link (?h=) visits, and which sections they saw.
+(function(){
+  try {
+    var q = new URLSearchParams(location.search), h = q.get('h');
+    if (h && /^(c-)?[a-z0-9]{6}$/i.test(h)) localStorage.setItem('sn_h', h); else h = localStorage.getItem('sn_h');
+    if (!h || !('IntersectionObserver' in window)) return;
+    var seen = {}, started = false, URL_ = 'https://automatedjirine.app.n8n.cloud/webhook/sniper-visit';
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) seen[e.target.id] = 1; }); }, { threshold: 0.35 });
+    document.querySelectorAll('section[id]').forEach(function(s){ io.observe(s); });
+    function send(){
+      fetch(URL_, { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+        body: JSON.stringify({ h: h, sections: Object.keys(seen) }) }).catch(function(){});
+    }
+    setTimeout(function(){ started = true; send(); }, 15000);
+    document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'hidden' && started) send(); });
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>
